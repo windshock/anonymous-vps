@@ -95,6 +95,17 @@ python3 scripts/fetch_asn.py        # download latest
 python3 scripts/fetch_asn.py --check  # check for updates only
 ```
 
+### Automatic Weekly Updates (GitHub Actions)
+
+The repository includes a scheduled workflow ([`.github/workflows/update-asn.yml`](.github/workflows/update-asn.yml)) that runs every **Monday at 00:00 UTC**:
+
+1. Downloads the latest `asn-ipv4.csv` from sapics/ip-location-db
+2. Regenerates `data/ip-ranges/known-providers.csv`
+3. Regenerates all `queries/logpresso/*.logpresso` files
+4. Auto-commits and pushes if any changes are detected
+
+You can also trigger it manually via **Actions → Weekly ASN Update → Run workflow** on GitHub.
+
 ---
 
 ## ⚠️ Disclaimer

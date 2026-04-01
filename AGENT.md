@@ -101,6 +101,19 @@ Notes are automatically merged into `known-providers.csv` on each pipeline run.
 
 ---
 
+## Automatic Updates (GitHub Actions)
+
+The workflow [`.github/workflows/update-asn.yml`](.github/workflows/update-asn.yml) runs every **Monday at 00:00 UTC**:
+
+1. Downloads the latest `asn-ipv4.csv` from [sapics/ip-location-db](https://github.com/sapics/ip-location-db/tree/main/asn)
+2. Regenerates `data/ip-ranges/known-providers.csv`
+3. Regenerates all `queries/logpresso/*.logpresso` files
+4. Auto-commits and pushes if any changes are detected — no manual action required
+
+To trigger manually: **GitHub → Actions → Weekly ASN Update → Run workflow**
+
+---
+
 ## Script Reference
 
 ```bash
