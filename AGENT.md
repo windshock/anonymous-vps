@@ -1,147 +1,147 @@
 # AGENT.md — Anonymous VPS Intelligence Project
 
-## 프로젝트 목적
+## Purpose
 
-익명성 보장 및 가상화폐 결제가 가능한 VPS 서비스 목록을 **큐레이션**하고, 실제 APT/랜섬웨어 공격 사례와 연계하여 **Threat Intelligence 데이터**로 GitHub에 공개·공유하는 프로젝트입니다.
-
----
-
-## 파일별 역할 (수동편집 vs 자동생성)
-
-| 파일 | 성격 | 관리 방법 |
-|------|------|-----------|
-| `data/vps-providers.csv` | **소스 오브 트루스** | ✅ 직접 편집 |
-| `data/asn-ipv4.csv` | ASN 참조 DB | 🔄 `fetch_asn.py` 자동 다운로드 |
-| `data/ip-ranges/known-providers.csv` | IP 대역 목록 | ❌ 자동 생성 (직접 편집 금지) |
-| `data/ip-ranges/notes.csv` | IP 대역 메모 | ✅ 직접 편집 (optional) |
-| `queries/logpresso/*.logpresso` | 탐지 쿼리 | ❌ 자동 생성 (직접 편집 금지) |
-| `reports/*.md` | 사례 분석 리포트 | ✅ 직접 편집 |
+A curated **Threat Intelligence** repository of anonymous VPS providers that support cryptocurrency payments, linked to real-world APT and ransomware campaigns, and shared publicly on GitHub.
 
 ---
 
-## 데이터 흐름
+## File Roles (Manual vs Auto-generated)
+
+| File | Type | How to manage |
+|------|------|---------------|
+| `data/vps-providers.csv` | **Source of truth** | ✅ Edit directly |
+| `data/asn-ipv4.csv` | ASN reference DB | 🔄 Auto-downloaded via `fetch_asn.py` |
+| `data/ip-ranges/known-providers.csv` | IP range list | ❌ Auto-generated (do not edit) |
+| `data/ip-ranges/notes.csv` | IP range annotations | ✅ Edit directly (optional) |
+| `queries/logpresso/*.logpresso` | Detection queries | ❌ Auto-generated (do not edit) |
+| `reports/*.md` | Incident analysis reports | ✅ Edit directly |
+
+---
+
+## Data Flow
 
 ```
-[직접 편집]
-vps-providers.csv (vendor + ASN)
+[Edit directly]
+vps-providers.csv  (vendor + ASN)
         +
-asn-ipv4.csv  ←  fetch_asn.py (sapics GitHub에서 다운로드)
+asn-ipv4.csv  ←  fetch_asn.py (downloaded from sapics/ip-location-db on GitHub)
         ↓  generate_ranges.py
-data/ip-ranges/known-providers.csv  (자동 생성)
+data/ip-ranges/known-providers.csv  (auto-generated)
         ↓  generate_queries.py
-queries/logpresso/<vendor>.logpresso  (자동 생성)
+queries/logpresso/<vendor>.logpresso  (auto-generated)
 queries/logpresso/all-vendors.logpresso
 ```
 
 ---
 
-## 핵심 데이터 스키마: `data/vps-providers.csv`
+## Core Schema: `data/vps-providers.csv`
 
-| 컬럼 | 설명 |
-|------|------|
-| `vendor` | VPS 공급자 이름 |
-| `domain` | 공식 도메인 |
-| `asn` | AS 번호 (예: AS399629) — 없으면 파이프라인에서 건너뜀 |
-| `asn_link` | bgp.tools 링크 |
-| `shodan_template` | Shodan 검색 URL |
-| `abuse_template` | AbuseIPDB 조회 URL 템플릿 |
-| `note` | 특이사항 (결제방식, APT 관측 이력 등) |
-| `source` | 출처 |
+| Column | Description |
+|--------|-------------|
+| `vendor` | Provider name |
+| `domain` | Official domain |
+| `asn` | AS Number (e.g. AS399629) — skipped in pipeline if empty |
+| `asn_link` | bgp.tools link |
+| `shodan_template` | Shodan search URL |
+| `abuse_template` | AbuseIPDB lookup URL template |
+| `note` | Payment method, APT observation history, etc. |
+| `source` | Reference source |
 
 ---
 
-## 공급자 추가 시나리오
+## Adding a New Provider
 
-### 케이스 A: ASN을 아는 경우 (가장 빠름)
+### Case A: ASN is known (fastest)
 ```bash
-# 1. vps-providers.csv에 행 추가 (vendor, domain, asn 필수)
-# 2. 파이프라인 실행 (ASN DB 다운로드 생략)
+# 1. Add a row to vps-providers.csv (vendor, domain, asn required)
+# 2. Run pipeline (skip ASN DB download)
 python3 scripts/pipeline.py --skip-fetch
 ```
 
-### 케이스 B: ASN을 모르는 경우
+### Case B: ASN is unknown
 ```bash
-# 1. 도메인으로 DNS → ASN 조회 시도
+# 1. Try DNS → ASN lookup by domain
 python3 scripts/update_providers.py --lookup <domain>
 
-# 2. DNS가 CDN 뒤에 있으면 웹 검색으로 확인
+# 2. If the domain is behind a CDN, find ASN via web search:
 #    - https://bgp.tools/search?q=<vendor_name>
 #    - https://bgp.he.net/search?search[search]=<vendor_name>
-#    - 웹 검색: "<vendor> ASN autonomous system"
+#    - Web search: "<vendor> ASN autonomous system"
 
-# 3. vps-providers.csv에 행 추가 후 파이프라인 실행
+# 3. Add row to vps-providers.csv, then run pipeline
 python3 scripts/pipeline.py --skip-fetch
 ```
 
-### 케이스 C: ASN DB 최신화 후 전체 재생성
+### Case C: Refresh ASN DB and regenerate everything
 ```bash
-# sapics에서 최신 asn-ipv4.csv 다운로드 + 전체 재생성
+# Download latest asn-ipv4.csv from sapics + regenerate all
 python3 scripts/pipeline.py
 ```
 
-### 케이스 D: 특정 공급자만 재생성
+### Case D: Regenerate a single provider only
 ```bash
 python3 scripts/pipeline.py --skip-fetch --vendor BitLaunch
 ```
 
 ---
 
-## IP 대역 메모 추가 (notes.csv)
+## Adding IP Range Annotations (notes.csv)
 
-특정 IP 대역에 APT 관측 이력 등 메모를 추가하려면:
+To annotate specific IP ranges with APT observation history or incident context:
 
 ```csv
 # data/ip-ranges/notes.csv
 vendor,cidr,note
-BitLaunch,64.190.113.0/24,APT observed: Donot Team (APT-C-35) — 2025-09
+BitLaunch,64.190.113.0/24,APT observed: Donot Team (APT-C-35) login attempt 2025-09
 Hostwinds,142.11.192.0/18,C2 IP 142.11.206.73 observed in Axios npm supply-chain attack (Mar 2026)
 ```
 
-파이프라인 실행 시 자동으로 known-providers.csv에 병합됩니다.
+Notes are automatically merged into `known-providers.csv` on each pipeline run.
 
 ---
 
-## 스크립트 사용법 요약
+## Script Reference
 
 ```bash
-# 전체 파이프라인
+# Full pipeline
 python3 scripts/pipeline.py
 
-# ASN DB만 업데이트
+# Update ASN DB only
 python3 scripts/fetch_asn.py
-python3 scripts/fetch_asn.py --check          # 업데이트 여부만 확인
+python3 scripts/fetch_asn.py --check          # check for updates without downloading
 
-# IP 대역 재생성
+# Regenerate IP ranges
 python3 scripts/generate_ranges.py
 python3 scripts/generate_ranges.py --vendor Hostwinds
 
-# Logpresso 쿼리 재생성
+# Regenerate Logpresso queries
 python3 scripts/generate_queries.py
 python3 scripts/generate_queries.py --vendor BitLaunch
 
-# 공급자 목록 검증/정렬
+# Validate and sort provider list
 python3 scripts/update_providers.py
-python3 scripts/update_providers.py --add     # 대화형 추가
-python3 scripts/update_providers.py --lookup AS399629  # IP 대역 조회
+python3 scripts/update_providers.py --add     # interactive add
+python3 scripts/update_providers.py --lookup AS399629  # look up IP ranges for ASN
 ```
 
 ---
 
-## 공급자 선별 기준
+## Provider Selection Criteria
 
-다음 조건을 **하나 이상** 충족하는 서비스를 포함합니다:
+Include providers that meet **one or more** of the following:
 
-1. **가상화폐 결제 지원** (Bitcoin, Monero, ETH 등)
-2. **KYC 없음** (신원 확인 불요)
-3. **DMCA/남용 신고 무시** (Bulletproof Hosting)
-4. **Offshore 등록** (아이슬란드, 러시아, 루마니아, 네덜란드 등)
-5. **실제 APT/랜섬웨어 인프라에서 관측됨**
+1. **Cryptocurrency payment accepted** (Bitcoin, Monero, ETH, etc.)
+2. **No KYC** (identity verification not required)
+3. **DMCA / abuse complaints ignored** (Bulletproof Hosting)
+4. **Offshore registration** (Iceland, Russia, Romania, Netherlands, etc.)
+5. **Observed in real APT or ransomware infrastructure**
 
 ---
 
-## 리포트 추가
+## Adding a Report
 
-`reports/` 폴더에 마크다운 파일 추가. 파일명 형식: `<topic>-<YYYY>.md`
+Add a Markdown file to `reports/`. Naming convention: `<topic>-<YYYY>.md`
 ```
 reports/lazarus-infrastructure-2025.md
 reports/apt-c-35-donot-team-2025.md
@@ -149,8 +149,9 @@ reports/apt-c-35-donot-team-2025.md
 
 ---
 
-## 주의사항
+## Disclaimer
 
-- 이 저장소는 **방어 목적(Threat Intelligence)** 으로만 사용됩니다.
-- 공격적 활용, 실제 서비스 공격, 개인정보 침해에 사용하지 마십시오.
-- IOC 데이터는 검증된 공개 출처만 참조합니다.
+This repository is intended for **defensive security research and Threat Intelligence purposes only**.  
+Do not use for offensive activity, attacking services, or any illegal purpose.  
+All IOC data references verified public sources only.
+
