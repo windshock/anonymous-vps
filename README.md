@@ -1,99 +1,112 @@
 # 🕵️ Anonymous VPS Intelligence
 
-익명성 보장 및 가상화폐 결제가 가능한 VPS 서비스를 큐레이션한 **Threat Intelligence** 저장소입니다.  
-APT 그룹 및 랜섬웨어 조직이 실제로 악용한 인프라 데이터를 중심으로 정리합니다.
+A curated **Threat Intelligence** repository of anonymous VPS providers that support cryptocurrency payments.  
+Focused on infrastructure data observed in real-world APT and ransomware campaigns.
 
 ---
 
-## 📦 데이터
+## 📦 Data
 
 ### [`data/vps-providers.csv`](data/vps-providers.csv)
-익명 VPS 공급자 목록 (상위 50개+). ASN, Shodan 검색 링크, 특이사항 포함.
+Curated list of anonymous VPS providers (30+). Includes ASN, Shodan search links, and notes.
 
-| 컬럼 | 설명 |
-|------|------|
-| `vendor` | 서비스 이름 |
-| `domain` | 공식 도메인 |
-| `asn` | AS 번호 |
-| `shodan_template` | Shodan 검색 URL |
-| `abuse_template` | AbuseIPDB 조회 URL |
-| `note` | 결제방식·익명성 특이사항 |
+| Column | Description |
+|--------|-------------|
+| `vendor` | Service name |
+| `domain` | Official domain |
+| `asn` | Autonomous System Number |
+| `shodan_template` | Shodan search URL |
+| `abuse_template` | AbuseIPDB lookup URL |
+| `note` | Payment method, anonymity notes, APT observations |
 
 ### [`data/asn-ipv4.csv`](data/asn-ipv4.csv)
-전세계 ASN ↔ IPv4 대역 매핑 참조 데이터 (~40만 레코드).
+Global ASN ↔ IPv4 range mapping reference (~400k records). Not committed to repo — fetched via `fetch_asn.py`.
 
 ---
 
-## 📑 분석 리포트
+## 📑 Analysis Reports
 
-| 파일 | 내용 |
-|------|------|
-| [apt-analysis-2020-2025.md](reports/apt-analysis-2020-2025.md) | APT 그룹(중국·러시아·중동)의 익명 VPS 악용 사례 (2020–2025) |
-| [axios-supply-chain-2026.md](reports/axios-supply-chain-2026.md) | Axios npm 공급망 공격 심층 분석 (2026) |
-
----
-
-## 🔍 공급자 선별 기준
-
-- 가상화폐(BTC/XMR/ETH) 결제 지원
-- KYC(신원확인) 없음
-- DMCA/남용 신고 무시 (Bulletproof Hosting)
-- Offshore 등록 (아이슬란드·러시아·루마니아 등)
-- 실제 APT/랜섬웨어 인프라에서 관측됨
+| File | Description |
+|------|-------------|
+| [apt-analysis-2020-2025.md](reports/apt-analysis-2020-2025.md) | Anonymous VPS abuse by APT groups (China, Russia, Middle East) — 2020–2025 |
+| [axios-supply-chain-2026.md](reports/axios-supply-chain-2026.md) | Deep-dive: Axios npm supply-chain compromise (2026) |
 
 ---
 
-## ⚙️ 업데이트
+## 🔍 Provider Selection Criteria
+
+Providers are included if they meet **one or more** of the following:
+
+- Cryptocurrency payment accepted (BTC / XMR / ETH)
+- No KYC (identity verification not required)
+- DMCA / abuse complaints ignored (Bulletproof Hosting)
+- Offshore registration (Iceland, Russia, Romania, Netherlands, etc.)
+- Observed in real APT or ransomware infrastructure
+
+---
+
+## 🎯 Usage Guide
+
+| Use Case | File | Notes |
+|----------|------|-------|
+| **Logpresso — VPN inbound detection** | [`queries/logpresso/all-vendors-vpn.logpresso`](queries/logpresso/all-vendors-vpn.logpresso) | Detects anonymous VPS connections in VPN logs |
+| **Logpresso — Firewall outbound detection** | [`queries/logpresso/all-vendors.logpresso`](queries/logpresso/all-vendors.logpresso) | Detects internal→external comms to anonymous VPS |
+| **Per-vendor queries** | [`queries/logpresso/`](queries/logpresso/) | Focus monitoring on a specific provider |
+| **Other SIEM / Firewall ACL** | [`data/ip-ranges/known-providers.csv`](data/ip-ranges/known-providers.csv) (`cidr` column) | Import CIDR list into any SIEM or firewall |
+| **Provider reference** | [`data/vps-providers.csv`](data/vps-providers.csv) | vendor, ASN, Shodan links |
+
+> ⚠️ **False positive warning**: Datacamp Limited (1,834 ranges), QloudHost (677), and Hostinger (343) have very broad IP ranges.  
+> It is recommended to start monitoring with providers that have confirmed APT observations: `BitLaunch`, `FlokiNET`, `Shinjiru`, `Hostwinds`.
+
+---
+
+## ⚙️ Pipeline
 
 ```bash
-# 공급자 목록 검증 및 정렬
+# Full pipeline: fetch latest ASN DB + regenerate IP ranges + queries
+python3 scripts/pipeline.py
+
+# Skip ASN download (use existing asn-ipv4.csv)
+python3 scripts/pipeline.py --skip-fetch
+
+# Single provider
+python3 scripts/pipeline.py --skip-fetch --vendor BitLaunch
+
+# Validate & sort provider list
 python3 scripts/update_providers.py
 
-# 특정 ASN의 IP 대역 조회
+# Look up IP ranges for an ASN
 python3 scripts/update_providers.py --lookup AS399629
 ```
 
-AI 에이전트를 통한 업데이트 방법은 [AGENT.md](AGENT.md)를 참조하세요.
+See [AGENT.md](AGENT.md) for detailed instructions on adding providers and updating data.
 
 ---
 
-## ⚠️ 면책 조항
+## 🔄 ASN Data Source
 
-본 저장소는 **방어적 보안 연구 및 Threat Intelligence** 목적으로만 제공됩니다.  
-악의적 활용, 서비스 공격, 불법 행위에 사용하는 것을 엄격히 금지합니다.
+`data/asn-ipv4.csv` is fetched from:
 
-## 🎯 용도별 활용 가이드
-
-| 용도 | 파일 | 비고 |
-|------|------|------|
-| **Logpresso — VPN 인바운드 탐지** | [`queries/logpresso/all-vendors-vpn.logpresso`](queries/logpresso/all-vendors-vpn.logpresso) | VPN 로그에서 anonymous VPS 접속 탐지 |
-| **Logpresso — 방화벽 아웃바운드 탐지** | [`queries/logpresso/all-vendors.logpresso`](queries/logpresso/all-vendors.logpresso) | 내부→외부 anonymous VPS 통신 탐지 |
-| **공급자별 단독 쿼리** | [`queries/logpresso/`](queries/logpresso/) | 특정 공급자만 집중 모니터링 |
-| **타 SIEM / 방화벽 ACL** | [`data/ip-ranges/known-providers.csv`](data/ip-ranges/known-providers.csv) (`cidr` 컬럼) | 어느 SIEM이든 CIDR 목록으로 import |
-| **공급자 목록 참조** | [`data/vps-providers.csv`](data/vps-providers.csv) | vendor, ASN, Shodan 링크 등 |
-
-> ⚠️ **오탐 주의**: Datacamp Limited(1,834개), QloudHost(677개), Hostinger(343개)는 IP 범위가 넓어 오탐 가능성이 있습니다.
-> APT 관측 이력이 있는 `BitLaunch`, `FlokiNET`, `Shinjiru`, `Hostwinds`부터 모니터링을 시작하는 것을 권장합니다.
-
----
-
-
-
-`data/asn-ipv4.csv`는 아래 저장소에서 가져옵니다:
-
-> **[sapics/ip-location-db](https://github.com/sapics/ip-location-db/tree/main/asn)** — `asn/asn-ipv4.csv`
-> Public Domain (CC0). 전세계 ASN ↔ IPv4 대역 매핑 (~40만 레코드).
+> **[sapics/ip-location-db](https://github.com/sapics/ip-location-db/tree/main/asn)** — `asn/asn-ipv4.csv`  
+> Public Domain (CC0). Global ASN ↔ IPv4 mapping (~400k records).
 
 ```bash
-# 최신 데이터로 갱신 후 IP 대역 및 쿼리 재생성
-python3 scripts/fetch_asn.py
-python3 scripts/pipeline.py --skip-fetch
+python3 scripts/fetch_asn.py        # download latest
+python3 scripts/fetch_asn.py --check  # check for updates only
 ```
 
 ---
 
-## 📚 참고 출처
+## ⚠️ Disclaimer
+
+This repository is provided for **defensive security research and Threat Intelligence purposes only**.  
+Any malicious use, offensive activity, or violation of applicable laws is strictly prohibited.
+
+---
+
+## 📚 References
 
 - [BushidoToken Blog — Investigating Anonymous VPS Services (2025)](https://blog.bushidotoken.net/2025/02/investigating-anonymous-vps-services.html)
 - [Volexity — Operation EmailThief (2022)](https://www.volexity.com/blog/2022/02/03/operation-emailthief-active-exploitation-of-zero-day-xss-vulnerability-in-zimbra/)
 - [own.security — Bulletproof Hosting Landscape](https://www.own.security/en/ressources/blog/50-shades-of-bulletproof-hosting-bph-landscape-on-russian-language-cybercrime-forums)
+
