@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ip-ranges/known-providers.csv queries/logpresso/ queries/sigma/ data/asn-meta.json
+          git add data/ip-ranges/known-providers.csv queries/logpresso/ queries/sigma/
           if git diff --cached --quiet; then
             echo "No changes — ASN data is already up to date."
           else
