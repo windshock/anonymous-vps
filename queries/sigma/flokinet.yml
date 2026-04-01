@@ -1,0 +1,42 @@
+title: Network Connection to Anonymous VPS — FlokiNET
+id: 6066c0bc-025e-549d-b6aa-1b5db2837042
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'FlokiNET' (AS200651), which accepts cryptocurrency payments and requires no KYC.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '185.10.68.0/24'
+      - '185.100.84.0/22'
+      - '185.146.232.0/23'
+      - '185.146.234.0/24'
+      - '185.165.168.0/22'
+      - '185.246.188.0/22'
+      - '185.247.224.0/23'
+      - '185.247.226.0/24'
+      - '188.240.231.0/24'
+      - '37.156.68.0/24'
+      - '37.228.128.0/23'
+      - '81.180.202.0/23'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

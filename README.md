@@ -53,6 +53,8 @@ Providers are included if they meet **one or more** of the following:
 | **Logpresso — Firewall outbound detection** | [`queries/logpresso/all-vendors.logpresso`](queries/logpresso/all-vendors.logpresso) | Detects internal→external comms to anonymous VPS |
 | **Per-vendor queries** | [`queries/logpresso/`](queries/logpresso/) | Focus monitoring on a specific provider |
 | **Other SIEM / Firewall ACL** | [`data/ip-ranges/known-providers.csv`](data/ip-ranges/known-providers.csv) (`cidr` column) | Import CIDR list into any SIEM or firewall |
+| **Splunk / Elastic / Sentinel (Sigma)** | [`queries/sigma/all-vendors.yml`](queries/sigma/all-vendors.yml) | Convert with [pySigma](https://github.com/SigmaHQ/pySigma) to any backend |
+| **Per-vendor Sigma rules** | [`queries/sigma/`](queries/sigma/) | `level: high` for APT-observed providers |
 | **Provider reference** | [`data/vps-providers.csv`](data/vps-providers.csv) | vendor, ASN, Shodan links |
 
 > ⚠️ **False positive warning**: Datacamp Limited (1,834 ranges), QloudHost (677), and Hostinger (343) have very broad IP ranges.  
@@ -102,7 +104,8 @@ The repository includes a scheduled workflow ([`.github/workflows/update-asn.yml
 1. Downloads the latest `asn-ipv4.csv` from sapics/ip-location-db
 2. Regenerates `data/ip-ranges/known-providers.csv`
 3. Regenerates all `queries/logpresso/*.logpresso` files
-4. Auto-commits and pushes if any changes are detected
+4. Regenerates all `queries/sigma/*.yml` Sigma rules (APT-observed providers → `level: high`)
+5. Auto-commits and pushes if any changes are detected
 
 You can also trigger it manually via **Actions → Weekly ASN Update → Run workflow** on GitHub.
 

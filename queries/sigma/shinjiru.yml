@@ -1,0 +1,43 @@
+title: Network Connection to Anonymous VPS — Shinjiru
+id: c9b41693-5b60-5572-a128-2b1b85c43656
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Shinjiru' (AS45839), which accepts cryptocurrency payments and requires no KYC.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '101.99.64.0/19'
+      - '103.155.92.0/23'
+      - '111.90.128.0/20'
+      - '111.90.144.0/21'
+      - '111.90.152.0/22'
+      - '111.90.156.0/24'
+      - '111.90.158.0/23'
+      - '124.217.224.0/21'
+      - '124.217.232.0/22'
+      - '124.217.236.0/23'
+      - '124.217.238.0/24'
+      - '124.217.240.0/20'
+      - '78.40.143.0/24'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

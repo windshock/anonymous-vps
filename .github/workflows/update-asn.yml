@@ -29,11 +29,14 @@ jobs:
       - name: Generate Logpresso queries
         run: python3 scripts/generate_queries.py
 
+      - name: Generate Sigma rules
+        run: python3 scripts/generate_sigma.py
+
       - name: Commit and push if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ip-ranges/known-providers.csv queries/logpresso/ data/asn-meta.json
+          git add data/ip-ranges/known-providers.csv queries/logpresso/ queries/sigma/ data/asn-meta.json
           if git diff --cached --quiet; then
             echo "No changes — ASN data is already up to date."
           else

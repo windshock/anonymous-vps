@@ -67,6 +67,9 @@ def main() -> None:
     # Step 3: generate queries
     steps.append(("generate_queries.py", extra))
 
+    # Step 4: generate sigma rules
+    steps.append(("generate_sigma.py", extra))
+
     for script, script_args in steps:
         ok = run(script, script_args)
         if not ok:
@@ -85,6 +88,10 @@ def main() -> None:
     if queries_dir.exists():
         qfiles = list(queries_dir.glob("*.logpresso"))
         print(f"   Queries    : {len(qfiles)} files ({queries_dir})")
+    sigma_dir = ROOT / "queries" / "sigma"
+    if sigma_dir.exists():
+        sfiles = list(sigma_dir.glob("*.yml"))
+        print(f"   Sigma rules: {len(sfiles)} files ({sigma_dir})")
     print(f"{'='*60}")
 
 

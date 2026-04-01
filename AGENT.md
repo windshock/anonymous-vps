@@ -31,6 +31,9 @@ data/ip-ranges/known-providers.csv  (auto-generated)
         ↓  generate_queries.py
 queries/logpresso/<vendor>.logpresso  (auto-generated)
 queries/logpresso/all-vendors.logpresso
+        ↓  generate_sigma.py
+queries/sigma/<vendor>.yml  (auto-generated, level: high if APT-observed)
+queries/sigma/all-vendors.yml
 ```
 
 ---
@@ -131,6 +134,10 @@ python3 scripts/generate_ranges.py --vendor Hostwinds
 # Regenerate Logpresso queries
 python3 scripts/generate_queries.py
 python3 scripts/generate_queries.py --vendor BitLaunch
+
+# Regenerate Sigma rules (level: high if notes contain 'apt'/'c2')
+python3 scripts/generate_sigma.py
+python3 scripts/generate_sigma.py --vendor BitLaunch
 
 # Validate and sort provider list
 python3 scripts/update_providers.py

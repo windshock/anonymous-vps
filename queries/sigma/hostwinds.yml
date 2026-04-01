@@ -1,0 +1,54 @@
+title: Network Connection to Anonymous VPS — Hostwinds
+id: d54a9bd2-439d-5cf2-a047-ddc235a40ab1
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Hostwinds' (AS54290), which accepts cryptocurrency payments and requires no KYC. Observed in: C2 IP 142.11.206.73 observed in Axios npm supply-chain attack (Mar 2026)
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '103.181.230.0/24'
+      - '103.208.244.0/22'
+      - '103.210.212.0/22'
+      - '104.168.128.0/17'
+      - '104.254.212.0/22'
+      - '108.174.192.0/20'
+      - '142.11.192.0/18'
+      - '160.20.12.0/22'
+      - '160.238.44.0/22'
+      - '162.244.8.0/21'
+      - '185.145.96.0/22'
+      - '192.119.64.0/18'
+      - '192.129.128.0/17'
+      - '192.236.128.0/17'
+      - '192.255.128.0/17'
+      - '193.188.24.0/22'
+      - '198.143.96.0/19'
+      - '198.44.0.0/17'
+      - '198.84.64.0/18'
+      - '199.212.86.0/23'
+      - '199.59.56.0/21'
+      - '23.238.0.0/17'
+      - '23.254.128.0/17'
+      - '36.255.24.0/22'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: high

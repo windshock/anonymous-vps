@@ -1,0 +1,37 @@
+title: Network Connection to Anonymous VPS — Black.host
+id: 5f78da9e-e967-581b-9e15-f4fcf04aa8bc
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Black.host' (AS12989), which accepts cryptocurrency payments and requires no KYC.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '185.142.236.0/24'
+      - '185.142.238.0/23'
+      - '194.54.180.0/23'
+      - '194.54.182.0/24'
+      - '212.104.140.0/23'
+      - '213.254.179.0/24'
+      - '86.54.28.0/22'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

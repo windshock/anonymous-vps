@@ -1,0 +1,63 @@
+title: Network Connection to Anonymous VPS — BitLaunch
+id: 3f216976-a480-5066-a6b2-40ab36394629
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'BitLaunch' (AS399629), which accepts cryptocurrency payments and requires no KYC. Observed in: APT observed: Donot Team (APT-C-35) login attempt 2025-09
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '149.248.76.0/22'
+      - '162.252.198.0/23'
+      - '162.33.176.0/22'
+      - '168.100.8.0/22'
+      - '172.86.75.0/24'
+      - '192.153.57.0/24'
+      - '193.149.129.0/24'
+      - '193.149.176.0/24'
+      - '193.149.180.0/24'
+      - '193.149.185.0/24'
+      - '193.149.187.0/24'
+      - '193.149.189.0/24'
+      - '193.149.190.0/24'
+      - '195.85.114.0/23'
+      - '198.13.158.0/23'
+      - '199.217.98.0/23'
+      - '206.166.251.0/24'
+      - '206.188.196.0/23'
+      - '206.71.148.0/23'
+      - '216.245.184.0/24'
+      - '45.61.136.0/22'
+      - '64.111.92.0/23'
+      - '64.190.113.0/24'
+      - '64.52.80.0/24'
+      - '64.7.198.0/23'
+      - '64.94.84.0/23'
+      - '64.95.10.0/23'
+      - '64.95.12.0/23'
+      - '65.38.120.0/23'
+      - '67.217.228.0/24'
+      - '69.67.172.0/23'
+      - '72.5.42.0/23'
+      - '96.9.124.0/23'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: high

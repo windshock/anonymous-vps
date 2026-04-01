@@ -1,0 +1,49 @@
+title: Network Connection to Anonymous VPS — Snel.com
+id: 7c8ca050-0522-5d6b-a4d4-b7fae8b4e46f
+status: experimental
+description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Snel.com' (AS62370), which accepts cryptocurrency payments and requires no KYC.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+author: windshock
+date: 2026-04-01
+modified: 2026-04-01
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection:
+        dst_ip|cidr:
+      - '128.204.192.0/24'
+      - '128.204.194.0/24'
+      - '128.204.197.0/24'
+      - '128.204.199.0/24'
+      - '128.204.205.0/24'
+      - '185.62.56.0/22'
+      - '193.33.60.0/23'
+      - '193.34.166.0/23'
+      - '195.20.204.0/23'
+      - '37.148.160.0/22'
+      - '37.148.165.0/24'
+      - '5.104.224.0/23'
+      - '5.104.226.0/24'
+      - '5.104.228.0/24'
+      - '77.95.224.0/21'
+      - '78.41.200.0/21'
+      - '89.207.128.0/22'
+      - '89.207.132.0/24'
+      - '89.207.134.0/23'
+    condition: selection
+falsepositives:
+    - Legitimate use of VPS services by internal users
+    - Cloud workloads intentionally communicating with these providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium
