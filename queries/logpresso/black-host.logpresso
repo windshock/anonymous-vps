@@ -2,6 +2,6 @@
 ## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
 ##
 ## 사용법: Logpresso에서 직접 실행하거나 방화벽/IDS 쿼리에 search 절로 삽입
-## IP 범위 수: 7개  |  ASN: AS12989
+## IP 범위 수: 11개  |  ASN: AS12989
 
-network(dst_ip,24) == "185.142.236.0" or network(dst_ip,23) == "185.142.238.0" or network(dst_ip,23) == "194.54.180.0" or network(dst_ip,24) == "194.54.182.0" or network(dst_ip,23) == "212.104.140.0" or network(dst_ip,24) == "213.254.179.0" or network(dst_ip,22) == "86.54.28.0"
+network(dst_ip,23) == "168.222.184.0" or network(dst_ip,24) == "168.222.186.0" or network(dst_ip,24) == "185.104.2.0" or network(dst_ip,24) == "185.142.236.0" or network(dst_ip,23) == "185.142.238.0" or network(dst_ip,23) == "194.54.180.0" or network(dst_ip,24) == "194.54.182.0" or network(dst_ip,23) == "212.104.140.0" or network(dst_ip,24) == "213.254.179.0" or network(dst_ip,24) == "45.12.60.0" or network(dst_ip,22) == "86.54.28.0"

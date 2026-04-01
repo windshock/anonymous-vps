@@ -2,8 +2,8 @@
 ## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
 ##
 ## 사용법: Logpresso에서 직접 실행하거나 모니터링 쿼리에 search 절로 삽입
-## IP 범위 수: 9개  |  ASN: AS60602
+## IP 범위 수: 10개  |  ASN: AS60602
 
 fulltext "New" and "session" and "client" from *:SYS_VPN
   | rex field=line "New session from client IP (?<client_ip>[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
-  | search network(client_ip,23) == "151.243.80.0" or network(client_ip,24) == "154.16.177.0" or network(client_ip,24) == "154.56.0.0" or network(client_ip,23) == "185.181.228.0" or network(client_ip,24) == "185.181.230.0" or network(client_ip,22) == "194.33.40.0" or network(client_ip,24) == "5.101.80.0" or network(client_ip,24) == "80.66.79.0" or network(client_ip,24) == "82.25.203.0"
+  | search network(client_ip,24) == "143.20.24.0" or network(client_ip,24) == "154.16.177.0" or network(client_ip,24) == "154.56.0.0" or network(client_ip,23) == "185.181.228.0" or network(client_ip,24) == "185.181.230.0" or network(client_ip,22) == "194.33.40.0" or network(client_ip,24) == "222.167.254.0" or network(client_ip,24) == "5.101.80.0" or network(client_ip,24) == "80.66.79.0" or network(client_ip,24) == "82.25.203.0"
