@@ -1,0 +1,12 @@
+# 대용량 ASN 참조 DB — Git LFS 또는 제외 권장 (22MB)
+data/asn-ipv4.csv
+data/asn-meta.json
+
+# 자동 생성 파일 — 직접 커밋 불필요 (pipeline.py로 재생성 가능)
+# data/ip-ranges/known-providers.csv
+# queries/logpresso/
+
+# macOS
+.DS_Store
+__pycache__/
+*.pyc
