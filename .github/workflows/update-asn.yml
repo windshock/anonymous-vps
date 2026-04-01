@@ -1,0 +1,43 @@
+name: Weekly ASN Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # every Monday at 00:00 UTC
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch latest ASN DB
+        run: python3 scripts/fetch_asn.py
+
+      - name: Generate IP ranges
+        run: python3 scripts/generate_ranges.py
+
+      - name: Generate Logpresso queries
+        run: python3 scripts/generate_queries.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ip-ranges/known-providers.csv queries/logpresso/ data/asn-meta.json
+          if git diff --cached --quiet; then
+            echo "No changes — ASN data is already up to date."
+          else
+            UPDATED_AT=$(date -u +"%Y-%m-%d")
+            git commit -m "chore: weekly ASN update ${UPDATED_AT}"
+            git push
+          fi
