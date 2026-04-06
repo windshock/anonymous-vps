@@ -1,41 +1,32 @@
 #!/usr/bin/env python3
 """
-generate_sigma.py — known-providers.csv로부터 Sigma 탐지 룰 자동 생성
-
-생성 파일:
-    queries/sigma/<vendor_slug>.yml     — 공급자별 (방화벽/네트워크 아웃바운드)
-    queries/sigma/all-vendors.yml       — 전체 합산
-
-Sigma 룰은 pySigma / sigmac 등으로 Splunk, Elastic, MS Sentinel 등으로 변환 가능.
-
-사용법:
-    python3 scripts/generate_sigma.py
-    python3 scripts/generate_sigma.py --vendor BitLaunch
-    python3 scripts/generate_sigma.py --dry-run
+generate_sigma.py — Build Sigma rules from provider inventory and conservative detection feeds.
 """
+
+from __future__ import annotations
 
 import argparse
 import csv
 import re
-import sys
 import uuid
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-ROOT       = Path(__file__).parent.parent
-RANGES_CSV = ROOT / "data" / "ip-ranges" / "known-providers.csv"
-OUT_DIR    = ROOT / "queries" / "sigma"
+from data_model import ROOT
 
-AUTHOR     = "windshock"
-REPO_URL   = "https://github.com/windshock/anonymous-vps"
-TODAY      = date.today().isoformat()
+PROVIDER_RANGES_CSV = ROOT / "generated" / "detection" / "provider-ranges.csv"
+HIGH_RISK_CSV = ROOT / "generated" / "detection" / "high-risk-cidrs.csv"
+INCIDENT_IOCS_CSV = ROOT / "generated" / "detection" / "incident-iocs.csv"
+OUT_DIR = ROOT / "queries" / "sigma"
 
-# MITRE ATT&CK tags relevant to anonymous VPS C2 / infra
+AUTHOR = "windshock"
+REPO_URL = "https://github.com/windshock/anonymous-vps"
+TODAY = date.today().isoformat()
 MITRE_TAGS = [
     "attack.command_and_control",
-    "attack.t1090",       # Proxy
-    "attack.t1583.003",   # Acquire Infrastructure: Virtual Private Server
+    "attack.t1090",
+    "attack.t1583.003",
 ]
 
 
@@ -43,30 +34,63 @@ def vendor_slug(vendor: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", vendor.lower()).strip("-")
 
 
-def load_ranges(vendor_filter: str | None) -> dict[str, dict]:
-    data: dict[str, dict] = defaultdict(lambda: {"asn": "", "cidrs": [], "notes": []})
-    with open(RANGES_CSV, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
+def load_provider_ranges(vendor_filter: str | None) -> dict[str, dict[str, list[str] | str]]:
+    data: dict[str, dict[str, list[str] | str]] = defaultdict(lambda: {"asn": "", "cidrs": []})
+    if not PROVIDER_RANGES_CSV.exists():
+        return {}
+    with open(PROVIDER_RANGES_CSV, newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
             vendor = row["vendor"].strip()
             if vendor_filter and vendor.lower() != vendor_filter.lower():
                 continue
             data[vendor]["asn"] = row["asn"].strip()
             data[vendor]["cidrs"].append(row["cidr"].strip())
-            if row.get("note", "").strip():
-                data[vendor]["notes"].append(row["note"].strip())
     return dict(data)
 
 
+def load_high_risk_cidrs() -> list[str]:
+    if not HIGH_RISK_CSV.exists():
+        return []
+    with open(HIGH_RISK_CSV, newline="", encoding="utf-8") as handle:
+        return [row["cidr"].strip() for row in csv.DictReader(handle) if row.get("cidr", "").strip()]
+
+
+def load_incident_iocs() -> list[str]:
+    if not INCIDENT_IOCS_CSV.exists():
+        return []
+    with open(INCIDENT_IOCS_CSV, newline="", encoding="utf-8") as handle:
+        return [row["ioc"].strip() for row in csv.DictReader(handle) if row.get("ioc", "").strip()]
+
+
 def sigma_rule(
-    rule_id: str,
     title: str,
+    rule_id: str,
     description: str,
-    cidrs: list[str],
-    level: str = "medium",
-    extra_tags: list[str] = [],
+    references: list[str],
+    level: str,
+    cidrs: list[str] | None = None,
+    ips: list[str] | None = None,
 ) -> str:
-    cidr_lines = "\n".join(f"      - '{c}'" for c in sorted(cidrs))
-    tags_lines = "\n".join(f"    - {t}" for t in MITRE_TAGS + extra_tags)
+    tags_lines = "\n".join(f"    - {tag}" for tag in MITRE_TAGS)
+    references_lines = "\n".join(f"    - {ref}" for ref in references)
+    detection_lines: list[str] = []
+    condition_parts: list[str] = []
+
+    if ips:
+        ip_lines = "\n".join(f"            - '{value}'" for value in sorted(set(ips)))
+        detection_lines.append("    selection_iocs:\n        dst_ip:\n" + ip_lines)
+        condition_parts.append("selection_iocs")
+    if cidrs:
+        cidr_lines = "\n".join(f"            - '{value}'" for value in sorted(set(cidrs)))
+        detection_lines.append("    selection_cidrs:\n        dst_ip|cidr:\n" + cidr_lines)
+        condition_parts.append("selection_cidrs")
+
+    condition = " or ".join(condition_parts) if condition_parts else "selection_none"
+    detection_block = (
+        "\n".join(detection_lines)
+        if detection_lines
+        else "    selection_none:\n        dst_ip:\n            - '127.0.0.1'"
+    )
 
     return f"""\
 title: {title}
@@ -74,8 +98,7 @@ id: {rule_id}
 status: experimental
 description: {description}
 references:
-    - {REPO_URL}
-    - {REPO_URL}/blob/main/data/vps-providers.csv
+{references_lines}
 author: {AUTHOR}
 date: {TODAY}
 modified: {TODAY}
@@ -85,13 +108,11 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
-        dst_ip|cidr:
-{cidr_lines}
-    condition: selection
+{detection_block}
+    condition: {condition}
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip
@@ -101,87 +122,152 @@ level: {level}
 """
 
 
-def make_vendor_rule(vendor: str, asn: str, cidrs: list[str], notes: list[str]) -> str:
-    # APT-observed → high, otherwise medium
-    level = "high" if any("apt" in n.lower() or "c2" in n.lower() for n in notes) else "medium"
-    note_suffix = f" Observed in: {notes[0]}" if notes else ""
-    description = (
-        f"Detects outbound network connections to IP ranges associated with "
-        f"anonymous VPS provider '{vendor}' ({asn}), which accepts cryptocurrency "
-        f"payments and requires no KYC.{note_suffix}"
-    )
-    return sigma_rule(
-        rule_id=str(uuid.uuid5(uuid.NAMESPACE_DNS, f"anonymous-vps-{vendor_slug(vendor)}")),
-        title=f"Network Connection to Anonymous VPS — {vendor}",
-        description=description,
-        cidrs=cidrs,
-        level=level,
-    )
+def write_rule(path: Path, content: str, dry_run: bool) -> None:
+    if dry_run:
+        print(f"\n{'=' * 60}\n[{path.name}]\n{content[:700]}…")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
 
 
-def make_all_vendors_rule(vendor_data: dict[str, dict]) -> str:
-    all_cidrs = [c for v in vendor_data.values() for c in v["cidrs"]]
-    vendor_list = ", ".join(sorted(vendor_data.keys()))
-    description = (
-        f"Detects outbound network connections to IP ranges associated with "
-        f"anonymous VPS providers that accept cryptocurrency payments and require no KYC. "
-        f"Providers: {vendor_list}."
-    )
+def provider_rule(vendor: str, asn: str, cidrs: list[str]) -> str:
     return sigma_rule(
-        rule_id=str(uuid.uuid5(uuid.NAMESPACE_DNS, "anonymous-vps-all-vendors")),
-        title="Network Connection to Anonymous VPS Provider",
-        description=description,
-        cidrs=all_cidrs,
+        title=f"Network Connection to Anonymous VPS Provider Inventory — {vendor}",
+        rule_id=str(uuid.uuid5(uuid.NAMESPACE_DNS, f"anonymous-vps-provider-{vendor_slug(vendor)}")),
+        description=(
+            f"Detects outbound network connections to provider inventory ranges associated with "
+            f"anonymous or crypto-friendly hosting provider '{vendor}' ({asn}). "
+            "This is a broad hunting rule, not a malicious-infrastructure verdict."
+        ),
+        references=[
+            REPO_URL,
+            f"{REPO_URL}/blob/main/generated/detection/provider-ranges.csv",
+        ],
         level="medium",
+        cidrs=cidrs,
     )
 
 
-def write_rules(vendor_data: dict[str, dict], dry_run: bool) -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-
-    for vendor, info in sorted(vendor_data.items()):
-        rule = make_vendor_rule(vendor, info["asn"], info["cidrs"], info["notes"])
-        slug = vendor_slug(vendor)
-        out_path = OUT_DIR / f"{slug}.yml"
-        if dry_run:
-            print(f"\n{'='*60}\n[{out_path.name}]\n")
-            print(rule[:600] + "…")
-        else:
-            out_path.write_text(rule, encoding="utf-8")
-            level = "high" if any("apt" in n.lower() or "c2" in n.lower() for n in info["notes"]) else "medium"
-            print(f"  ✅ {vendor:25} → {slug}.yml  ({len(info['cidrs'])} CIDRs, level: {level})")
-
-    # all-vendors
-    all_rule = make_all_vendors_rule(vendor_data)
-    all_path = OUT_DIR / "all-vendors.yml"
-    total = sum(len(v["cidrs"]) for v in vendor_data.values())
-    if not dry_run:
-        all_path.write_text(all_rule, encoding="utf-8")
-        print(f"\n  ✅ all-vendors.yml  ({total} total CIDRs, {len(vendor_data)} vendors)")
+def detection_rule(title: str, key: str, description: str, references: list[str], cidrs: list[str], ips: list[str]) -> str:
+    return sigma_rule(
+        title=title,
+        rule_id=str(uuid.uuid5(uuid.NAMESPACE_DNS, key)),
+        description=description,
+        references=references,
+        level="high",
+        cidrs=cidrs,
+        ips=ips,
+    )
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate Sigma detection rules from IP ranges")
-    parser.add_argument("--vendor", metavar="NAME", help="특정 공급자만 처리")
-    parser.add_argument("--dry-run", action="store_true", help="파일 저장 없이 화면 출력")
+    parser = argparse.ArgumentParser(description="Generate Sigma rules from detection feeds")
+    parser.add_argument("--vendor", metavar="NAME", help="Filter provider inventory rules to a single provider")
+    parser.add_argument("--dry-run", action="store_true", help="Print rules instead of writing files")
     args = parser.parse_args()
 
-    if not RANGES_CSV.exists():
-        print(f"❌ IP ranges not found: {RANGES_CSV}")
-        print("   Run first: python3 scripts/generate_ranges.py")
-        sys.exit(1)
+    provider_ranges = load_provider_ranges(args.vendor)
+    high_risk_cidrs = load_high_risk_cidrs()
+    incident_iocs = load_incident_iocs()
 
-    vendor_data = load_ranges(args.vendor)
-    if not vendor_data:
-        print("⚠️  No ranges found.")
-        sys.exit(0)
+    if not provider_ranges and not high_risk_cidrs and not incident_iocs:
+        raise SystemExit("❌ No generated detection inputs found. Run the pipeline first.")
 
-    total = sum(len(v["cidrs"]) for v in vendor_data.values())
-    print(f"📋 Generating Sigma rules for {len(vendor_data)} vendor(s), {total} CIDRs…")
-    write_rules(vendor_data, dry_run=args.dry_run)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    all_provider_cidrs: list[str] = []
+    for vendor, info in sorted(provider_ranges.items()):
+        cidrs = list(info["cidrs"])
+        all_provider_cidrs.extend(cidrs)
+        write_rule(
+            OUT_DIR / f"{vendor_slug(vendor)}.yml",
+            provider_rule(vendor, str(info["asn"]), cidrs),
+            args.dry_run,
+        )
+
+    if all_provider_cidrs:
+        write_rule(
+            OUT_DIR / "all-vendors.yml",
+            sigma_rule(
+                title="Network Connection to Anonymous VPS Provider Inventory",
+                rule_id=str(uuid.uuid5(uuid.NAMESPACE_DNS, "anonymous-vps-provider-inventory-all")),
+                description=(
+                    "Detects outbound network connections to the broad provider inventory maintained "
+                    "by the anonymous-vps repository. Use for hunting, not direct blocking."
+                ),
+                references=[
+                    REPO_URL,
+                    f"{REPO_URL}/blob/main/generated/detection/provider-ranges.csv",
+                ],
+                level="medium",
+                cidrs=all_provider_cidrs,
+            ),
+            args.dry_run,
+        )
+
+    if high_risk_cidrs:
+        write_rule(
+            OUT_DIR / "high-risk-cidrs.yml",
+            detection_rule(
+                title="Network Connection to High-Risk Anonymous VPS CIDR",
+                key="anonymous-vps-high-risk-cidrs",
+                description=(
+                    "Detects outbound network connections to generalized anonymous VPS CIDRs that "
+                    "cleared the repository's conservative promotion policy."
+                ),
+                references=[
+                    REPO_URL,
+                    f"{REPO_URL}/blob/main/generated/detection/high-risk-cidrs.csv",
+                ],
+                cidrs=high_risk_cidrs,
+                ips=[],
+            ),
+            args.dry_run,
+        )
+
+    if incident_iocs:
+        write_rule(
+            OUT_DIR / "incident-iocs.yml",
+            detection_rule(
+                title="Network Connection to Anonymous VPS Incident IOC",
+                key="anonymous-vps-incident-iocs",
+                description=(
+                    "Detects outbound network connections to exact IOC IPs observed in public reports "
+                    "and incident records tied to anonymous VPS or hosting infrastructure."
+                ),
+                references=[
+                    REPO_URL,
+                    f"{REPO_URL}/blob/main/generated/detection/incident-iocs.csv",
+                ],
+                cidrs=[],
+                ips=incident_iocs,
+            ),
+            args.dry_run,
+        )
+
+    if high_risk_cidrs or incident_iocs:
+        write_rule(
+            OUT_DIR / "all-detection.yml",
+            detection_rule(
+                title="Network Connection to Anonymous VPS Detection Set",
+                key="anonymous-vps-all-detection",
+                description=(
+                    "Detects outbound network connections to the repository's conservative detection "
+                    "set, combining exact incident IOCs with high-risk generalized CIDRs."
+                ),
+                references=[
+                    REPO_URL,
+                    f"{REPO_URL}/blob/main/generated/detection/high-risk-cidrs.csv",
+                    f"{REPO_URL}/blob/main/generated/detection/incident-iocs.csv",
+                ],
+                cidrs=high_risk_cidrs,
+                ips=incident_iocs,
+            ),
+            args.dry_run,
+        )
 
     if not args.dry_run:
-        print(f"\n✅ Done. Files written to {OUT_DIR}/")
+        print(f"✅ Sigma rules written → {OUT_DIR}")
 
 
 if __name__ == "__main__":

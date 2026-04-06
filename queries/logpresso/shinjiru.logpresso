@@ -1,7 +1,5 @@
-## Shinjiru — 방화벽 아웃바운드 탐지 (Anonymous VPS: AS45839)
-## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
-##
-## 사용법: Logpresso에서 직접 실행하거나 방화벽/IDS 쿼리에 search 절로 삽입
-## IP 범위 수: 13개  |  ASN: AS45839
+## Shinjiru — provider inventory outbound hunt (AS45839)
+## source: generated/detection/provider-ranges.csv
+## indicators: 13
 
 network(dst_ip,19) == "101.99.64.0" or network(dst_ip,23) == "103.155.92.0" or network(dst_ip,20) == "111.90.128.0" or network(dst_ip,21) == "111.90.144.0" or network(dst_ip,22) == "111.90.152.0" or network(dst_ip,24) == "111.90.156.0" or network(dst_ip,23) == "111.90.158.0" or network(dst_ip,21) == "124.217.224.0" or network(dst_ip,22) == "124.217.232.0" or network(dst_ip,23) == "124.217.236.0" or network(dst_ip,24) == "124.217.238.0" or network(dst_ip,20) == "124.217.240.0" or network(dst_ip,24) == "78.40.143.0"

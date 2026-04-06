@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — MonoVM
-id: cbef9f0e-3169-5c5b-896e-b935f67f7caa
+title: Network Connection to Anonymous VPS Provider Inventory — MonoVM
+id: af50d681-eb94-510e-9f73-a688ebb457a4
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'MonoVM' (AS51430), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'MonoVM' (AS51430). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,35 +16,42 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '128.127.104.0/21'
-      - '176.67.83.0/24'
-      - '185.10.56.0/22'
-      - '185.2.28.0/22'
-      - '185.7.34.0/23'
-      - '213.5.64.0/21'
-      - '31.3.152.0/21'
-      - '37.46.112.0/20'
-      - '79.142.64.0/20'
-      - '82.21.212.0/24'
-      - '82.22.247.0/24'
-      - '82.23.201.0/24'
-      - '82.23.230.0/24'
-      - '82.23.237.0/24'
-      - '82.24.247.0/24'
-      - '82.25.240.0/24'
-      - '82.25.247.0/24'
-      - '82.26.232.0/24'
-      - '82.26.247.0/24'
-      - '82.27.228.0/24'
-      - '82.27.247.0/24'
-      - '91.214.44.0/23'
-      - '91.214.47.0/24'
-    condition: selection
+            - '128.127.104.0/21'
+            - '176.67.83.0/24'
+            - '185.10.56.0/22'
+            - '185.2.28.0/22'
+            - '185.7.32.0/24'
+            - '185.7.34.0/23'
+            - '213.5.64.0/21'
+            - '31.3.152.0/21'
+            - '37.46.112.0/20'
+            - '79.142.64.0/20'
+            - '82.21.212.0/24'
+            - '82.22.222.0/24'
+            - '82.22.247.0/24'
+            - '82.23.201.0/24'
+            - '82.23.230.0/24'
+            - '82.23.237.0/24'
+            - '82.24.247.0/24'
+            - '82.25.212.0/24'
+            - '82.25.219.0/24'
+            - '82.25.240.0/24'
+            - '82.25.247.0/24'
+            - '82.26.232.0/24'
+            - '82.26.247.0/24'
+            - '82.27.213.0/24'
+            - '82.27.222.0/24'
+            - '82.27.228.0/24'
+            - '82.27.234.0/24'
+            - '82.27.247.0/24'
+            - '91.214.44.0/23'
+            - '91.214.47.0/24'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — Njalla
-id: 477a45cb-dac9-5eb0-97bc-22478cafead2
+title: Network Connection to Anonymous VPS Provider Inventory — Njalla
+id: b1fac24a-f989-5f48-ba96-0fdbd046461f
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Njalla' (AS39287), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'Njalla' (AS39287). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,22 +16,21 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '185.193.125.0/24'
-      - '185.193.126.0/23'
-      - '195.14.20.0/24'
-      - '197.231.220.0/22'
-      - '198.167.192.0/19'
-      - '45.134.242.0/24'
-      - '45.142.140.0/22'
-      - '45.158.116.0/22'
-      - '80.78.16.0/20'
-      - '95.215.16.0/22'
-    condition: selection
+            - '185.193.125.0/24'
+            - '185.193.126.0/23'
+            - '195.14.20.0/24'
+            - '197.231.220.0/22'
+            - '198.167.192.0/19'
+            - '45.142.140.0/22'
+            - '45.158.116.0/22'
+            - '80.78.16.0/20'
+            - '95.215.16.0/22'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

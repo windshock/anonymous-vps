@@ -1,9 +1,7 @@
-## Black.host — VPN 인바운드 탐지 (Anonymous VPS: AS12989)
-## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
-##
-## 사용법: Logpresso에서 직접 실행하거나 모니터링 쿼리에 search 절로 삽입
-## IP 범위 수: 11개  |  ASN: AS12989
+## Black.host — provider inventory VPN inbound hunt (AS12989)
+## source: generated/detection/provider-ranges.csv
+## indicators: 7
 
 fulltext "New" and "session" and "client" from *:SYS_VPN
   | rex field=line "New session from client IP (?<client_ip>[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
-  | search network(client_ip,23) == "168.222.184.0" or network(client_ip,24) == "168.222.186.0" or network(client_ip,24) == "185.104.2.0" or network(client_ip,24) == "185.142.236.0" or network(client_ip,23) == "185.142.238.0" or network(client_ip,23) == "194.54.180.0" or network(client_ip,24) == "194.54.182.0" or network(client_ip,23) == "212.104.140.0" or network(client_ip,24) == "213.254.179.0" or network(client_ip,24) == "45.12.60.0" or network(client_ip,22) == "86.54.28.0"
+  | search network(client_ip,24) == "185.142.236.0" or network(client_ip,23) == "185.142.238.0" or network(client_ip,23) == "194.54.180.0" or network(client_ip,24) == "194.54.182.0" or network(client_ip,23) == "212.104.140.0" or network(client_ip,24) == "213.254.179.0" or network(client_ip,22) == "86.54.28.0"

@@ -1,0 +1,4 @@
+ioc,type,incident_id,incident_name,provider_id,vendor,asn,status,notes
+142.11.206.73,ipv4,axios-supply-chain-2026,Axios npm supply-chain compromise (2026),hostwinds,Hostwinds,AS54290,ioc_only,Resolved C2 IP reported publicly; keep the Hostwinds /18 out of generalized CIDR detection.
+45.148.10.212,ipv4,teampcp,TeamPCP,,,AS48090,ioc_only,Explicit IOC in the TeamPCP report; retain as exact IP only.
+83.142.209.11,ipv4,teampcp,TeamPCP,,,AS205759,ioc_only,Explicit IOC in the TeamPCP report; do not generalize beyond /32 yet.

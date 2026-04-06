@@ -1,7 +1,5 @@
-## Njalla — 방화벽 아웃바운드 탐지 (Anonymous VPS: AS39287)
-## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
-##
-## 사용법: Logpresso에서 직접 실행하거나 방화벽/IDS 쿼리에 search 절로 삽입
-## IP 범위 수: 10개  |  ASN: AS39287
+## Njalla — provider inventory outbound hunt (AS39287)
+## source: generated/detection/provider-ranges.csv
+## indicators: 9
 
-network(dst_ip,24) == "185.193.125.0" or network(dst_ip,23) == "185.193.126.0" or network(dst_ip,24) == "195.14.20.0" or network(dst_ip,22) == "197.231.220.0" or network(dst_ip,19) == "198.167.192.0" or network(dst_ip,24) == "45.134.242.0" or network(dst_ip,22) == "45.142.140.0" or network(dst_ip,22) == "45.158.116.0" or network(dst_ip,20) == "80.78.16.0" or network(dst_ip,22) == "95.215.16.0"
+network(dst_ip,24) == "185.193.125.0" or network(dst_ip,23) == "185.193.126.0" or network(dst_ip,24) == "195.14.20.0" or network(dst_ip,22) == "197.231.220.0" or network(dst_ip,19) == "198.167.192.0" or network(dst_ip,22) == "45.142.140.0" or network(dst_ip,22) == "45.158.116.0" or network(dst_ip,20) == "80.78.16.0" or network(dst_ip,22) == "95.215.16.0"

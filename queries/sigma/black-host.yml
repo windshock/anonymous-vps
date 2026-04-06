@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — Black.host
-id: 5f78da9e-e967-581b-9e15-f4fcf04aa8bc
+title: Network Connection to Anonymous VPS Provider Inventory — Black.host
+id: 1a3fe874-571c-53a1-b615-8b41862b0dad
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Black.host' (AS12989), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'Black.host' (AS12989). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,23 +16,19 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '168.222.184.0/23'
-      - '168.222.186.0/24'
-      - '185.104.2.0/24'
-      - '185.142.236.0/24'
-      - '185.142.238.0/23'
-      - '194.54.180.0/23'
-      - '194.54.182.0/24'
-      - '212.104.140.0/23'
-      - '213.254.179.0/24'
-      - '45.12.60.0/24'
-      - '86.54.28.0/22'
-    condition: selection
+            - '185.142.236.0/24'
+            - '185.142.238.0/23'
+            - '194.54.180.0/23'
+            - '194.54.182.0/24'
+            - '212.104.140.0/23'
+            - '213.254.179.0/24'
+            - '86.54.28.0/22'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

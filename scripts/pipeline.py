@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-pipeline.py — Anonymous VPS Intelligence 파이프라인 통합 진입점
+pipeline.py — Anonymous VPS Intelligence detection-first pipeline.
 
 실행 순서:
-    1. fetch_asn.py      — sapics에서 최신 ASN DB 다운로드
-    2. generate_ranges.py — ASN 조인 → IP 대역 CSV 생성
-    3. generate_queries.py — IP 대역 → Logpresso 쿼리 생성
-
-사용법:
-    python3 scripts/pipeline.py                        # 전체 실행
-    python3 scripts/pipeline.py --skip-fetch           # ASN 다운로드 생략
-    python3 scripts/pipeline.py --vendor BitLaunch     # 특정 공급자만
-    python3 scripts/pipeline.py --dry-run              # 변경 없이 미리보기
+    1. fetch_asn.py               — ASN DB 다운로드
+    2. validate_data.py           — JSON-compatible YAML 검증
+    3. generate_legacy_bridge.py  — legacy provider CSV 재생성
+    4. generate_provider_ranges.py — provider inventory CIDR 생성
+    5. generate_incident_iocs.py  — incident IOC CSV 생성
+    6. generate_high_risk_cidrs.py — high-risk CIDR CSV 생성
+    7. generate_queries.py        — Logpresso 쿼리 생성
+    8. generate_sigma.py          — Sigma 룰 생성
 """
 
 import argparse
@@ -25,9 +24,9 @@ SCRIPTS = Path(__file__).parent
 
 def run(script: str, extra_args: list[str] = []) -> bool:
     cmd = [sys.executable, str(SCRIPTS / script)] + extra_args
-    print(f"\n{'─'*60}")
-    print(f"▶  {' '.join(cmd)}")
-    print(f"{'─'*60}")
+    print(f"\n{'─'*60}", flush=True)
+    print(f"▶  {' '.join(cmd)}", flush=True)
+    print(f"{'─'*60}", flush=True)
     result = subprocess.run(cmd, cwd=ROOT)
     return result.returncode == 0
 
@@ -42,57 +41,70 @@ def main() -> None:
                         help="파일 저장 없이 미리보기")
     args = parser.parse_args()
 
-    extra = []
-    if args.vendor:
-        extra += ["--vendor", args.vendor]
+    shared_extra: list[str] = []
+    query_extra: list[str] = []
     if args.dry_run:
-        extra += ["--dry-run"]
+        shared_extra.append("--dry-run")
+        query_extra.append("--dry-run")
+    if args.vendor:
+        query_extra += ["--vendor", args.vendor]
 
-    print("🚀 Anonymous VPS Intelligence Pipeline")
-    print(f"   skip-fetch : {args.skip_fetch}")
-    print(f"   vendor     : {args.vendor or '(all)'}")
-    print(f"   dry-run    : {args.dry_run}")
+    print("🚀 Anonymous VPS Intelligence Pipeline", flush=True)
+    print(f"   skip-fetch : {args.skip_fetch}", flush=True)
+    print(f"   vendor     : {args.vendor or '(all)'}", flush=True)
+    print(f"   dry-run    : {args.dry_run}", flush=True)
 
-    steps = []
+    steps: list[tuple[str, list[str]]] = []
 
     # Step 1: fetch ASN
     if not args.skip_fetch:
         steps.append(("fetch_asn.py", []))
     else:
-        print("\n⏭  Skipping ASN fetch (--skip-fetch)")
+        print("\n⏭  Skipping ASN fetch (--skip-fetch)", flush=True)
 
-    # Step 2: generate ranges
-    steps.append(("generate_ranges.py", extra))
-
-    # Step 3: generate queries
-    steps.append(("generate_queries.py", extra))
-
-    # Step 4: generate sigma rules
-    steps.append(("generate_sigma.py", extra))
+    steps.extend(
+        [
+            ("validate_data.py", []),
+            ("generate_legacy_bridge.py", shared_extra),
+            ("generate_provider_ranges.py", shared_extra),
+            ("generate_incident_iocs.py", []),
+            ("generate_high_risk_cidrs.py", []),
+            ("generate_queries.py", query_extra),
+            ("generate_sigma.py", query_extra),
+        ]
+    )
 
     for script, script_args in steps:
         ok = run(script, script_args)
         if not ok:
-            print(f"\n❌ Failed at {script}. Pipeline stopped.")
+            print(f"\n❌ Failed at {script}. Pipeline stopped.", flush=True)
             sys.exit(1)
 
-    print(f"\n{'='*60}")
-    print("✅ Pipeline complete.")
+    print(f"\n{'='*60}", flush=True)
+    print("✅ Pipeline complete.", flush=True)
 
     # 요약 출력
-    ranges_file = ROOT / "data" / "ip-ranges" / "known-providers.csv"
+    ranges_file = ROOT / "generated" / "detection" / "provider-ranges.csv"
+    incident_file = ROOT / "generated" / "detection" / "incident-iocs.csv"
+    high_risk_file = ROOT / "generated" / "detection" / "high-risk-cidrs.csv"
     queries_dir = ROOT / "queries" / "logpresso"
     if ranges_file.exists():
         lines = ranges_file.read_text().count("\n")
-        print(f"   IP ranges  : {lines - 1} rows  ({ranges_file})")
+        print(f"   Provider ranges : {lines - 1} rows  ({ranges_file})", flush=True)
+    if incident_file.exists():
+        lines = incident_file.read_text().count("\n")
+        print(f"   Incident IOCs   : {lines - 1} rows  ({incident_file})", flush=True)
+    if high_risk_file.exists():
+        lines = high_risk_file.read_text().count("\n")
+        print(f"   High-risk CIDRs : {lines - 1} rows  ({high_risk_file})", flush=True)
     if queries_dir.exists():
         qfiles = list(queries_dir.glob("*.logpresso"))
-        print(f"   Queries    : {len(qfiles)} files ({queries_dir})")
+        print(f"   Queries    : {len(qfiles)} files ({queries_dir})", flush=True)
     sigma_dir = ROOT / "queries" / "sigma"
     if sigma_dir.exists():
         sfiles = list(sigma_dir.glob("*.yml"))
-        print(f"   Sigma rules: {len(sfiles)} files ({sigma_dir})")
-    print(f"{'='*60}")
+        print(f"   Sigma rules: {len(sfiles)} files ({sigma_dir})", flush=True)
+    print(f"{'='*60}", flush=True)
 
 
 if __name__ == "__main__":

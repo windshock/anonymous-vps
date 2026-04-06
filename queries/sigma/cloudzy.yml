@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — Cloudzy
-id: 4c8f8256-928a-5c2f-acae-8ea29a26f69d
+title: Network Connection to Anonymous VPS Provider Inventory — Cloudzy
+id: 8717ce57-f41d-5522-b34d-c87a38c64497
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Cloudzy' (AS396998), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'Cloudzy' (AS396998). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,20 +16,24 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '104.152.140.0/24'
-      - '172.111.34.0/24'
-      - '205.220.224.0/23'
-      - '205.220.228.0/24'
-      - '205.220.230.0/23'
-      - '206.71.159.0/24'
-      - '209.237.140.0/24'
-      - '23.183.240.0/21'
-    condition: selection
+            - '104.152.140.0/24'
+            - '136.175.222.0/23'
+            - '155.117.227.0/24'
+            - '157.254.27.0/24'
+            - '172.111.34.0/24'
+            - '205.220.224.0/22'
+            - '205.220.228.0/24'
+            - '205.220.230.0/23'
+            - '206.71.159.0/24'
+            - '209.237.140.0/24'
+            - '23.183.240.0/21'
+            - '66.92.13.0/24'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

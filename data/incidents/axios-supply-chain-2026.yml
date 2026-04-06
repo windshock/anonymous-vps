@@ -1,0 +1,21 @@
+{
+  "incident_id": "axios-supply-chain-2026",
+  "name": "Axios npm supply-chain compromise (2026)",
+  "summary": "Public incident writeups include a resolved Hostwinds C2 IP.",
+  "references": [
+    {
+      "source": "SafeDep incident report",
+      "url": "https://safedep.io/axios-npm-supply-chain-compromise"
+    }
+  ],
+  "iocs": [
+    {
+      "value": "142.11.206.73",
+      "type": "ipv4",
+      "status": "ioc_only",
+      "asn": "AS54290",
+      "provider_id": "hostwinds",
+      "notes": "Resolved C2 IP reported publicly; keep the Hostwinds /18 out of generalized CIDR detection."
+    }
+  ]
+}

@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — CherryServers
-id: a4af6765-2664-5fbc-b8aa-679e6a0a7d1c
+title: Network Connection to Anonymous VPS Provider Inventory — CherryServers
+id: 2284d8d8-15b9-567e-9cfc-146250c47f2a
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'CherryServers' (AS16125), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'CherryServers' (AS16125). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,56 +16,50 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '163.5.176.0/24'
-      - '185.150.116.0/22'
-      - '185.191.22.0/23'
-      - '185.227.48.0/22'
-      - '185.8.104.0/23'
-      - '188.214.128.0/21'
-      - '213.252.248.0/23'
-      - '45.10.158.0/23'
-      - '45.40.122.0/24'
-      - '46.166.160.0/20'
-      - '5.199.160.0/22'
-      - '5.199.168.0/21'
-      - '82.206.0.0/23'
-      - '82.206.10.0/23'
-      - '82.23.2.0/24'
-      - '84.32.109.0/24'
-      - '84.32.110.0/24'
-      - '84.32.149.0/24'
-      - '84.32.151.0/24'
-      - '84.32.178.0/23'
-      - '84.32.209.0/24'
-      - '84.32.214.0/23'
-      - '84.32.244.0/24'
-      - '84.32.248.0/24'
-      - '84.32.25.0/24'
-      - '84.32.51.0/24'
-      - '84.32.83.0/24'
-      - '84.32.9.0/24'
-      - '84.32.97.0/24'
-      - '85.204.74.0/24'
-      - '87.120.192.0/23'
-      - '87.121.62.0/23'
-      - '87.232.136.0/21'
-      - '88.216.127.0/24'
-      - '88.216.197.0/24'
-      - '88.216.215.0/24'
-      - '88.216.62.0/24'
-      - '88.216.90.0/24'
-      - '88.216.93.0/24'
-      - '89.106.4.0/24'
-      - '89.213.254.0/23'
-      - '89.35.178.0/24'
-      - '93.115.24.0/21'
-      - '95.169.164.0/24'
-    condition: selection
+            - '109.109.164.0/22'
+            - '163.5.176.0/24'
+            - '185.150.116.0/22'
+            - '185.191.22.0/23'
+            - '185.227.48.0/22'
+            - '185.8.104.0/23'
+            - '188.214.128.0/21'
+            - '213.252.248.0/23'
+            - '45.10.158.0/23'
+            - '45.40.122.0/24'
+            - '46.166.160.0/20'
+            - '5.199.160.0/22'
+            - '5.199.168.0/21'
+            - '82.206.0.0/23'
+            - '82.206.10.0/23'
+            - '82.23.2.0/24'
+            - '84.32.151.0/24'
+            - '84.32.178.0/23'
+            - '84.32.209.0/24'
+            - '84.32.214.0/23'
+            - '84.32.248.0/24'
+            - '84.32.25.0/24'
+            - '84.32.51.0/24'
+            - '84.32.9.0/24'
+            - '84.32.97.0/24'
+            - '85.204.74.0/24'
+            - '87.120.192.0/23'
+            - '87.121.62.0/23'
+            - '87.232.136.0/21'
+            - '88.216.127.0/24'
+            - '88.216.197.0/24'
+            - '88.216.62.0/24'
+            - '88.216.90.0/24'
+            - '89.106.4.0/24'
+            - '89.213.254.0/23'
+            - '89.35.178.0/24'
+            - '93.115.24.0/21'
+            - '95.169.164.0/24'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

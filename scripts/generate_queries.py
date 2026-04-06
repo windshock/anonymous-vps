@@ -1,101 +1,50 @@
 #!/usr/bin/env python3
 """
-generate_queries.py — known-providers.csv로부터 Logpresso 탐지 쿼리 자동 생성
-
-생성 파일:
-    queries/logpresso/<vendor_slug>.logpresso     — 공급자별 (dst_ip 기준, 방화벽)
-    queries/logpresso/<vendor_slug>-vpn.logpresso — 공급자별 (client_ip 기준, VPN 인바운드)
-    queries/logpresso/all-vendors.logpresso       — 전체 합산 (dst_ip)
-    queries/logpresso/all-vendors-vpn.logpresso   — 전체 합산 (VPN)
-
-사용법:
-    python3 scripts/generate_queries.py
-    python3 scripts/generate_queries.py --vendor BitLaunch
-    python3 scripts/generate_queries.py --dry-run
+generate_queries.py — Build Logpresso queries from provider inventory and detection feeds.
 """
+
+from __future__ import annotations
 
 import argparse
 import csv
 import ipaddress
 import re
-import sys
 from collections import defaultdict
 from pathlib import Path
 
-ROOT       = Path(__file__).parent.parent
-RANGES_CSV = ROOT / "data" / "ip-ranges" / "known-providers.csv"
-OUT_DIR    = ROOT / "queries" / "logpresso"
+from data_model import ROOT
 
+PROVIDER_RANGES_CSV = ROOT / "generated" / "detection" / "provider-ranges.csv"
+HIGH_RISK_CSV = ROOT / "generated" / "detection" / "high-risk-cidrs.csv"
+INCIDENT_IOCS_CSV = ROOT / "generated" / "detection" / "incident-iocs.csv"
+OUT_DIR = ROOT / "queries" / "logpresso"
 
-# ──────────────────────────────────────────────
-# Helpers
-# ──────────────────────────────────────────────
 
 def vendor_slug(vendor: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", vendor.lower()).strip("-")
 
 
 def cidr_to_filter(cidr: str, ip_field: str) -> str:
-    """'45.61.136.0/22' → 'network(client_ip,22) == \"45.61.136.0\"'"""
-    net = ipaddress.IPv4Network(cidr, strict=False)
-    return f'network({ip_field},{net.prefixlen}) == "{net.network_address}"'
+    network = ipaddress.IPv4Network(cidr, strict=False)
+    return f'network({ip_field},{network.prefixlen}) == "{network.network_address}"'
 
 
-def build_search_clause(cidrs: list[str], ip_field: str) -> str:
-    return " or ".join(cidr_to_filter(c, ip_field) for c in cidrs)
+def ip_to_filter(ip_value: str, ip_field: str) -> str:
+    return f'{ip_field} == "{ip_value}"'
 
 
-# ──────────────────────────────────────────────
-# Query templates
-# ──────────────────────────────────────────────
-
-VPN_QUERY_TMPL = """\
-## {vendor} — VPN 인바운드 탐지 (Anonymous VPS: {asn})
-## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
-##
-## 사용법: Logpresso에서 직접 실행하거나 모니터링 쿼리에 search 절로 삽입
-## IP 범위 수: {range_count}개  |  ASN: {asn}
-
-fulltext "New" and "session" and "client" from *:SYS_VPN
-  | rex field=line "New session from client IP (?<client_ip>[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}})"
-  | search {search_clause}
-"""
-
-FW_QUERY_TMPL = """\
-## {vendor} — 방화벽 아웃바운드 탐지 (Anonymous VPS: {asn})
-## 생성: generate_queries.py  |  source: data/ip-ranges/known-providers.csv
-##
-## 사용법: Logpresso에서 직접 실행하거나 방화벽/IDS 쿼리에 search 절로 삽입
-## IP 범위 수: {range_count}개  |  ASN: {asn}
-
-{search_clause}
-"""
-
-FILTER_ONLY_TMPL = """\
-## {vendor} ({asn}) — search 절만 (다른 쿼리에 삽입용)
-{search_clause}
-"""
+def build_search_clause(cidrs: list[str], ips: list[str], ip_field: str) -> str:
+    clauses = [ip_to_filter(ip_value, ip_field) for ip_value in sorted(set(ips))]
+    clauses.extend(cidr_to_filter(cidr, ip_field) for cidr in sorted(set(cidrs)))
+    return " or ".join(clauses)
 
 
-def make_queries(vendor: str, asn: str, cidrs: list[str]) -> dict[str, str]:
-    vpn_clause = build_search_clause(cidrs, "client_ip")
-    fw_clause  = build_search_clause(cidrs, "dst_ip")
-    ctx = dict(vendor=vendor, asn=asn, range_count=len(cidrs))
-    return {
-        "vpn": VPN_QUERY_TMPL.format(search_clause=vpn_clause, **ctx),
-        "fw":  FW_QUERY_TMPL.format(search_clause=fw_clause, **ctx),
-    }
-
-
-# ──────────────────────────────────────────────
-# Core
-# ──────────────────────────────────────────────
-
-def load_ranges(vendor_filter: str | None) -> dict[str, dict]:
-    """known-providers.csv → {vendor: {asn, cidrs[]}}"""
-    data: dict[str, dict] = defaultdict(lambda: {"asn": "", "cidrs": []})
-    with open(RANGES_CSV, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
+def load_provider_ranges(vendor_filter: str | None) -> dict[str, dict[str, list[str] | str]]:
+    data: dict[str, dict[str, list[str] | str]] = defaultdict(lambda: {"asn": "", "cidrs": []})
+    if not PROVIDER_RANGES_CSV.exists():
+        return {}
+    with open(PROVIDER_RANGES_CSV, newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
             vendor = row["vendor"].strip()
             if vendor_filter and vendor.lower() != vendor_filter.lower():
                 continue
@@ -104,96 +53,210 @@ def load_ranges(vendor_filter: str | None) -> dict[str, dict]:
     return dict(data)
 
 
-def write_queries(vendor_data: dict[str, dict], dry_run: bool) -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def load_high_risk_cidrs() -> list[str]:
+    if not HIGH_RISK_CSV.exists():
+        return []
+    with open(HIGH_RISK_CSV, newline="", encoding="utf-8") as handle:
+        return [row["cidr"].strip() for row in csv.DictReader(handle) if row.get("cidr", "").strip()]
 
-    all_vpn_clauses: list[str] = []
-    all_fw_clauses:  list[str] = []
-    all_vendor_names: list[str] = []
 
+def load_incident_iocs() -> list[str]:
+    if not INCIDENT_IOCS_CSV.exists():
+        return []
+    with open(INCIDENT_IOCS_CSV, newline="", encoding="utf-8") as handle:
+        return [row["ioc"].strip() for row in csv.DictReader(handle) if row.get("ioc", "").strip()]
+
+
+VPN_TMPL = """\
+## {title}
+## source: {source}
+## indicators: {indicator_count}
+
+fulltext "New" and "session" and "client" from *:SYS_VPN
+  | rex field=line "New session from client IP (?<client_ip>[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}})"
+  | search {search_clause}
+"""
+
+FW_TMPL = """\
+## {title}
+## source: {source}
+## indicators: {indicator_count}
+
+{search_clause}
+"""
+
+
+def write_text(path: Path, text: str, dry_run: bool) -> None:
+    if dry_run:
+        print(f"\n{'=' * 60}\n[{path.name}]\n{text[:700]}…")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def make_query(title: str, source: str, cidrs: list[str], ips: list[str], vpn: bool) -> str:
+    ip_field = "client_ip" if vpn else "dst_ip"
+    search_clause = build_search_clause(cidrs, ips, ip_field)
+    indicator_count = len(set(cidrs)) + len(set(ips))
+    template = VPN_TMPL if vpn else FW_TMPL
+    return template.format(
+        title=title,
+        source=source,
+        indicator_count=indicator_count,
+        search_clause=search_clause,
+    )
+
+
+def write_detection_queries(high_risk_cidrs: list[str], incident_iocs: list[str], dry_run: bool) -> None:
+    if high_risk_cidrs:
+        write_text(
+            OUT_DIR / "high-risk.logpresso",
+            make_query(
+                "high-risk-cidrs — generalized anonymous VPS CIDR detections",
+                "generated/detection/high-risk-cidrs.csv",
+                high_risk_cidrs,
+                [],
+                vpn=False,
+            ),
+            dry_run,
+        )
+        write_text(
+            OUT_DIR / "high-risk-vpn.logpresso",
+            make_query(
+                "high-risk-cidrs — VPN inbound detections",
+                "generated/detection/high-risk-cidrs.csv",
+                high_risk_cidrs,
+                [],
+                vpn=True,
+            ),
+            dry_run,
+        )
+
+    if incident_iocs:
+        write_text(
+            OUT_DIR / "incident-iocs.logpresso",
+            make_query(
+                "incident-iocs — exact IP detections",
+                "generated/detection/incident-iocs.csv",
+                [],
+                incident_iocs,
+                vpn=False,
+            ),
+            dry_run,
+        )
+        write_text(
+            OUT_DIR / "incident-iocs-vpn.logpresso",
+            make_query(
+                "incident-iocs — VPN inbound exact IP detections",
+                "generated/detection/incident-iocs.csv",
+                [],
+                incident_iocs,
+                vpn=True,
+            ),
+            dry_run,
+        )
+
+    combined_cidrs = sorted(set(high_risk_cidrs))
+    combined_ips = sorted(set(incident_iocs))
+    if combined_cidrs or combined_ips:
+        write_text(
+            OUT_DIR / "all-detection.logpresso",
+            make_query(
+                "all-detection — conservative anonymous VPS detection set",
+                "generated/detection/high-risk-cidrs.csv + generated/detection/incident-iocs.csv",
+                combined_cidrs,
+                combined_ips,
+                vpn=False,
+            ),
+            dry_run,
+        )
+        write_text(
+            OUT_DIR / "all-detection-vpn.logpresso",
+            make_query(
+                "all-detection — conservative VPN inbound detection set",
+                "generated/detection/high-risk-cidrs.csv + generated/detection/incident-iocs.csv",
+                combined_cidrs,
+                combined_ips,
+                vpn=True,
+            ),
+            dry_run,
+        )
+
+
+def write_provider_queries(vendor_data: dict[str, dict[str, list[str] | str]], dry_run: bool) -> None:
+    all_cidrs: list[str] = []
     for vendor, info in sorted(vendor_data.items()):
-        asn   = info["asn"]
-        cidrs = info["cidrs"]
-        queries = make_queries(vendor, asn, cidrs)
+        asn = str(info["asn"])
+        cidrs = list(info["cidrs"])
         slug = vendor_slug(vendor)
+        write_text(
+            OUT_DIR / f"{slug}.logpresso",
+            make_query(
+                f"{vendor} — provider inventory outbound hunt ({asn})",
+                "generated/detection/provider-ranges.csv",
+                cidrs,
+                [],
+                vpn=False,
+            ),
+            dry_run,
+        )
+        write_text(
+            OUT_DIR / f"{slug}-vpn.logpresso",
+            make_query(
+                f"{vendor} — provider inventory VPN inbound hunt ({asn})",
+                "generated/detection/provider-ranges.csv",
+                cidrs,
+                [],
+                vpn=True,
+            ),
+            dry_run,
+        )
+        all_cidrs.extend(cidrs)
 
-        vpn_path = OUT_DIR / f"{slug}-vpn.logpresso"
-        fw_path  = OUT_DIR / f"{slug}.logpresso"
+    if all_cidrs:
+        write_text(
+            OUT_DIR / "all-vendors.logpresso",
+            make_query(
+                "all-vendors — broad provider inventory hunt",
+                "generated/detection/provider-ranges.csv",
+                all_cidrs,
+                [],
+                vpn=False,
+            ),
+            dry_run,
+        )
+        write_text(
+            OUT_DIR / "all-vendors-vpn.logpresso",
+            make_query(
+                "all-vendors — broad provider inventory VPN hunt",
+                "generated/detection/provider-ranges.csv",
+                all_cidrs,
+                [],
+                vpn=True,
+            ),
+            dry_run,
+        )
 
-        if dry_run:
-            print(f"\n{'='*60}")
-            print(f"[{vpn_path.name}]")
-            print(queries["vpn"][:400] + "…")
-        else:
-            vpn_path.write_text(queries["vpn"], encoding="utf-8")
-            fw_path.write_text(queries["fw"],  encoding="utf-8")
-            print(f"  ✅ {vendor:25} → {slug}.logpresso + {slug}-vpn.logpresso  ({len(cidrs)} ranges)")
-
-        all_vpn_clauses.append(f"## {vendor} ({asn})\n  " +
-                               build_search_clause(cidrs, "client_ip"))
-        all_fw_clauses.append(f"## {vendor} ({asn})\n  " +
-                              build_search_clause(cidrs, "dst_ip"))
-        all_vendor_names.append(vendor)
-
-    # 전체 합산 쿼리
-    all_vpn_search = " or\n  ".join(
-        cidr_to_filter(c, "client_ip")
-        for v in sorted(vendor_data)
-        for c in vendor_data[v]["cidrs"]
-    )
-    all_fw_search = " or\n  ".join(
-        cidr_to_filter(c, "dst_ip")
-        for v in sorted(vendor_data)
-        for c in vendor_data[v]["cidrs"]
-    )
-    total_ranges = sum(len(v["cidrs"]) for v in vendor_data.values())
-
-    all_vpn = (
-        f"## all-vendors — VPN 인바운드 탐지 (전체 {len(vendor_data)}개 공급자, {total_ranges}개 범위)\n"
-        f"## 공급자: {', '.join(sorted(vendor_data))}\n\n"
-        f"fulltext \"New\" and \"session\" and \"client\" from *:SYS_VPN\n"
-        f"  | rex field=line \"New session from client IP "
-        f"(?<client_ip>[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}})\"\n"
-        f"  | search {all_vpn_search}\n"
-    )
-    all_fw = (
-        f"## all-vendors — 방화벽 아웃바운드 탐지 (전체 {len(vendor_data)}개 공급자, {total_ranges}개 범위)\n"
-        f"## 공급자: {', '.join(sorted(vendor_data))}\n\n"
-        f"{all_fw_search}\n"
-    )
-
-    if not dry_run:
-        (OUT_DIR / "all-vendors-vpn.logpresso").write_text(all_vpn, encoding="utf-8")
-        (OUT_DIR / "all-vendors.logpresso").write_text(all_fw, encoding="utf-8")
-        print(f"\n  ✅ all-vendors.logpresso + all-vendors-vpn.logpresso  ({total_ranges} total ranges)")
-
-
-# ──────────────────────────────────────────────
-# Main
-# ──────────────────────────────────────────────
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate Logpresso detection queries from IP ranges")
-    parser.add_argument("--vendor", metavar="NAME", help="특정 공급자만 처리")
-    parser.add_argument("--dry-run", action="store_true", help="파일 저장 없이 화면 출력")
+    parser = argparse.ArgumentParser(description="Generate Logpresso queries from detection feeds")
+    parser.add_argument("--vendor", metavar="NAME", help="Filter provider inventory queries to a single provider")
+    parser.add_argument("--dry-run", action="store_true", help="Print queries instead of writing files")
     args = parser.parse_args()
 
-    if not RANGES_CSV.exists():
-        print(f"❌ IP ranges not found: {RANGES_CSV}")
-        print("   먼저 실행: python3 scripts/generate_ranges.py")
-        sys.exit(1)
+    provider_ranges = load_provider_ranges(args.vendor)
+    high_risk_cidrs = load_high_risk_cidrs()
+    incident_iocs = load_incident_iocs()
 
-    vendor_data = load_ranges(args.vendor)
-    if not vendor_data:
-        print("⚠️  No ranges found.")
-        sys.exit(0)
+    if not provider_ranges and not high_risk_cidrs and not incident_iocs:
+        raise SystemExit("❌ No generated detection inputs found. Run the pipeline first.")
 
-    total = sum(len(v["cidrs"]) for v in vendor_data.values())
-    print(f"📋 Generating queries for {len(vendor_data)} vendor(s), {total} IP ranges…")
-    write_queries(vendor_data, dry_run=args.dry_run)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    write_provider_queries(provider_ranges, args.dry_run)
+    write_detection_queries(high_risk_cidrs, incident_iocs, args.dry_run)
 
     if not args.dry_run:
-        print(f"\n✅ Done. Files written to {OUT_DIR}/")
+        print(f"✅ Queries written → {OUT_DIR}")
 
 
 if __name__ == "__main__":

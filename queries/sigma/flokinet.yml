@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — FlokiNET
-id: 6066c0bc-025e-549d-b6aa-1b5db2837042
+title: Network Connection to Anonymous VPS Provider Inventory — FlokiNET
+id: 0ff772f3-613e-51aa-871f-01a9870fb3d2
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'FlokiNET' (AS200651), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'FlokiNET' (AS200651). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,27 +16,24 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '185.10.68.0/24'
-      - '185.100.84.0/22'
-      - '185.146.232.0/23'
-      - '185.146.234.0/24'
-      - '185.165.168.0/22'
-      - '185.246.188.0/22'
-      - '185.247.224.0/23'
-      - '185.247.226.0/24'
-      - '188.240.231.0/24'
-      - '188.241.54.0/24'
-      - '213.218.160.0/24'
-      - '37.156.68.0/24'
-      - '37.228.128.0/23'
-      - '85.193.77.0/24'
-      - '94.198.190.0/24'
-    condition: selection
+            - '185.10.68.0/24'
+            - '185.100.84.0/22'
+            - '185.146.232.0/23'
+            - '185.146.234.0/24'
+            - '185.165.168.0/22'
+            - '185.246.188.0/22'
+            - '185.247.224.0/23'
+            - '185.247.226.0/24'
+            - '188.240.231.0/24'
+            - '37.156.68.0/24'
+            - '37.228.128.0/23'
+            - '81.180.202.0/23'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

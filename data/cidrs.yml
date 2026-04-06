@@ -1,0 +1,24 @@
+[
+  {
+    "cidr": "83.142.209.0/24",
+    "asn": "AS205759",
+    "provider_id": null,
+    "status": "candidate",
+    "scope": "provider_allocated",
+    "summary": "Infrastructure context exists, but current evidence is too weak to promote the full /24 into the high-risk detection set.",
+    "evidence": [
+      {
+        "type": "campaign_report",
+        "source": "TeamPCP report",
+        "url": "https://ramimac.me/teampcp/",
+        "claim": "contains_known_ioc"
+      },
+      {
+        "type": "abuse_aggregation",
+        "source": "ipapi abusive networks",
+        "url": "https://ipapi.is/most-abusive-networks.html",
+        "claim": "candidate_abuse_context"
+      }
+    ]
+  }
+]

@@ -1,10 +1,10 @@
-title: Network Connection to Anonymous VPS — Inovare-Prim SRL
-id: 4fcfc865-b884-582c-8645-10e67aa773fa
+title: Network Connection to Anonymous VPS Provider Inventory — Inovare-Prim SRL
+id: 1ae3079e-616b-599e-9069-7981437c449a
 status: experimental
-description: Detects outbound network connections to IP ranges associated with anonymous VPS provider 'Inovare-Prim SRL' (AS60602), which accepts cryptocurrency payments and requires no KYC.
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'Inovare-Prim SRL' (AS60602). This is a broad hunting rule, not a malicious-infrastructure verdict.
 references:
     - https://github.com/windshock/anonymous-vps
-    - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
 date: 2026-04-06
 modified: 2026-04-06
@@ -16,21 +16,21 @@ logsource:
     category: firewall
     product: any
 detection:
-    selection:
+    selection_cidrs:
         dst_ip|cidr:
-      - '154.16.177.0/24'
-      - '154.56.0.0/24'
-      - '185.181.228.0/23'
-      - '185.181.230.0/24'
-      - '194.33.40.0/22'
-      - '222.167.254.0/24'
-      - '5.101.80.0/24'
-      - '80.66.79.0/24'
-      - '82.25.203.0/24'
-    condition: selection
+            - '151.243.80.0/23'
+            - '154.16.177.0/24'
+            - '154.56.0.0/24'
+            - '185.181.228.0/23'
+            - '185.181.230.0/24'
+            - '194.33.40.0/22'
+            - '5.101.80.0/24'
+            - '80.66.79.0/24'
+            - '82.25.203.0/24'
+    condition: selection_cidrs
 falsepositives:
-    - Legitimate use of VPS services by internal users
-    - Cloud workloads intentionally communicating with these providers
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
 fields:
     - dst_ip
     - src_ip

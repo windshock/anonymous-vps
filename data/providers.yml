@@ -1,0 +1,962 @@
+[
+  {
+    "provider_id": "aeza-group",
+    "name": "Aeza Group",
+    "domains": [],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Subject of sanctions/news (handle with legal caution).",
+    "bridge": {
+      "domain": "aeza.* (various)",
+      "asn_link": "https://bgp.tools/asn/210644",
+      "shodan_template": "https://shodan.io/search?query=aeza",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Subject of sanctions/news (handle with legal caution).",
+      "source": "news - sanctions"
+    },
+    "evidence": [
+      {
+        "type": "legacy_migration",
+        "source": "news - sanctions",
+        "url": "",
+        "claim": "migrated_legacy_record"
+      }
+    ]
+  },
+  {
+    "provider_id": "bitcoinvps-cloud",
+    "name": "bitcoinvps.cloud",
+    "domains": [
+      "bitcoinvps.cloud"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "bitcoinvps.cloud",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=bitcoinvps&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=bitcoinvps.cloud",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "bitcoinvps.cloud official site",
+        "url": "https://bitcoinvps.cloud",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "bitcoinvps-site",
+    "name": "bitcoinvps.site",
+    "domains": [
+      "bitcoinvps.site"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "bitcoinvps.site",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=bitcoinvps&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=bitcoinvps.site",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "bitcoinvps.site official site",
+        "url": "https://bitcoinvps.site",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "bitlaunch",
+    "name": "BitLaunch",
+    "domains": [
+      "bitlaunch.io"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Crypto payment gateway for DO/Vultr/Linode (reseller model).",
+    "bridge": {
+      "domain": "bitlaunch.io",
+      "asn_link": "https://bgp.tools/asn/399629",
+      "shodan_template": "https://shodan.io/search?query=bitlaunch.io",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto payment gateway for DO/Vultr/Linode (reseller model).",
+      "source": "bitlaunch.io / bitcoin-vps lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "BitLaunch official site",
+        "url": "https://bitlaunch.io",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "black-host",
+    "name": "Black.host",
+    "domains": [
+      "black.host"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Bulletproof-style host (reviews warn).",
+    "bridge": {
+      "domain": "black.host",
+      "asn_link": "https://bgp.tools/asn/12989",
+      "shodan_template": "https://shodan.io/search?query=black.host",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Bulletproof-style host (reviews warn).",
+      "source": "bulletproof hosting lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Black.host official site",
+        "url": "https://black.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "btc-vps-com",
+    "name": "btc-vps.com",
+    "domains": [
+      "btc-vps.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "btc-vps.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=btc-vps&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=btc-vps.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "btc-vps.com official site",
+        "url": "https://btc-vps.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "cherryservers",
+    "name": "CherryServers",
+    "domains": [
+      "cherryservers.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "cherryservers.com",
+      "asn_link": "https://bgp.tools/asn/16125",
+      "shodan_template": "https://shodan.io/search?query=cherryservers.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "CherryServers official site",
+        "url": "https://cherryservers.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "cloudzy",
+    "name": "Cloudzy",
+    "domains": [
+      "cloudzy.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Crypto-friendly offerings in lists.",
+    "bridge": {
+      "domain": "cloudzy.com",
+      "asn_link": "https://bgp.tools/asn/396998",
+      "shodan_template": "https://shodan.io/search?query=cloudzy.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly offerings in lists.",
+      "source": "navicosoft / coin-host articles"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Cloudzy official site",
+        "url": "https://cloudzy.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "datacamp-limited",
+    "name": "Datacamp Limited",
+    "domains": [
+      "coin.host"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "coin.host",
+      "asn_link": "https://bgp.tools/asn/212238",
+      "shodan_template": "https://shodan.io/search?query=coin.host",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Datacamp Limited official site",
+        "url": "https://coin.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "eldernode-com",
+    "name": "eldernode.com",
+    "domains": [
+      "eldernode.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "eldernode.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=eldernode&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=eldernode.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "eldernode.com official site",
+        "url": "https://eldernode.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "flokinet",
+    "name": "FlokiNET",
+    "domains": [
+      "flokinet.is"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Privacy-focused in Iceland and elsewhere.",
+    "bridge": {
+      "domain": "flokinet.is",
+      "asn_link": "https://bgp.he.net/AS200651",
+      "shodan_template": "https://shodan.io/search?query=org:%22FlokiNET%22",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Privacy-focused in Iceland and elsewhere.",
+      "source": "bitcoin-vps / privacy host lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "FlokiNET official site",
+        "url": "https://flokinet.is",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "ghostvps",
+    "name": "GhostVPS",
+    "domains": [
+      "ghostvps.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "btc",
+      "eth",
+      "usdt"
+    ],
+    "status": "provider_verified",
+    "summary": "Official VPS service with published cryptocurrency payment options.",
+    "bridge": {
+      "domain": "ghostvps.com",
+      "asn_link": "https://bgp.tools/asn/205759",
+      "shodan_template": "https://shodan.io/search?query=ghostvps.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Official VPS service with BTC/ETH/USDT payments.",
+      "source": "official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "GhostVPS official site",
+        "url": "https://ghostvps.com/",
+        "claim": "crypto_payment_vps_service"
+      }
+    ]
+  },
+  {
+    "provider_id": "hostinger",
+    "name": "Hostinger",
+    "domains": [
+      "hostinger.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "hostinger.com (via CoinGate)",
+      "asn_link": "https://bgp.tools/asn/47583",
+      "shodan_template": "https://shodan.io/search?query=hostinger.com (via CoinGate)",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Hostinger official site",
+        "url": "https://hostinger.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "hostsailor",
+    "name": "HostSailor",
+    "domains": [
+      "hostsailor.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Known crypto payment option historically.",
+    "bridge": {
+      "domain": "hostsailor.com",
+      "asn_link": "https://bgp.tools/asn/60117",
+      "shodan_template": "https://shodan.io/search?query=hostsailor.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Known crypto payment option historically.",
+      "source": "hostadvice / coin articles"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "HostSailor official site",
+        "url": "https://hostsailor.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "hoststage-com",
+    "name": "hoststage.com",
+    "domains": [
+      "hoststage.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "hoststage.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=hoststage&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=hoststage.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "hoststage.com official site",
+        "url": "https://hoststage.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "hostwinds",
+    "name": "Hostwinds",
+    "domains": [
+      "hostwinds.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Crypto payment accepted. C2 IP 142.11.206.73 used in Axios npm supply-chain attack (Mar 2026).",
+    "bridge": {
+      "domain": "hostwinds.com",
+      "asn_link": "https://bgp.tools/asn/54290",
+      "shodan_template": "https://shodan.io/search?query=hostwinds.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto payment accepted. C2 IP 142.11.206.73 used in Axios npm supply-chain attack (Mar 2026).",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Hostwinds official site",
+        "url": "https://hostwinds.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "impreza-host",
+    "name": "Impreza.host",
+    "domains": [
+      "impreza.host"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Listed in bulletproof/anonymous host lists. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "impreza.host",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=Impreza.host&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=impreza.host",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Listed in bulletproof/anonymous host lists. (Reseller/no own ASN)",
+      "source": "bulletproof lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Impreza.host official site",
+        "url": "https://impreza.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "inovare-prim-srl",
+    "name": "Inovare-Prim SRL",
+    "domains": [
+      "darkvps.pro"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "darkvps.pro",
+      "asn_link": "https://bgp.tools/asn/60602",
+      "shodan_template": "https://shodan.io/search?query=darkvps.pro",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Inovare-Prim SRL official site",
+        "url": "https://darkvps.pro",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "monovm",
+    "name": "MonoVM",
+    "domains": [
+      "monovm.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Lithuania-based, crypto payments noted in lists.",
+    "bridge": {
+      "domain": "monovm.com",
+      "asn_link": "https://bgp.tools/asn/51430",
+      "shodan_template": "https://shodan.io/search?query=monovm.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Lithuania-based, crypto payments noted in lists.",
+      "source": "vps-crypto / coinhost articles"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "MonoVM official site",
+        "url": "https://monovm.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "mvps",
+    "name": "MVPS",
+    "domains": [
+      "mvps.net"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "mvps.net",
+      "asn_link": "https://bgp.tools/asn/202448",
+      "shodan_template": "https://shodan.io/search?query=mvps.net",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "MVPS official site",
+        "url": "https://mvps.net",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "neterra-ltd",
+    "name": "Neterra Ltd.",
+    "domains": [
+      "vpsbg.eu"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "vpsbg.eu",
+      "asn_link": "https://bgp.tools/asn/34224",
+      "shodan_template": "https://shodan.io/search?query=vpsbg.eu",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Neterra Ltd. official site",
+        "url": "https://vpsbg.eu",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "njalla",
+    "name": "Njalla",
+    "domains": [
+      "njal.la"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Privacy-focused domain/hosting (Jonthan \"njal.la\").",
+    "bridge": {
+      "domain": "njal.la",
+      "asn_link": "https://bgp.tools/asn/39287",
+      "shodan_template": "https://shodan.io/search?query=njal.la",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Privacy-focused domain/hosting (Jonthan \"njal.la\").",
+      "source": "privacy host lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Njalla official site",
+        "url": "https://njal.la",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "prv-to",
+    "name": "prv.to",
+    "domains": [
+      "prv.to"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "prv.to",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=prv&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=prv.to",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "prv.to official site",
+        "url": "https://prv.to",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "qloudhost",
+    "name": "QloudHost",
+    "domains": [
+      "qloudhost.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Listed among crypto VPS guides.",
+    "bridge": {
+      "domain": "qloudhost.com",
+      "asn_link": "https://bgp.tools/asn/20473",
+      "shodan_template": "https://shodan.io/search?query=qloudhost.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Listed among crypto VPS guides.",
+      "source": "hosting lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "QloudHost official site",
+        "url": "https://qloudhost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "shinjiru",
+    "name": "Shinjiru",
+    "domains": [
+      "shinjiru.com.my"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Offshore / privacy-focused hosting.",
+    "bridge": {
+      "domain": "shinjiru.com.my",
+      "asn_link": "https://bgp.he.net/AS45839",
+      "shodan_template": "https://shodan.io/search?query=hostname:shinjiru.com.my",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Offshore / privacy-focused hosting.",
+      "source": "anonymous VPS lists / news"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Shinjiru official site",
+        "url": "https://shinjiru.com.my",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "snel-com",
+    "name": "Snel.com",
+    "domains": [
+      "snel.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "bridge": {
+      "domain": "snel.com",
+      "asn_link": "https://bgp.tools/asn/62370",
+      "shodan_template": "https://shodan.io/search?query=snel.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Snel.com official site",
+        "url": "https://snel.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "theonionhost-com",
+    "name": "theonionhost.com",
+    "domains": [
+      "theonionhost.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "theonionhost.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=theonionhost&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=theonionhost.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "theonionhost.com official site",
+        "url": "https://theonionhost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "ultahost",
+    "name": "Ultahost",
+    "domains": [
+      "ultahost.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Crypto-friendly host listed in many guides.",
+    "bridge": {
+      "domain": "ultahost.com",
+      "asn_link": "https://bgp.he.net/AS214036",
+      "shodan_template": "https://shodan.io/search?query=org:%22Ultahost%22",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly host listed in many guides.",
+      "source": "Best Info Lab / lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Ultahost official site",
+        "url": "https://ultahost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "vikhost",
+    "name": "VikHost",
+    "domains": [
+      "vikhost.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Mentioned in bitcoin VPS roundups. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "vikhost.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=VikHost&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=vikhost.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Mentioned in bitcoin VPS roundups. (Reseller/no own ASN)",
+      "source": "techlazy / btc-vps"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "VikHost official site",
+        "url": "https://vikhost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "vps-crypto-site",
+    "name": "vps-crypto.site",
+    "domains": [
+      "vps-crypto.site"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "vps-crypto.site",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=vps-crypto&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=vps-crypto.site",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Collected from public lists; requires DNS->IP->ASN resolution. (Reseller/no own ASN)",
+      "source": "aggregator lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "vps-crypto.site official site",
+        "url": "https://vps-crypto.site",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "vpsserver",
+    "name": "VPSServer",
+    "domains": [
+      "vpsserver.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "candidate",
+    "summary": "Appears on multiple 'pay with crypto' lists. (Reseller/no own ASN)",
+    "bridge": {
+      "domain": "vpsserver.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=VPSServer&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=vpsserver.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Appears on multiple 'pay with crypto' lists. (Reseller/no own ASN)",
+      "source": "bitcoin-vps / lists"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "VPSServer official site",
+        "url": "https://vpsserver.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "vsys",
+    "name": "VSYS",
+    "domains": [
+      "vsys.host"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Appears on anonymous VPS lists.",
+    "bridge": {
+      "domain": "vsys.host",
+      "asn_link": "https://bgp.tools/asn/30860",
+      "shodan_template": "https://shodan.io/search?query=vsys.host",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Appears on anonymous VPS lists.",
+      "source": "darkvps / hostadvice"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "VSYS official site",
+        "url": "https://vsys.host",
+        "claim": "service_domain"
+      }
+    ]
+  }
+]

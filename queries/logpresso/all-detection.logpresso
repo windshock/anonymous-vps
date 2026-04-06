@@ -1,0 +1,5 @@
+## all-detection — conservative anonymous VPS detection set
+## source: generated/detection/high-risk-cidrs.csv + generated/detection/incident-iocs.csv
+## indicators: 3
+
+dst_ip == "142.11.206.73" or dst_ip == "45.148.10.212" or dst_ip == "83.142.209.11"

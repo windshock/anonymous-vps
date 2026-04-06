@@ -1,0 +1,7 @@
+## all-detection — conservative VPN inbound detection set
+## source: generated/detection/high-risk-cidrs.csv + generated/detection/incident-iocs.csv
+## indicators: 3
+
+fulltext "New" and "session" and "client" from *:SYS_VPN
+  | rex field=line "New session from client IP (?<client_ip>[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
+  | search client_ip == "142.11.206.73" or client_ip == "45.148.10.212" or client_ip == "83.142.209.11"

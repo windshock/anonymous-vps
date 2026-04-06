@@ -1,0 +1,29 @@
+{
+  "incident_id": "teampcp",
+  "name": "TeamPCP",
+  "summary": "Public report containing anonymous VPS-related IOC references.",
+  "references": [
+    {
+      "source": "TeamPCP report",
+      "url": "https://ramimac.me/teampcp/"
+    }
+  ],
+  "iocs": [
+    {
+      "value": "83.142.209.11",
+      "type": "ipv4",
+      "status": "ioc_only",
+      "asn": "AS205759",
+      "provider_id": null,
+      "notes": "Explicit IOC in the TeamPCP report; do not generalize beyond /32 yet."
+    },
+    {
+      "value": "45.148.10.212",
+      "type": "ipv4",
+      "status": "ioc_only",
+      "asn": "AS48090",
+      "provider_id": null,
+      "notes": "Explicit IOC in the TeamPCP report; retain as exact IP only."
+    }
+  ]
+}

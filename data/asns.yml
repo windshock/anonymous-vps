@@ -1,0 +1,366 @@
+[
+  {
+    "asn": "AS12989",
+    "name": "Black.host",
+    "provider_id": "black-host",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Bulletproof-style host (reviews warn).",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Black.host official site",
+        "url": "https://black.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS16125",
+    "name": "CherryServers",
+    "provider_id": "cherryservers",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "CherryServers official site",
+        "url": "https://cherryservers.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS200651",
+    "name": "FlokiNET",
+    "provider_id": "flokinet",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Privacy-focused in Iceland and elsewhere.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "FlokiNET official site",
+        "url": "https://flokinet.is",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS202448",
+    "name": "MVPS",
+    "provider_id": "mvps",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "MVPS official site",
+        "url": "https://mvps.net",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS20473",
+    "name": "QloudHost",
+    "provider_id": "qloudhost",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Listed among crypto VPS guides.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "QloudHost official site",
+        "url": "https://qloudhost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS205759",
+    "name": "Ghosty Networks",
+    "provider_id": "ghostvps",
+    "relationship": "candidate_link",
+    "status": "candidate",
+    "summary": "Candidate infrastructure link for GhostVPS; keep out of provider inventory until confirmed.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "GhostVPS official site",
+        "url": "https://ghostvps.com/",
+        "claim": "provider_exists"
+      }
+    ]
+  },
+  {
+    "asn": "AS210644",
+    "name": "Aeza Group",
+    "provider_id": "aeza-group",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Subject of sanctions/news (handle with legal caution).",
+    "evidence": [
+      {
+        "type": "legacy_migration",
+        "source": "news - sanctions",
+        "url": "",
+        "claim": "migrated_legacy_record"
+      }
+    ]
+  },
+  {
+    "asn": "AS212238",
+    "name": "Datacamp Limited",
+    "provider_id": "datacamp-limited",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Datacamp Limited official site",
+        "url": "https://coin.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS214036",
+    "name": "Ultahost",
+    "provider_id": "ultahost",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Crypto-friendly host listed in many guides.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Ultahost official site",
+        "url": "https://ultahost.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS30860",
+    "name": "VSYS",
+    "provider_id": "vsys",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Appears on anonymous VPS lists.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "VSYS official site",
+        "url": "https://vsys.host",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS34224",
+    "name": "Neterra Ltd.",
+    "provider_id": "neterra-ltd",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Neterra Ltd. official site",
+        "url": "https://vpsbg.eu",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS39287",
+    "name": "Njalla",
+    "provider_id": "njalla",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Privacy-focused domain/hosting (Jonthan \"njal.la\").",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Njalla official site",
+        "url": "https://njal.la",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS396998",
+    "name": "Cloudzy",
+    "provider_id": "cloudzy",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Crypto-friendly offerings in lists.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Cloudzy official site",
+        "url": "https://cloudzy.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS399629",
+    "name": "BitLaunch",
+    "provider_id": "bitlaunch",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Crypto payment gateway for DO/Vultr/Linode (reseller model).",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "BitLaunch official site",
+        "url": "https://bitlaunch.io",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS45839",
+    "name": "Shinjiru",
+    "provider_id": "shinjiru",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Offshore / privacy-focused hosting.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Shinjiru official site",
+        "url": "https://shinjiru.com.my",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS47583",
+    "name": "Hostinger",
+    "provider_id": "hostinger",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Hostinger official site",
+        "url": "https://hostinger.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS48090",
+    "name": "DMZHOST / Techoff Srv Limited",
+    "provider_id": null,
+    "relationship": "unknown",
+    "status": "abuse_candidate",
+    "summary": "Public abuse telemetry repeatedly flags this ASN; treat it as context, not a blocklist by itself.",
+    "evidence": [
+      {
+        "type": "threat_feed",
+        "source": "ThreatFox ASN view",
+        "url": "https://threatfox.abuse.ch/asn/48090/",
+        "claim": "repeated_abuse_observation"
+      },
+      {
+        "type": "abuse_aggregation",
+        "source": "Cloudflare Radar ASN view",
+        "url": "https://radar.cloudflare.com/as48090",
+        "claim": "abuse_context"
+      },
+      {
+        "type": "abuse_aggregation",
+        "source": "ipapi abusive networks",
+        "url": "https://ipapi.is/most-abusive-networks.html",
+        "claim": "very_high_abuse_context"
+      }
+    ]
+  },
+  {
+    "asn": "AS51430",
+    "name": "MonoVM",
+    "provider_id": "monovm",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Lithuania-based, crypto payments noted in lists.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "MonoVM official site",
+        "url": "https://monovm.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS54290",
+    "name": "Hostwinds",
+    "provider_id": "hostwinds",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Crypto payment accepted. C2 IP 142.11.206.73 used in Axios npm supply-chain attack (Mar 2026).",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Hostwinds official site",
+        "url": "https://hostwinds.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS60117",
+    "name": "HostSailor",
+    "provider_id": "hostsailor",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Known crypto payment option historically.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "HostSailor official site",
+        "url": "https://hostsailor.com",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS60602",
+    "name": "Inovare-Prim SRL",
+    "provider_id": "inovare-prim-srl",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Inovare-Prim SRL official site",
+        "url": "https://darkvps.pro",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS62370",
+    "name": "Snel.com",
+    "provider_id": "snel-com",
+    "relationship": "used_by_provider",
+    "status": "candidate",
+    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Snel.com official site",
+        "url": "https://snel.com",
+        "claim": "service_domain"
+      }
+    ]
+  }
+]

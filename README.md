@@ -1,126 +1,153 @@
-# 🕵️ Anonymous VPS Intelligence
+# Anonymous VPS Intelligence
 
-A curated **Threat Intelligence** repository of anonymous VPS providers that support cryptocurrency payments.  
-Focused on infrastructure data observed in real-world APT and ransomware campaigns.
+A curated defensive repository for tracking anonymous or crypto-friendly VPS / hosting infrastructure that appears in public incident reporting.
 
----
+The repository is intentionally detection-first:
 
-## 📦 Data
+- `provider inventory` is kept for context and hunting
+- `incident IOC` stays at `/32` when evidence is narrow
+- `high-risk CIDR` is only promoted when range-level generalization is justified
 
-### [`data/vps-providers.csv`](data/vps-providers.csv)
-Curated list of anonymous VPS providers (30+). Includes ASN, Shodan search links, and notes.
+This repository does not label all VPS providers as malicious. It separates:
 
-| Column | Description |
-|--------|-------------|
-| `vendor` | Service name |
-| `domain` | Official domain |
-| `asn` | Autonomous System Number |
-| `shodan_template` | Shodan search URL |
-| `abuse_template` | AbuseIPDB lookup URL |
-| `note` | Payment method, anonymity notes, APT observations |
+- providers that offer anonymous or crypto-friendly infrastructure
+- exact IOC IPs seen in incidents
+- generalized CIDRs that cleared a conservative promotion policy
 
-### [`data/asn-ipv4.csv`](data/asn-ipv4.csv)
-Global ASN ↔ IPv4 range mapping reference (~400k records). Not committed to repo — fetched via `fetch_asn.py`.
+## Repository Model
 
----
+Source of truth:
 
-## 📑 Analysis Reports
+- `data/providers.yml`
+- `data/asns.yml`
+- `data/cidrs.yml`
+- `data/incidents/*.yml`
 
-| File | Description |
-|------|-------------|
-| [apt-analysis-2020-2025.md](reports/apt-analysis-2020-2025.md) | Anonymous VPS abuse by APT groups (China, Russia, Middle East) — 2020–2025 |
-| [axios-supply-chain-2026.md](reports/axios-supply-chain-2026.md) | Deep-dive: Axios npm supply-chain compromise (2026) |
+Generated outputs:
 
----
+- `generated/detection/provider-ranges.csv`
+- `generated/detection/high-risk-cidrs.csv`
+- `generated/detection/incident-iocs.csv`
+- `generated/legacy/providers-bridge.csv`
+- `data/vps-providers.csv`
+- `data/ip-ranges/known-providers.csv`
 
-## 🔍 Provider Selection Criteria
+The `*.yml` files are stored as JSON-compatible YAML so the scripts can parse them without external dependencies.
 
-Providers are included if they meet **one or more** of the following:
+## Detection Outputs
 
-- Cryptocurrency payment accepted (BTC / XMR / ETH)
-- No KYC (identity verification not required)
-- DMCA / abuse complaints ignored (Bulletproof Hosting)
-- Offshore registration (Iceland, Russia, Romania, Netherlands, etc.)
-- Observed in real APT or ransomware infrastructure
+Primary detection inputs:
 
----
+- `generated/detection/incident-iocs.csv`
+  - exact IPs from public incident reporting
+  - safest starting point for blocking or high-confidence alerting
+- `generated/detection/high-risk-cidrs.csv`
+  - generalized CIDRs that cleared the repo's conservative policy
+  - intended for broader detection once range-level evidence exists
 
-## 🎯 Usage Guide
+Context / hunting input:
 
-| Use Case | File | Notes |
-|----------|------|-------|
-| **Logpresso — VPN inbound detection** | [`queries/logpresso/all-vendors-vpn.logpresso`](queries/logpresso/all-vendors-vpn.logpresso) | Detects anonymous VPS connections in VPN logs |
-| **Logpresso — Firewall outbound detection** | [`queries/logpresso/all-vendors.logpresso`](queries/logpresso/all-vendors.logpresso) | Detects internal→external comms to anonymous VPS |
-| **Per-vendor queries** | [`queries/logpresso/`](queries/logpresso/) | Focus monitoring on a specific provider |
-| **Other SIEM / Firewall ACL** | [`data/ip-ranges/known-providers.csv`](data/ip-ranges/known-providers.csv) (`cidr` column) | Import CIDR list into any SIEM or firewall |
-| **Splunk / Elastic / Sentinel (Sigma)** | [`queries/sigma/all-vendors.yml`](queries/sigma/all-vendors.yml) | Convert with [pySigma](https://github.com/SigmaHQ/pySigma) to any backend |
-| **Per-vendor Sigma rules** | [`queries/sigma/`](queries/sigma/) | `level: high` for APT-observed providers |
-| **Provider reference** | [`data/vps-providers.csv`](data/vps-providers.csv) | vendor, ASN, Shodan links |
+- `generated/detection/provider-ranges.csv`
+  - provider inventory ranges derived from linked ASNs
+  - useful for hunting and enrichment
+  - not a malicious-infrastructure verdict by itself
 
-> ⚠️ **False positive warning**: Datacamp Limited (1,834 ranges), QloudHost (677), and Hostinger (343) have very broad IP ranges.  
-> It is recommended to start monitoring with providers that have confirmed APT observations: `BitLaunch`, `FlokiNET`, `Shinjiru`, `Hostwinds`.
+## Status Model
 
----
+Providers:
 
-## ⚙️ Pipeline
+- `provider_verified`
+- `candidate`
+- `rejected`
+
+ASNs:
+
+- `candidate`
+- `abuse_candidate`
+- `rejected`
+
+CIDRs:
+
+- `candidate`
+- `abuse_candidate`
+- `campaign_observed`
+- `rejected`
+
+Incident IOCs:
+
+- `ioc_only`
+- `campaign_observed`
+
+## Conservative Promotion Rules
+
+- A single IOC remains `/32`
+- A single report does not justify `/24` promotion
+- `provider inventory` and `high-risk CIDR` are separate outputs
+- ASN is used for context and linking, not as the default detection unit
+- Automatic collection results are not auto-merged
+
+## Queries
+
+Broad hunting queries:
+
+- `queries/logpresso/all-vendors.logpresso`
+- `queries/logpresso/all-vendors-vpn.logpresso`
+- `queries/sigma/all-vendors.yml`
+
+Conservative detection queries:
+
+- `queries/logpresso/all-detection.logpresso`
+- `queries/logpresso/all-detection-vpn.logpresso`
+- `queries/logpresso/incident-iocs.logpresso`
+- `queries/sigma/all-detection.yml`
+- `queries/sigma/incident-iocs.yml`
+
+Per-provider Logpresso and Sigma files are still generated from `provider-ranges.csv` for hunting workflows.
+
+## Pipeline
 
 ```bash
-# Full pipeline: fetch latest ASN DB + regenerate IP ranges + queries
+# Full pipeline
 python3 scripts/pipeline.py
 
-# Skip ASN download (use existing asn-ipv4.csv)
+# Skip ASN download
 python3 scripts/pipeline.py --skip-fetch
 
-# Single provider
+# Single provider query/rule regeneration
 python3 scripts/pipeline.py --skip-fetch --vendor BitLaunch
 
-# Validate & sort provider list
-python3 scripts/update_providers.py
-
-# Look up IP ranges for an ASN
-python3 scripts/update_providers.py --lookup AS399629
+# Validate source data only
+python3 scripts/validate_data.py
 ```
 
-See [AGENT.md](AGENT.md) for detailed instructions on adding providers and updating data.
+Pipeline stages:
 
----
+1. `fetch_asn.py`
+2. `validate_data.py`
+3. `generate_legacy_bridge.py`
+4. `generate_provider_ranges.py`
+5. `generate_incident_iocs.py`
+6. `generate_high_risk_cidrs.py`
+7. `generate_queries.py`
+8. `generate_sigma.py`
 
-## 🔄 ASN Data Source
+## Current Seed Examples
 
-`data/asn-ipv4.csv` is fetched from:
+- `GhostVPS`
+  - provider record only
+  - official site confirms VPS service and crypto payments
+- `AS48090`
+  - tracked as ASN context with abuse-related public telemetry
+- `83.142.209.0/24`
+  - retained as `candidate`, not promoted into `high-risk-cidrs.csv`
+- `83.142.209.11`, `45.148.10.212`, `142.11.206.73`
+  - retained as incident IOC `/32` entries
 
-> **[sapics/ip-location-db](https://github.com/sapics/ip-location-db/tree/main/asn)** — `asn/asn-ipv4.csv`  
-> Public Domain (CC0). Global ASN ↔ IPv4 mapping (~400k records).
+## Policy
 
-```bash
-python3 scripts/fetch_asn.py        # download latest
-python3 scripts/fetch_asn.py --check  # check for updates only
-```
+- [policy.md](docs/policy.md)
+- [review-checklist.md](docs/review-checklist.md)
 
-### Automatic Weekly Updates (GitHub Actions)
+## Disclaimer
 
-The repository includes a scheduled workflow ([`.github/workflows/update-asn.yml`](.github/workflows/update-asn.yml)) that runs every **Monday at 00:00 UTC**:
-
-1. Downloads the latest `asn-ipv4.csv` from sapics/ip-location-db
-2. Regenerates `data/ip-ranges/known-providers.csv`
-3. Regenerates all `queries/logpresso/*.logpresso` files
-4. Regenerates all `queries/sigma/*.yml` Sigma rules (APT-observed providers → `level: high`)
-5. Auto-commits and pushes if any changes are detected
-
-You can also trigger it manually via **Actions → Weekly ASN Update → Run workflow** on GitHub.
-
----
-
-## ⚠️ Disclaimer
-
-This repository is provided for **defensive security research and Threat Intelligence purposes only**.  
-Any malicious use, offensive activity, or violation of applicable laws is strictly prohibited.
-
----
-
-## 📚 References
-
-- [BushidoToken Blog — Investigating Anonymous VPS Services (2025)](https://blog.bushidotoken.net/2025/02/investigating-anonymous-vps-services.html)
-- [Volexity — Operation EmailThief (2022)](https://www.volexity.com/blog/2022/02/03/operation-emailthief-active-exploitation-of-zero-day-xss-vulnerability-in-zimbra/)
-- [own.security — Bulletproof Hosting Landscape](https://www.own.security/en/ressources/blog/50-shades-of-bulletproof-hosting-bph-landscape-on-russian-language-cybercrime-forums)
-
+This repository is for defensive security research, detection engineering, and threat hunting. It must not be used to justify blanket blocking of an entire provider without validating operational impact and additional context.
