@@ -1,7 +1,7 @@
 ## Cloudzy — provider inventory VPN inbound hunt (AS396998)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 12
+## indicators: 8
 
 fulltext "New" and "session" and "client" from *:SYS_VPN
   | rex field=line "New session from client IP (?<client_ip>[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
-  | search network(client_ip,24) == "104.152.140.0" or network(client_ip,23) == "136.175.222.0" or network(client_ip,24) == "155.117.227.0" or network(client_ip,24) == "157.254.27.0" or network(client_ip,24) == "172.111.34.0" or network(client_ip,22) == "205.220.224.0" or network(client_ip,24) == "205.220.228.0" or network(client_ip,23) == "205.220.230.0" or network(client_ip,24) == "206.71.159.0" or network(client_ip,24) == "209.237.140.0" or network(client_ip,21) == "23.183.240.0" or network(client_ip,24) == "66.92.13.0"
+  | search network(client_ip,24) == "104.152.140.0" or network(client_ip,24) == "172.111.34.0" or network(client_ip,23) == "205.220.224.0" or network(client_ip,24) == "205.220.228.0" or network(client_ip,23) == "205.220.230.0" or network(client_ip,24) == "206.71.159.0" or network(client_ip,24) == "209.237.140.0" or network(client_ip,21) == "23.183.240.0"
