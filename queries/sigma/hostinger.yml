@@ -6,8 +6,8 @@ references:
     - https://github.com/windshock/anonymous-vps
     - https://github.com/windshock/anonymous-vps/blob/main/data/vps-providers.csv
 author: windshock
-date: 2026-04-01
-modified: 2026-04-01
+date: 2026-04-06
+modified: 2026-04-06
 tags:
     - attack.command_and_control
     - attack.t1090
@@ -179,6 +179,8 @@ detection:
       - '2.24.0.0/21'
       - '2.24.128.0/20'
       - '2.24.16.0/20'
+      - '2.24.160.0/19'
+      - '2.24.192.0/19'
       - '2.24.32.0/19'
       - '2.57.88.0/22'
       - '2.59.150.0/24'

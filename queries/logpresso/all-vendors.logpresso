@@ -1,4 +1,4 @@
-## all-vendors — 방화벽 아웃바운드 탐지 (전체 20개 공급자, 3823개 범위)
+## all-vendors — 방화벽 아웃바운드 탐지 (전체 20개 공급자, 3808개 범위)
 ## 공급자: Aeza Group, BitLaunch, Black.host, CherryServers, Cloudzy, Datacamp Limited, FlokiNET, HostSailor, Hostinger, Hostwinds, Inovare-Prim SRL, MVPS, MonoVM, Neterra Ltd., Njalla, QloudHost, Shinjiru, Snel.com, Ultahost, VSYS
 
 network(dst_ip,24) == "104.238.29.0" or
@@ -56,6 +56,7 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "193.188.20.0" or
   network(dst_ip,24) == "193.188.22.0" or
   network(dst_ip,24) == "193.232.178.0" or
+  network(dst_ip,22) == "193.233.128.0" or
   network(dst_ip,24) == "193.233.133.0" or
   network(dst_ip,23) == "193.233.232.0" or
   network(dst_ip,23) == "193.29.224.0" or
@@ -790,7 +791,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "172.111.182.0" or
   network(dst_ip,24) == "172.111.187.0" or
   network(dst_ip,24) == "172.111.193.0" or
-  network(dst_ip,24) == "172.111.246.0" or
   network(dst_ip,24) == "172.111.248.0" or
   network(dst_ip,23) == "172.120.0.0" or
   network(dst_ip,24) == "172.120.10.0" or
@@ -814,19 +814,18 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "172.121.8.0" or
   network(dst_ip,24) == "172.121.96.0" or
   network(dst_ip,20) == "172.216.128.0" or
+  network(dst_ip,23) == "172.216.14.0" or
   network(dst_ip,22) == "172.216.144.0" or
   network(dst_ip,23) == "172.216.148.0" or
   network(dst_ip,22) == "172.216.156.0" or
   network(dst_ip,21) == "172.216.160.0" or
   network(dst_ip,24) == "172.216.168.0" or
   network(dst_ip,24) == "172.216.173.0" or
-  network(dst_ip,23) == "172.216.18.0" or
   network(dst_ip,22) == "172.216.20.0" or
   network(dst_ip,21) == "172.216.24.0" or
   network(dst_ip,20) == "172.216.32.0" or
   network(dst_ip,23) == "172.216.48.0" or
   network(dst_ip,24) == "172.216.50.0" or
-  network(dst_ip,24) == "172.216.61.0" or
   network(dst_ip,23) == "172.216.62.0" or
   network(dst_ip,18) == "172.216.64.0" or
   network(dst_ip,24) == "172.245.102.0" or
@@ -1562,7 +1561,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "31.58.47.0" or
   network(dst_ip,24) == "31.58.90.0" or
   network(dst_ip,24) == "31.59.171.0" or
-  network(dst_ip,24) == "31.59.199.0" or
   network(dst_ip,22) == "31.59.236.0" or
   network(dst_ip,24) == "36.255.99.0" or
   network(dst_ip,23) == "36.50.238.0" or
@@ -1766,6 +1764,7 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "5.62.34.0" or
   network(dst_ip,24) == "5.83.208.0" or
   network(dst_ip,24) == "50.114.118.0" or
+  network(dst_ip,23) == "50.114.166.0" or
   network(dst_ip,24) == "50.114.211.0" or
   network(dst_ip,24) == "50.114.41.0" or
   network(dst_ip,24) == "50.114.46.0" or
@@ -2030,6 +2029,8 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "82.29.94.0" or
   network(dst_ip,23) == "82.29.96.0" or
   network(dst_ip,24) == "82.38.129.0" or
+  network(dst_ip,24) == "82.41.195.0" or
+  network(dst_ip,20) == "82.47.192.0" or
   network(dst_ip,23) == "83.229.28.0" or
   network(dst_ip,24) == "84.17.36.0" or
   network(dst_ip,24) == "84.17.43.0" or
@@ -2276,7 +2277,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,22) == "95.85.216.0" or
   network(dst_ip,24) == "96.126.128.0" or
   network(dst_ip,24) == "96.126.160.0" or
-  network(dst_ip,22) == "96.126.164.0" or
   network(dst_ip,24) == "96.62.111.0" or
   network(dst_ip,24) == "96.62.127.0" or
   network(dst_ip,24) == "96.62.190.0" or
@@ -2484,6 +2484,8 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,21) == "2.24.0.0" or
   network(dst_ip,20) == "2.24.128.0" or
   network(dst_ip,20) == "2.24.16.0" or
+  network(dst_ip,19) == "2.24.160.0" or
+  network(dst_ip,19) == "2.24.192.0" or
   network(dst_ip,19) == "2.24.32.0" or
   network(dst_ip,22) == "2.57.88.0" or
   network(dst_ip,24) == "2.59.150.0" or
@@ -2708,7 +2710,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,17) == "23.238.0.0" or
   network(dst_ip,17) == "23.254.128.0" or
   network(dst_ip,22) == "36.255.24.0" or
-  network(dst_ip,24) == "143.20.24.0" or
   network(dst_ip,24) == "154.16.177.0" or
   network(dst_ip,24) == "154.56.0.0" or
   network(dst_ip,23) == "185.181.228.0" or
@@ -2900,7 +2901,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "103.160.250.0" or
   network(dst_ip,23) == "103.186.158.0" or
   network(dst_ip,24) == "103.197.53.0" or
-  network(dst_ip,24) == "103.214.69.0" or
   network(dst_ip,24) == "103.218.252.0" or
   network(dst_ip,24) == "103.228.2.0" or
   network(dst_ip,23) == "103.43.174.0" or
@@ -2987,7 +2987,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,21) == "149.28.8.0" or
   network(dst_ip,21) == "150.241.216.0" or
   network(dst_ip,24) == "151.240.25.0" or
-  network(dst_ip,24) == "151.240.99.0" or
   network(dst_ip,24) == "151.241.32.0" or
   network(dst_ip,24) == "151.242.145.0" or
   network(dst_ip,22) == "151.242.176.0" or
@@ -2996,19 +2995,19 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "151.243.45.0" or
   network(dst_ip,24) == "151.243.88.0" or
   network(dst_ip,23) == "151.244.186.0" or
-  network(dst_ip,24) == "151.245.132.0" or
   network(dst_ip,21) == "151.245.144.0" or
-  network(dst_ip,22) == "151.245.180.0" or
+  network(dst_ip,24) == "151.245.181.0" or
+  network(dst_ip,23) == "151.245.182.0" or
   network(dst_ip,24) == "151.245.203.0" or
   network(dst_ip,21) == "151.246.104.0" or
   network(dst_ip,21) == "151.246.168.0" or
   network(dst_ip,22) == "151.246.180.0" or
-  network(dst_ip,20) == "151.246.224.0" or
-  network(dst_ip,21) == "151.246.32.0" or
+  network(dst_ip,21) == "151.246.224.0" or
+  network(dst_ip,22) == "151.246.232.0" or
+  network(dst_ip,24) == "151.246.236.0" or
+  network(dst_ip,23) == "151.246.238.0" or
   network(dst_ip,21) == "151.247.112.0" or
   network(dst_ip,24) == "151.247.131.0" or
-  network(dst_ip,22) == "151.247.144.0" or
-  network(dst_ip,22) == "151.247.152.0" or
   network(dst_ip,24) == "151.247.223.0" or
   network(dst_ip,24) == "151.247.4.0" or
   network(dst_ip,17) == "152.39.128.0" or
@@ -3080,8 +3079,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "178.92.110.0" or
   network(dst_ip,22) == "178.92.120.0" or
   network(dst_ip,24) == "178.92.125.0" or
-  network(dst_ip,23) == "178.92.126.0" or
-  network(dst_ip,23) == "178.92.128.0" or
   network(dst_ip,23) == "178.92.136.0" or
   network(dst_ip,23) == "178.92.142.0" or
   network(dst_ip,23) == "178.92.146.0" or
@@ -3092,7 +3089,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "178.92.204.0" or
   network(dst_ip,23) == "178.92.208.0" or
   network(dst_ip,22) == "178.92.216.0" or
-  network(dst_ip,22) == "178.92.40.0" or
   network(dst_ip,24) == "178.92.48.0" or
   network(dst_ip,23) == "178.92.72.0" or
   network(dst_ip,23) == "178.92.96.0" or
@@ -3106,7 +3102,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "178.93.200.0" or
   network(dst_ip,23) == "178.93.212.0" or
   network(dst_ip,23) == "178.93.216.0" or
-  network(dst_ip,23) == "178.93.238.0" or
   network(dst_ip,23) == "178.93.246.0" or
   network(dst_ip,22) == "178.93.248.0" or
   network(dst_ip,23) == "178.93.252.0" or
@@ -3180,11 +3175,11 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,24) == "185.251.235.0" or
   network(dst_ip,22) == "185.252.168.0" or
   network(dst_ip,23) == "185.253.250.0" or
+  network(dst_ip,24) == "185.30.215.0" or
   network(dst_ip,24) == "185.51.23.0" or
   network(dst_ip,22) == "185.64.100.0" or
   network(dst_ip,23) == "185.77.250.0" or
   network(dst_ip,22) == "185.90.136.0" or
-  network(dst_ip,24) == "185.91.112.0" or
   network(dst_ip,22) == "185.92.220.0" or
   network(dst_ip,23) == "188.116.48.0" or
   network(dst_ip,23) == "188.211.250.0" or
@@ -3199,9 +3194,7 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,23) == "188.241.132.0" or
   network(dst_ip,24) == "188.241.220.0" or
   network(dst_ip,24) == "188.241.59.0" or
-  network(dst_ip,22) == "191.101.212.0" or
   network(dst_ip,23) == "191.101.66.0" or
-  network(dst_ip,24) == "191.96.4.0" or
   network(dst_ip,24) == "192.121.195.0" or
   network(dst_ip,24) == "192.136.64.0" or
   network(dst_ip,21) == "192.153.64.0" or
@@ -3308,12 +3301,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,21) == "208.85.16.0" or
   network(dst_ip,24) == "209.145.40.0" or
   network(dst_ip,19) == "209.222.0.0" or
-  network(dst_ip,22) == "209.236.208.0" or
-  network(dst_ip,23) == "209.236.214.0" or
-  network(dst_ip,24) == "209.236.216.0" or
-  network(dst_ip,24) == "209.236.219.0" or
-  network(dst_ip,24) == "209.236.221.0" or
-  network(dst_ip,24) == "209.236.223.0" or
   network(dst_ip,19) == "209.250.224.0" or
   network(dst_ip,24) == "209.35.232.0" or
   network(dst_ip,22) == "212.192.16.0" or
@@ -3528,8 +3515,6 @@ network(dst_ip,24) == "104.238.29.0" or
   network(dst_ip,20) == "64.177.96.0" or
   network(dst_ip,19) == "64.237.32.0" or
   network(dst_ip,24) == "64.50.166.0" or
-  network(dst_ip,22) == "64.69.116.0" or
-  network(dst_ip,24) == "64.69.120.0" or
   network(dst_ip,18) == "65.20.64.0" or
   network(dst_ip,19) == "66.135.0.0" or
   network(dst_ip,20) == "66.245.192.0" or
