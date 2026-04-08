@@ -104,7 +104,48 @@ Conservative detection queries:
 
 Per-provider Logpresso and Sigma files are still generated from `provider-ranges.csv` for hunting workflows.
 
+## Data Sources
+
+### ASN IP 대역 — sapics/ip-location-db
+
+- Repository: https://github.com/sapics/ip-location-db
+- File: `data/asn-ipv4.csv` (자동 다운로드)
+- Format: `ip_range_start, ip_range_end, asn_number, org_name`
+- Update: 매주 자동 갱신 (GitHub Actions)
+- Origin: RouteViews + DB-IP + 5개 RIR (ARIN/RIPE/APNIC/LACNIC/AFRINIC)
+
+ASN → IP 대역 변환과 **ASN 소유자 검증**에 사용됩니다.
+`validate_data.py`가 `asns.yml` 등록 시 sapics 대조를 통해 오귀속을 자동 차단합니다.
+
+### 공급자 목록 — 수동 연구
+
+`data/providers.yml`의 공급자 목록은 외부 자동 수집 소스가 없습니다.
+위협 인텔리전스 보고서, LLM 보조 검색, 사고 분석을 통해 사람이 직접 추가합니다.
+
 ## Pipeline
+
+```
+[사람/LLM 연구]        [sapics/ip-location-db]
+providers.yml    +      asn-ipv4.csv (매주 갱신)
+asns.yml
+cidrs.yml
+incidents/*.yml
+        │                    │
+        └────────┬───────────┘
+                 ▼
+         validate_data.py
+         (형식 검증 + sapics ASN 오귀속 검출)
+                 │
+    ┌────────────┼──────────────────────┐
+    ▼            ▼                      ▼
+vps-providers  known-providers.csv  generated/detection/
+.csv                                provider-ranges.csv
+                                    high-risk-cidrs.csv
+                                    incident-iocs.csv
+                                         │
+                                queries/logpresso/
+                                queries/sigma/
+```
 
 ```bash
 # Full pipeline
@@ -122,8 +163,8 @@ python3 scripts/validate_data.py
 
 Pipeline stages:
 
-1. `fetch_asn.py`
-2. `validate_data.py`
+1. `fetch_asn.py` — sapics에서 최신 ASN IP 대역 다운로드
+2. `validate_data.py` — 형식 검증 + sapics ASN 소유자 대조
 3. `generate_legacy_bridge.py`
 4. `generate_provider_ranges.py`
 5. `generate_incident_iocs.py`
