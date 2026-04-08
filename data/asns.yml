@@ -64,22 +64,6 @@
     ]
   },
   {
-    "asn": "AS20473",
-    "name": "QloudHost",
-    "provider_id": "qloudhost",
-    "relationship": "used_by_provider",
-    "status": "candidate",
-    "summary": "Listed among crypto VPS guides.",
-    "evidence": [
-      {
-        "type": "provider_site",
-        "source": "QloudHost official site",
-        "url": "https://qloudhost.com",
-        "claim": "service_domain"
-      }
-    ]
-  },
-  {
     "asn": "AS205759",
     "name": "Ghosty Networks",
     "provider_id": "ghostvps",
@@ -187,22 +171,6 @@
         "type": "provider_site",
         "source": "Njalla official site",
         "url": "https://njal.la",
-        "claim": "service_domain"
-      }
-    ]
-  },
-  {
-    "asn": "AS396998",
-    "name": "Cloudzy",
-    "provider_id": "cloudzy",
-    "relationship": "used_by_provider",
-    "status": "candidate",
-    "summary": "Crypto-friendly offerings in lists.",
-    "evidence": [
-      {
-        "type": "provider_site",
-        "source": "Cloudzy official site",
-        "url": "https://cloudzy.com",
         "claim": "service_domain"
       }
     ]

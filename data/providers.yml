@@ -224,10 +224,10 @@
     "summary": "Crypto-friendly offerings in lists.",
     "bridge": {
       "domain": "cloudzy.com",
-      "asn_link": "https://bgp.tools/asn/396998",
+      "asn_link": "https://bgp.tools/search?q=cloudzy",
       "shodan_template": "https://shodan.io/search?query=cloudzy.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Crypto-friendly offerings in lists.",
+      "note": "Crypto-friendly offerings in lists. 자체 ASN 없음 — Path Network(AS396998) 재판매로 추정, ASN 기반 탐지 불가.",
       "source": "navicosoft / coin-host articles"
     },
     "evidence": [
@@ -704,10 +704,10 @@
     "summary": "Listed among crypto VPS guides.",
     "bridge": {
       "domain": "qloudhost.com",
-      "asn_link": "https://bgp.tools/asn/20473",
+      "asn_link": "https://bgp.tools/search?q=qloudhost",
       "shodan_template": "https://shodan.io/search?query=qloudhost.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Listed among crypto VPS guides.",
+      "note": "Listed among crypto VPS guides. 자체 ASN 없음 — Vultr(AS20473) 재판매로 추정, ASN 기반 탐지 불가.",
       "source": "hosting lists"
     },
     "evidence": [
