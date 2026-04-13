@@ -6,8 +6,8 @@ references:
     - https://github.com/windshock/anonymous-vps
     - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/incident-iocs.csv
 author: windshock
-date: 2026-04-06
-modified: 2026-04-06
+date: 2026-04-13
+modified: 2026-04-13
 tags:
     - attack.command_and_control
     - attack.t1090
