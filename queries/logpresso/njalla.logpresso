@@ -1,5 +1,5 @@
 ## Njalla — provider inventory outbound hunt (AS39287)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 10
+## indicators: 8
 
-network(dst_ip,24) == "185.193.125.0" or network(dst_ip,23) == "185.193.126.0" or network(dst_ip,24) == "195.14.20.0" or network(dst_ip,22) == "197.231.220.0" or network(dst_ip,19) == "198.167.192.0" or network(dst_ip,24) == "45.134.242.0" or network(dst_ip,22) == "45.142.140.0" or network(dst_ip,22) == "45.158.116.0" or network(dst_ip,20) == "80.78.16.0" or network(dst_ip,22) == "95.215.16.0"
+network(dst_ip,24) == "185.193.125.0" or network(dst_ip,23) == "185.193.126.0" or network(dst_ip,24) == "195.14.20.0" or network(dst_ip,24) == "45.134.242.0" or network(dst_ip,22) == "45.142.140.0" or network(dst_ip,22) == "45.158.116.0" or network(dst_ip,20) == "80.78.16.0" or network(dst_ip,22) == "95.215.16.0"

@@ -1,5 +1,5 @@
 ## Inovare-Prim SRL — provider inventory outbound hunt (AS60602)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 9
+## indicators: 8
 
-network(dst_ip,24) == "154.16.177.0" or network(dst_ip,24) == "154.56.0.0" or network(dst_ip,23) == "185.181.228.0" or network(dst_ip,24) == "185.181.230.0" or network(dst_ip,22) == "194.33.40.0" or network(dst_ip,24) == "222.167.254.0" or network(dst_ip,24) == "5.101.80.0" or network(dst_ip,24) == "80.66.79.0" or network(dst_ip,24) == "82.25.203.0"
+network(dst_ip,24) == "154.56.0.0" or network(dst_ip,23) == "185.181.228.0" or network(dst_ip,24) == "185.181.230.0" or network(dst_ip,22) == "194.33.40.0" or network(dst_ip,24) == "222.167.254.0" or network(dst_ip,24) == "5.101.80.0" or network(dst_ip,24) == "80.66.79.0" or network(dst_ip,24) == "82.25.203.0"
