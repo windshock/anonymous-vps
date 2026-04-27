@@ -1,5 +1,5 @@
 ## Cloudzy — provider inventory outbound hunt (AS396998)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 14
+## indicators: 8
 
-network(dst_ip,24) == "104.152.140.0" or network(dst_ip,24) == "141.193.68.0" or network(dst_ip,24) == "172.111.34.0" or network(dst_ip,24) == "205.178.177.0" or network(dst_ip,24) == "205.220.224.0" or network(dst_ip,24) == "205.220.228.0" or network(dst_ip,23) == "205.220.230.0" or network(dst_ip,24) == "206.71.159.0" or network(dst_ip,24) == "209.237.140.0" or network(dst_ip,21) == "23.183.240.0" or network(dst_ip,20) == "63.143.16.0" or network(dst_ip,19) == "64.112.192.0" or network(dst_ip,20) == "68.66.16.0" or network(dst_ip,20) == "97.107.80.0"
+network(dst_ip,24) == "104.152.140.0" or network(dst_ip,24) == "172.111.34.0" or network(dst_ip,23) == "205.220.224.0" or network(dst_ip,24) == "205.220.228.0" or network(dst_ip,23) == "205.220.230.0" or network(dst_ip,24) == "206.71.159.0" or network(dst_ip,24) == "209.237.140.0" or network(dst_ip,21) == "23.183.240.0"
