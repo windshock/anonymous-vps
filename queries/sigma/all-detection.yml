@@ -7,8 +7,8 @@ references:
     - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/high-risk-cidrs.csv
     - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/incident-iocs.csv
 author: windshock
-date: 2026-06-08
-modified: 2026-06-08
+date: 2026-06-15
+modified: 2026-06-15
 tags:
     - attack.command_and_control
     - attack.t1090

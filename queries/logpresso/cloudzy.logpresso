@@ -2,4 +2,4 @@
 ## source: generated/detection/provider-ranges.csv
 ## indicators: 7
 
-network(dst_ip,24) == "104.152.140.0" or network(dst_ip,24) == "172.111.34.0" or network(dst_ip,23) == "205.220.224.0" or network(dst_ip,24) == "205.220.228.0" or network(dst_ip,23) == "205.220.230.0" or network(dst_ip,24) == "209.237.140.0" or network(dst_ip,21) == "23.183.240.0"
+network(dst_ip,24) == "104.152.140.0" or network(dst_ip,24) == "172.111.34.0" or network(dst_ip,24) == "205.220.224.0" or network(dst_ip,24) == "205.220.228.0" or network(dst_ip,23) == "205.220.230.0" or network(dst_ip,24) == "209.237.140.0" or network(dst_ip,21) == "23.183.240.0"

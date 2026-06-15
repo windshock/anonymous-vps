@@ -1,5 +1,5 @@
 ## Snel.com — provider inventory outbound hunt (AS62370)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 9
+## indicators: 10
 
-network(dst_ip,24) == "128.204.192.0" or network(dst_ip,22) == "185.62.56.0" or network(dst_ip,23) == "193.33.60.0" or network(dst_ip,23) == "193.34.166.0" or network(dst_ip,24) == "37.148.161.0" or network(dst_ip,24) == "77.95.229.0" or network(dst_ip,24) == "78.41.207.0" or network(dst_ip,24) == "89.207.128.0" or network(dst_ip,23) == "89.207.130.0"
+network(dst_ip,24) == "128.204.192.0" or network(dst_ip,22) == "185.62.56.0" or network(dst_ip,23) == "193.33.60.0" or network(dst_ip,23) == "193.34.166.0" or network(dst_ip,23) == "195.20.204.0" or network(dst_ip,24) == "37.148.161.0" or network(dst_ip,24) == "77.95.229.0" or network(dst_ip,24) == "78.41.207.0" or network(dst_ip,24) == "89.207.128.0" or network(dst_ip,23) == "89.207.130.0"

@@ -1,5 +1,5 @@
 ## Black.host — provider inventory outbound hunt (AS12989)
 ## source: generated/detection/provider-ranges.csv
-## indicators: 12
+## indicators: 13
 
-network(dst_ip,22) == "168.222.184.0" or network(dst_ip,24) == "168.222.92.0" or network(dst_ip,24) == "185.104.2.0" or network(dst_ip,24) == "185.142.236.0" or network(dst_ip,23) == "185.142.238.0" or network(dst_ip,22) == "194.54.180.0" or network(dst_ip,24) == "2.59.21.0" or network(dst_ip,24) == "2.59.22.0" or network(dst_ip,23) == "212.104.140.0" or network(dst_ip,24) == "213.254.179.0" or network(dst_ip,24) == "45.12.60.0" or network(dst_ip,22) == "86.54.28.0"
+network(dst_ip,24) == "165.49.254.0" or network(dst_ip,22) == "168.222.184.0" or network(dst_ip,24) == "168.222.92.0" or network(dst_ip,24) == "185.104.2.0" or network(dst_ip,24) == "185.142.236.0" or network(dst_ip,23) == "185.142.238.0" or network(dst_ip,22) == "194.54.180.0" or network(dst_ip,24) == "2.59.21.0" or network(dst_ip,24) == "2.59.22.0" or network(dst_ip,23) == "212.104.140.0" or network(dst_ip,24) == "213.254.179.0" or network(dst_ip,24) == "45.12.60.0" or network(dst_ip,22) == "86.54.28.0"
