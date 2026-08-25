@@ -10,3 +10,10 @@ data/asn-meta.json
 .DS_Store
 __pycache__/
 *.pyc
+
+# Python dev tooling (dev-only; runtime stays dependency-free)
+.venv/
+.pytest_cache/
+
+# Agent orchestration scratch/audit state (not product)
+.omo/

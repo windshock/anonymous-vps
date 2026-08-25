@@ -1,5 +1,77 @@
 [
   {
+    "provider_id": "m247",
+    "name": "M247",
+    "domains": [
+      "m247.com"
+    ],
+    "service_types": [
+      "vps",
+      "vpn"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Large hosting/VPN backbone (AS9009). Country-localized allocations under one ASN (e.g. M247-SOUTH-KOREA/KR, M247 Taipei/TW) are frequently reused as VPN/proxy exit and recur in scanning/abuse telemetry; some /24s carry RIPE 'LEGAL CONCERNS' remarks. Context for hunting, not a blanket-block verdict.",
+    "bridge": {
+      "domain": "m247.com",
+      "asn_link": "https://bgp.tools/asn/9009",
+      "shodan_template": "https://shodan.io/search?query=asn:AS9009",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Single ASN spans KR/JP/TW-localized hosting/VPN blocks; verify per-/24 before action.",
+      "source": "RIPE whois + public abuse aggregators"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "M247 official site",
+        "url": "https://m247.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 79.110.55.0/24",
+        "url": "https://rdap.db.ripe.net/ip/79.110.55.0",
+        "claim": "kr_localized_allocation_with_legal_concerns_remark"
+      }
+    ]
+  },
+  {
+    "provider_id": "estnoc",
+    "name": "EstNOC OU",
+    "domains": [
+      "estnoc.com"
+    ],
+    "service_types": [
+      "vps",
+      "vpn"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Estonia-based global hosting (AS206804). Country-localized allocations (e.g. EstNOC-Korea/KR) carry RIPE 'LEGAL CONCERNS' remarks and recur in abuse telemetry; commonly used as anonymous VPS/VPN exit. Context for hunting, not a blanket-block verdict.",
+    "bridge": {
+      "domain": "estnoc.com",
+      "asn_link": "https://bgp.tools/asn/206804",
+      "shodan_template": "https://shodan.io/search?query=asn:AS206804",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "KR-localized EstNOC allocation with RIPE legal-concern remark; verify per-/24 before action.",
+      "source": "RIPE whois + public abuse aggregators"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "EstNOC official site",
+        "url": "https://www.estnoc.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 141.98.213.0/24",
+        "url": "https://rdap.db.ripe.net/ip/141.98.213.0",
+        "claim": "kr_localized_allocation_with_legal_concerns_remark"
+      }
+    ]
+  },
+  {
     "provider_id": "aeza-group",
     "name": "Aeza Group",
     "domains": [],
@@ -101,13 +173,13 @@
       "crypto"
     ],
     "status": "candidate",
-    "summary": "Crypto payment gateway for DO/Vultr/Linode (reseller model).",
+    "summary": "Crypto payment gateway for DO/Vultr/Linode (reseller model). Advertises a Seoul VPS option; the Seoul offering is provider marketing, not evidence of a provider-owned prefix.",
     "bridge": {
       "domain": "bitlaunch.io",
       "asn_link": "https://bgp.tools/asn/399629",
       "shodan_template": "https://shodan.io/search?query=bitlaunch.io",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Crypto payment gateway for DO/Vultr/Linode (reseller model).",
+      "note": "Crypto payment gateway for DO/Vultr/Linode (reseller model). Seoul VPS advertised; no provider-wide country tag.",
       "source": "bitlaunch.io / bitcoin-vps lists"
     },
     "evidence": [
@@ -116,6 +188,12 @@
         "source": "BitLaunch official site",
         "url": "https://bitlaunch.io",
         "claim": "service_domain"
+      },
+      {
+        "type": "provider_site",
+        "source": "BitLaunch Seoul VPS page",
+        "url": "https://bitlaunch.io/seoul-vps/",
+        "claim": "seoul_vps_offering"
       }
     ]
   },
@@ -128,16 +206,19 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "btc",
+      "lightning"
+    ],
     "status": "candidate",
-    "summary": "Bulletproof-style host (reviews warn).",
+    "summary": "Privacy-oriented host; official bitcoin-hosting page documents cryptocurrency payment.",
     "bridge": {
       "domain": "black.host",
       "asn_link": "https://bgp.tools/asn/12989",
       "shodan_template": "https://shodan.io/search?query=black.host",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Bulletproof-style host (reviews warn).",
-      "source": "bulletproof hosting lists"
+      "note": "Privacy-oriented host; crypto payment documented.",
+      "source": "black.host official site"
     },
     "evidence": [
       {
@@ -145,6 +226,12 @@
         "source": "Black.host official site",
         "url": "https://black.host",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "Black.host bitcoin hosting",
+        "url": "https://black.host/bitcoin-hosting/",
+        "claim": "crypto_payment_btc_lightning"
       }
     ]
   },
@@ -188,16 +275,18 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "crypto"
+    ],
     "status": "candidate",
-    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "summary": "Bare-metal/VPS provider; official billing documentation lists cryptocurrency among payment options.",
     "bridge": {
       "domain": "cherryservers.com",
       "asn_link": "https://bgp.tools/asn/16125",
       "shodan_template": "https://shodan.io/search?query=cherryservers.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
-      "source": "aggregator lists"
+      "note": "Bare-metal/VPS provider; crypto payment documented in billing docs.",
+      "source": "cherryservers.com billing"
     },
     "evidence": [
       {
@@ -205,6 +294,12 @@
         "source": "CherryServers official site",
         "url": "https://cherryservers.com",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "Cherry Servers billing",
+        "url": "https://www.cherryservers.com/blog/cherry-servers-billing",
+        "claim": "crypto_payment_supported"
       }
     ]
   },
@@ -224,10 +319,10 @@
     "summary": "Crypto-friendly offerings in lists.",
     "bridge": {
       "domain": "cloudzy.com",
-      "asn_link": "https://bgp.tools/asn/396998",
+      "asn_link": "https://bgp.tools/search?q=cloudzy",
       "shodan_template": "https://shodan.io/search?query=cloudzy.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Crypto-friendly offerings in lists.",
+      "note": "Crypto-friendly offerings in lists. 자체 ASN 없음 — Path Network(AS396998) 재판매로 추정, ASN 기반 탐지 불가.",
       "source": "navicosoft / coin-host articles"
     },
     "evidence": [
@@ -240,33 +335,75 @@
     ]
   },
   {
-    "provider_id": "datacamp-limited",
-    "name": "Datacamp Limited",
+    "provider_id": "coin-host",
+    "name": "COIN.HOST",
     "domains": [
       "coin.host"
     ],
     "service_types": [
-      "vps"
+      "vps",
+      "hosting"
     ],
     "payment_methods": [
       "crypto"
     ],
-    "status": "candidate",
-    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "status": "provider_verified",
+    "summary": "Anonymous hosting brand operated by Solar Communications GmbH; officially advertises cryptocurrency payment. Provider record only — no verified ASN ownership, and not linked to AS212238/Datacamp.",
     "bridge": {
       "domain": "coin.host",
-      "asn_link": "https://bgp.tools/asn/212238",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=coin.host&commit=Search",
       "shodan_template": "https://shodan.io/search?query=coin.host",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Collected from public lists; requires DNS->IP->ASN resolution.",
-      "source": "aggregator lists"
+      "note": "Operator Solar Communications GmbH. Crypto payment documented officially. No confirmed ASN — not AS212238.",
+      "source": "coin.host official site"
     },
     "evidence": [
       {
         "type": "provider_site",
-        "source": "Datacamp Limited official site",
-        "url": "https://coin.host",
-        "claim": "service_domain"
+        "source": "COIN.HOST about page",
+        "url": "https://coin.host/about",
+        "claim": "solar_communications_operator_vps_hosting"
+      },
+      {
+        "type": "payment_page",
+        "source": "COIN.HOST payment methods",
+        "url": "https://coin.host/payment-methods",
+        "claim": "official_cryptocurrency_payment"
+      }
+    ]
+  },
+  {
+    "provider_id": "datacamp-limited",
+    "name": "Datacamp Limited",
+    "domains": [
+      "datacamp.co.uk"
+    ],
+    "service_types": [
+      "hosting"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "UK-registered hosting/CDN operator that owns AS212238. Some AS212238 allocations are KR/Seoul-localized (CDNEXT) and are tracked as location context, not a verdict. This is a separate entity from the coin-host provider record.",
+    "bridge": {
+      "domain": "datacamp.co.uk",
+      "asn_link": "https://bgp.tools/asn/212238",
+      "shodan_template": "https://shodan.io/search?query=asn:AS212238",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Owns AS212238 (registry/BGP). KR/Seoul CDNEXT allocations tracked as location context; not linked to the coin-host record.",
+      "source": "RIPE/BGP registry + UK company record"
+    },
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS212238 ownership",
+        "url": "https://bgp.tools/asn/212238",
+        "claim": "datacamp_limited_owns_as212238"
+      },
+      {
+        "type": "provider_site",
+        "source": "Datacamp Limited official domain",
+        "url": "https://datacamp.co.uk",
+        "claim": "hosting_service_domain"
       }
     ]
   },
@@ -296,6 +433,43 @@
         "source": "eldernode.com official site",
         "url": "https://eldernode.com",
         "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "provider_id": "evoxt",
+    "name": "Evoxt",
+    "domains": [
+      "evoxt.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "provider_verified",
+    "summary": "VPS provider that advertises cryptocurrency payment and lists a Seoul (KINX) region among its locations. Provider record only — no verified ASN ownership.",
+    "bridge": {
+      "domain": "evoxt.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=evoxt&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=evoxt.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto payment + Seoul/KINX region advertised. No confirmed own ASN — provider record only.",
+      "source": "evoxt.com official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Evoxt official site",
+        "url": "https://evoxt.com/",
+        "claim": "vps_service_with_cryptocurrency_payment"
+      },
+      {
+        "type": "provider_site",
+        "source": "Evoxt Seoul (KINX) location",
+        "url": "https://evoxt.com/",
+        "claim": "seoul_kinx_region_offering"
       }
     ]
   },
@@ -343,13 +517,13 @@
       "usdt"
     ],
     "status": "provider_verified",
-    "summary": "Official VPS service with published cryptocurrency payment options.",
+    "summary": "Official VPS service with published cryptocurrency payment options. Advertises a South Korea (Seoul) VPS option; the Seoul offering is provider marketing, not evidence of a provider-owned prefix.",
     "bridge": {
       "domain": "ghostvps.com",
       "asn_link": "https://bgp.tools/asn/205759",
       "shodan_template": "https://shodan.io/search?query=ghostvps.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Official VPS service with BTC/ETH/USDT payments.",
+      "note": "Official VPS service with BTC/ETH/USDT payments. Seoul VPS advertised; no provider-wide country tag.",
       "source": "official site"
     },
     "evidence": [
@@ -358,6 +532,12 @@
         "source": "GhostVPS official site",
         "url": "https://ghostvps.com/",
         "claim": "crypto_payment_vps_service"
+      },
+      {
+        "type": "provider_site",
+        "source": "GhostVPS South Korea VPS page",
+        "url": "https://ghostvps.com/south-korea-vps/",
+        "claim": "seoul_south_korea_vps_offering"
       }
     ]
   },
@@ -492,16 +672,18 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "crypto"
+    ],
     "status": "candidate",
-    "summary": "Listed in bulletproof/anonymous host lists. (Reseller/no own ASN)",
+    "summary": "Privacy/anonymous host; official site documents cryptocurrency payment. (Reseller/no own ASN)",
     "bridge": {
       "domain": "impreza.host",
       "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=Impreza.host&commit=Search",
       "shodan_template": "https://shodan.io/search?query=impreza.host",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Listed in bulletproof/anonymous host lists. (Reseller/no own ASN)",
-      "source": "bulletproof lists"
+      "note": "Privacy/anonymous host; crypto payment documented. (Reseller/no own ASN)",
+      "source": "impreza.host official site"
     },
     "evidence": [
       {
@@ -509,6 +691,12 @@
         "source": "Impreza.host official site",
         "url": "https://impreza.host",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "Impreza.host billing",
+        "url": "https://impreza.host/",
+        "claim": "crypto_payment_supported"
       }
     ]
   },
@@ -639,16 +827,21 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "btc",
+      "ltc",
+      "xmr",
+      "eth"
+    ],
     "status": "candidate",
-    "summary": "Privacy-focused domain/hosting (Jonthan \"njal.la\").",
+    "summary": "Privacy-focused domain/VPS provider; official site documents cryptocurrency payment.",
     "bridge": {
       "domain": "njal.la",
       "asn_link": "https://bgp.tools/asn/39287",
       "shodan_template": "https://shodan.io/search?query=njal.la",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Privacy-focused domain/hosting (Jonthan \"njal.la\").",
-      "source": "privacy host lists"
+      "note": "Privacy-focused domain/VPS host; crypto payment documented.",
+      "source": "njal.la official site"
     },
     "evidence": [
       {
@@ -656,6 +849,12 @@
         "source": "Njalla official site",
         "url": "https://njal.la",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "Njalla payment options",
+        "url": "https://njal.la/",
+        "claim": "crypto_payment_btc_ltc_xmr_eth"
       }
     ]
   },
@@ -704,10 +903,10 @@
     "summary": "Listed among crypto VPS guides.",
     "bridge": {
       "domain": "qloudhost.com",
-      "asn_link": "https://bgp.tools/asn/20473",
+      "asn_link": "https://bgp.tools/search?q=qloudhost",
       "shodan_template": "https://shodan.io/search?query=qloudhost.com",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Listed among crypto VPS guides.",
+      "note": "Listed among crypto VPS guides. 자체 ASN 없음 — Vultr(AS20473) 재판매로 추정, ASN 기반 탐지 불가.",
       "source": "hosting lists"
     },
     "evidence": [
@@ -728,16 +927,19 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "btc",
+      "eth"
+    ],
     "status": "candidate",
-    "summary": "Offshore / privacy-focused hosting.",
+    "summary": "Offshore / privacy-focused hosting; official payment page documents cryptocurrency options.",
     "bridge": {
       "domain": "shinjiru.com.my",
       "asn_link": "https://bgp.he.net/AS45839",
       "shodan_template": "https://shodan.io/search?query=hostname:shinjiru.com.my",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Offshore / privacy-focused hosting.",
-      "source": "anonymous VPS lists / news"
+      "note": "Offshore / privacy-focused hosting; crypto payment documented.",
+      "source": "shinjiru.com.my official site"
     },
     "evidence": [
       {
@@ -745,6 +947,12 @@
         "source": "Shinjiru official site",
         "url": "https://shinjiru.com.my",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "Shinjiru payment info",
+        "url": "https://www.shinjiru.com.my/payment-info/",
+        "claim": "crypto_payment_btc_eth"
       }
     ]
   },
@@ -939,16 +1147,18 @@
     "service_types": [
       "vps"
     ],
-    "payment_methods": [],
+    "payment_methods": [
+      "crypto"
+    ],
     "status": "candidate",
-    "summary": "Appears on anonymous VPS lists.",
+    "summary": "Anonymous VPS provider; official anonymous-VPS page documents cryptocurrency payment.",
     "bridge": {
       "domain": "vsys.host",
       "asn_link": "https://bgp.tools/asn/30860",
       "shodan_template": "https://shodan.io/search?query=vsys.host",
       "abuse_template": "https://www.abuseipdb.com/check/<IP>",
-      "note": "Appears on anonymous VPS lists.",
-      "source": "darkvps / hostadvice"
+      "note": "Anonymous VPS; crypto payment documented.",
+      "source": "vsys.host official site"
     },
     "evidence": [
       {
@@ -956,6 +1166,12 @@
         "source": "VSYS official site",
         "url": "https://vsys.host",
         "claim": "service_domain"
+      },
+      {
+        "type": "payment_page",
+        "source": "VSYS anonymous VPS",
+        "url": "https://vsys.host/anonymous-vps",
+        "claim": "crypto_payment_supported"
       }
     ]
   }

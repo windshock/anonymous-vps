@@ -35,6 +35,7 @@ jobs:
             data/vps-providers.csv \
             generated/detection/ \
             generated/legacy/ \
+            generated/context/ \
             queries/logpresso/ \
             queries/sigma/
           if git diff --cached --quiet; then

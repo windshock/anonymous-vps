@@ -19,7 +19,11 @@ ROOT    = Path(__file__).parent.parent
 OUT_CSV = ROOT / "data" / "asn-ipv4.csv"
 META    = ROOT / "data" / "asn-meta.json"
 
-ASN_URL = "https://raw.githubusercontent.com/sapics/ip-location-db/main/asn/asn-ipv4.csv"
+# sapics가 2026-06 저장소를 소스별 디렉토리로 재편하면서 기존 `asn/asn-ipv4.csv` 경로가
+# 제거됨(404). GeoLite2 기반 파일이 기존 데이터와 동일 포맷(start,end,asn,"org명")이며
+# org명이 채워져 있어 validate_data.py의 ASN 소유권 검증을 그대로 유지한다.
+# (dbip-asn-ipv4.csv 는 org명 컬럼이 비어 있어 사용 불가)
+ASN_URL = "https://raw.githubusercontent.com/sapics/ip-location-db/main/geolite2-asn/geolite2-asn-ipv4.csv"
 
 
 def md5(path: Path) -> str:
