@@ -19,9 +19,7 @@ PROVIDER_STATUSES = {"provider_verified", "candidate", "rejected"}
 ASN_STATUSES = {"candidate", "abuse_candidate", "rejected"}
 ASN_RELATIONSHIPS = {"owned_by_provider", "used_by_provider", "candidate_link", "unknown"}
 CIDR_STATUSES = {"candidate", "abuse_candidate", "campaign_observed", "rejected"}
-# location_context = registry/observation context for hunting; never a detection unit.
-CIDR_SCOPES = {"provider_allocated", "high_risk_detection", "location_context"}
-LOCATION_CONTEXT_TAGS = {"kr-localized", "geo-mismatch-candidate"}
+CIDR_SCOPES = {"provider_allocated", "high_risk_detection"}
 IOC_STATUSES = {"ioc_only", "campaign_observed"}
 
 SERVICE_TYPES = {"vpn", "vps", "hosting"}
@@ -29,8 +27,6 @@ PAYMENT_METHODS = {"crypto", "btc", "eth", "usdt", "ltc", "xmr", "lightning", "t
 GENERIC_PAYMENT = "crypto"  # historical catch-all; named currencies are the specific ones
 
 ASN_RE = re.compile(r"^AS\d+$", re.IGNORECASE)
-ISO_COUNTRY_RE = re.compile(r"^[A-Z]{2}$")
-ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 # Tokens that mark an evidence item as substantiating a payment / service claim.
 _PAYMENT_TOKENS = (

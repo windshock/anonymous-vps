@@ -15,9 +15,6 @@ from validation_common import (
     CIDR_STATUSES,
     GENERIC_PAYMENT,
     IOC_STATUSES,
-    ISO_COUNTRY_RE,
-    ISO_DATE_RE,
-    LOCATION_CONTEXT_TAGS,
     PAYMENT_METHODS,
     PROVIDER_STATUSES,
     SERVICE_TYPES,
@@ -27,8 +24,6 @@ from validation_common import (
     validate_evidence,
     validate_references,
 )
-
-_LOCATION_FIELDS = ("tags", "registry_country", "advertised_location", "observed_location", "observed_at")
 
 
 # --------------------------------------------------------------------------- #
@@ -100,44 +95,6 @@ def validate_providers(providers: list[dict]) -> tuple[list[str], list[str]]:
 # --------------------------------------------------------------------------- #
 # CIDRs
 # --------------------------------------------------------------------------- #
-def _validate_location_context(record: dict, subject: str, errors: list[str], warnings: list[str]) -> None:
-    if record.get("status") != "candidate":
-        errors.append(f"{subject}: location_context rows must stay status 'candidate'")
-
-    tags = record.get("tags")
-    if not isinstance(tags, list) or not tags:
-        errors.append(f"{subject}: location_context requires a non-empty tags list")
-        tags = tags if isinstance(tags, list) else []
-    for tag in tags:
-        if tag not in LOCATION_CONTEXT_TAGS:
-            errors.append(f"{subject}: unknown location tag '{tag}'")
-
-    registry = record.get("registry_country", "")
-    registry_ok = isinstance(registry, str) and bool(ISO_COUNTRY_RE.match(registry))
-    if not registry_ok:
-        errors.append(f"{subject}: registry_country must be ISO 3166-1 alpha-2 uppercase, got '{registry}'")
-
-    advertised = record.get("advertised_location", "")
-    if not (isinstance(advertised, str) and advertised.strip()):
-        errors.append(f"{subject}: advertised_location must be a non-empty string")
-
-    is_mismatch = "geo-mismatch-candidate" in tags
-    if is_mismatch:
-        observed = record.get("observed_location", "")
-        if not (isinstance(observed, str) and ISO_COUNTRY_RE.match(observed)):
-            errors.append(f"{subject}: geo-mismatch-candidate requires ISO observed_location, got '{observed}'")
-        elif registry_ok and observed == registry:
-            errors.append(f"{subject}: geo-mismatch-candidate requires registry/observed countries to be distinct")
-        observed_at = record.get("observed_at", "")
-        if not (isinstance(observed_at, str) and ISO_DATE_RE.match(observed_at)):
-            errors.append(f"{subject}: geo-mismatch-candidate requires observed_at as YYYY-MM-DD, got '{observed_at}'")
-    elif "observed_location" in record or "observed_at" in record:
-        errors.append(
-            f"{subject}: observation fields (observed_location/observed_at) are only allowed on "
-            f"geo-mismatch-candidate rows"
-        )
-
-
 def validate_cidrs(cidrs: list[dict], provider_index: dict, asn_index: dict) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -155,9 +112,8 @@ def validate_cidrs(cidrs: list[dict], provider_index: dict, asn_index: dict) -> 
         seen.add(cidr)
         if record.get("status") not in CIDR_STATUSES:
             errors.append(f"{subject}: invalid status '{record.get('status')}'")
-        scope = record.get("scope")
-        if scope not in CIDR_SCOPES:
-            errors.append(f"{subject}: invalid scope '{scope}'")
+        if record.get("scope") not in CIDR_SCOPES:
+            errors.append(f"{subject}: invalid scope '{record.get('scope')}'")
         provider_id = record.get("provider_id")
         if provider_id and provider_id not in provider_index:
             errors.append(f"{subject}: unknown provider_id '{provider_id}'")
@@ -165,13 +121,6 @@ def validate_cidrs(cidrs: list[dict], provider_index: dict, asn_index: dict) -> 
         if asn and asn.upper() not in asn_index:
             errors.append(f"{subject}: unknown ASN '{asn}'")
         validate_evidence(record.get("evidence", []), subject, errors)
-
-        if scope == "location_context":
-            _validate_location_context(record, subject, errors, warnings)
-        else:
-            present = [field for field in _LOCATION_FIELDS if field in record]
-            if present:
-                errors.append(f"{subject}: fields {present} are only valid on scope 'location_context'")
     return errors, warnings
 
 
