@@ -108,34 +108,6 @@ def make_cidr():
 
 
 @pytest.fixture
-def make_location_cidr(make_cidr):
-    """A valid kr-localized location_context CIDR (no observation fields)."""
-
-    def _make(**overrides):
-        record = make_cidr(
-            cidr="198.51.100.0/24",
-            scope="location_context",
-            status="candidate",
-            tags=["kr-localized"],
-            registry_country="KR",
-            advertised_location="Seoul, Korea",
-            summary="Registry-KR allocation advertised as Seoul; context only.",
-            evidence=[
-                {
-                    "type": "registry_record",
-                    "source": "RDAP",
-                    "url": "https://rdap.db.ripe.net/ip/198.51.100.0",
-                    "claim": "kr_registry_allocation",
-                }
-            ],
-        )
-        record.update(overrides)
-        return record
-
-    return _make
-
-
-@pytest.fixture
 def verified_provider(make_provider):
     """A fully-evidenced provider_verified record that must validate cleanly."""
     return make_provider(

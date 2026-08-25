@@ -34,10 +34,10 @@ CIDR:
 
 CIDR location context:
 
-- scope `location_context` records registry country + advertised/observed location
-  (tags `kr-localized`, `geo-mismatch-candidate`) as hunting context
-- a registry country is not proof of physical server location
-- location-context rows stay `candidate` and never enter detection outputs
+- `generated/context/kr-localized-cidrs.csv` is DB-derived: tracked-ASN ranges
+  intersected with the GeoLite2 country DB to find KR-geolocated ranges
+- a geolocation country is not proof of physical server location
+- location-context rows are hunting context and never enter detection outputs
 
 Incident IOC:
 
