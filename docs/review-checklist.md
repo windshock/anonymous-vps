@@ -11,4 +11,11 @@
 - `provider inventory` for context
 - `incident IOC` for exact detection
 - `high-risk CIDR` for generalized detection
+- `location context` (scope `location_context`) for registry/geolocation hunting context
+- For a `provider_verified` record, does each service / payment / location claim have
+  claim-specific official evidence?
+- Is ASN ownership being inferred from resale? (Not allowed without ownership evidence.)
+- For a `location_context` CIDR: is it kept `candidate`, tagged only with `kr-localized`
+  / `geo-mismatch-candidate`, and kept out of every detection output? Is a registry
+  country being presented as proof of physical location? (Not allowed.)
 - Do the generated files change in a way that matches the source edit?

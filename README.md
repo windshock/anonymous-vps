@@ -2,17 +2,33 @@
 
 A curated defensive repository for tracking anonymous or crypto-friendly VPS / hosting infrastructure that appears in public incident reporting.
 
+> **What's new (2026-08)**
+> - Data model now keeps **four separate evidence layers** (provider inventory · ASN relationship · CIDR location context · incident/high-risk detection) — crypto payment alone qualifies a provider for inventory, never for detection.
+> - New **CIDR location-context** layer + isolated artifact `generated/context/kr-localized-cidrs.csv` (tags `kr-localized`, `geo-mismatch-candidate`), deliberately kept out of every detection output.
+> - Provider identity corrected: **Datacamp Limited** (`datacamp.co.uk`, owns AS212238) is separated from the crypto-payment `coin-host` provider record; verified `coin-host` and `evoxt` added with no ASN.
+> - Tooling: validator split into focused modules + an offline `pytest` harness (dev-only; runtime stays dependency-free); pipeline `--dry-run` now writes nothing.
+>
+> Full details in [CHANGELOG.md](CHANGELOG.md).
+
 The repository is intentionally detection-first:
 
 - `provider inventory` is kept for context and hunting
 - `incident IOC` stays at `/32` when evidence is narrow
 - `high-risk CIDR` is only promoted when range-level generalization is justified
 
-This repository does not label all VPS providers as malicious. It separates:
+This repository does not label all VPS providers as malicious. It keeps **four
+separate evidence layers** so that one fact never silently implies another:
 
-- providers that offer anonymous or crypto-friendly infrastructure
-- exact IOC IPs seen in incidents
-- generalized CIDRs that cleared a conservative promotion policy
+1. **provider inventory** — crypto-friendly and/or privacy-focused hosting kept for
+   context and hunting. Cryptocurrency payment support alone can qualify a provider
+   for inventory inclusion, but it is **never** grounds for a malicious / high-risk
+   detection verdict.
+2. **ASN relationship** — which ASN a provider owns or uses (linking/context, not a
+   detection unit). Reselling another operator's cloud does not transfer ASN ownership.
+3. **CIDR location context** — registry country plus advertised/observed location.
+   A registry country is not proof of physical server location; it is hunting context.
+4. **incident / high-risk detection** — exact IOC IPs and generalized CIDRs that
+   cleared a conservative promotion policy.
 
 ## Repository Model
 
@@ -28,6 +44,7 @@ Generated outputs:
 - `generated/detection/provider-ranges.csv`
 - `generated/detection/high-risk-cidrs.csv`
 - `generated/detection/incident-iocs.csv`
+- `generated/context/kr-localized-cidrs.csv`
 - `generated/legacy/providers-bridge.csv`
 - `data/vps-providers.csv`
 - `data/ip-ranges/known-providers.csv`
@@ -51,6 +68,24 @@ Context / hunting input:
   - provider inventory ranges derived from linked ASNs
   - useful for hunting and enrichment
   - not a malicious-infrastructure verdict by itself
+
+## Location Context
+
+- `generated/context/kr-localized-cidrs.csv`
+  - registry/geolocation context for country-localized allocations (currently KR)
+  - fields: `cidr, provider_id, vendor, asn, status, tags, registry_country,
+    advertised_location, observed_location, observed_at, summary, evidence_types, source_urls`
+  - controlled tags:
+    - `kr-localized` — the block is registered/advertised inside Korea
+    - `geo-mismatch-candidate` — a *dated* active-geolocation observation differs from
+      the registry country (`observed_location` + `observed_at`); a time-bound
+      measurement, not proof of deception or of a permanent physical location
+  - registry country and active-location evidence are **non-authoritative and
+    time-bound**; a registry country never proves the physical server location
+  - **detection-exclusion rule:** location-context rows are hunting/enrichment only.
+    They are deliberately kept out of `high-risk-cidrs.csv`, the incident IOC set,
+    and every Sigma / Logpresso detection rule. A location tag alone never promotes a
+    block to high-risk detection.
 
 ## Status Model
 
@@ -169,8 +204,9 @@ Pipeline stages:
 4. `generate_provider_ranges.py`
 5. `generate_incident_iocs.py`
 6. `generate_high_risk_cidrs.py`
-7. `generate_queries.py`
-8. `generate_sigma.py`
+7. `generate_location_context.py` — KR location-context CSV (isolated from detection)
+8. `generate_queries.py`
+9. `generate_sigma.py`
 
 ## Current Seed Examples
 

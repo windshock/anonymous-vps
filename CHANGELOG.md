@@ -20,6 +20,22 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
     org-name column is empty.
 
 ### Added
+- **CIDR location-context layer + isolated artifact.** New CIDR scope
+  `location_context` (tags `kr-localized`, `geo-mismatch-candidate`) records registry
+  country and advertised/observed location as hunting context. Three KR allocations
+  were added — `79.110.55.0/24` (M247, with a dated KR-registry/JP-observed
+  geo-mismatch measurement), `84.233.167.0/24` (Datacamp Limited / CDNEXT-SEO), and
+  `141.98.213.0/24` (EstNOC / EstNOC-Korea) — and are emitted to the new
+  `generated/context/kr-localized-cidrs.csv`. **Isolation guarantee:** these rows are
+  deliberately kept out of the high-risk CSV, incident IOCs, and every Sigma /
+  Logpresso rule. A registry country is not proof of physical server location, and a
+  location tag alone never promotes a block to detection.
+- **Verified providers: `coin-host` and `evoxt`.** Both added as `provider_verified`
+  (official crypto-payment evidence; `evoxt` also advertises a Seoul/KINX region),
+  each with **no** ASN record because ownership is not evidenced.
+- **Payment evidence enriched** for Njalla, Shinjiru, Black.host, VSYS, Impreza.host,
+  and Cherry Servers using official pages; Seoul-offering evidence added to BitLaunch
+  and GhostVPS without any provider-wide country tag.
 - **Providers / ASNs: M247 (AS9009) and EstNOC (AS206804).** Both operate their
   own ASN (registered `owned_by_provider`, `abuse_candidate`). Added to close a
   coverage gap for **country-localized anonymous hosting/VPN allocations** —
@@ -31,6 +47,19 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
   - See `reports/kr-localized-anonymous-vps-2026-08.md`.
 
 ### Changed
+- **Provider identity corrected.** `datacamp-limited` is now modeled as the UK
+  hosting/CDN operator that owns AS212238 (`datacamp.co.uk`, service type `hosting`,
+  no payment methods, relationship `owned_by_provider`). It was previously
+  mis-modeled with the crypto-payment brand's domain and service. That crypto-payment
+  brand is now a **separate** `coin-host` provider record (operator Solar
+  Communications GmbH) with no ASN attributed. AS212238 links **only** to
+  `datacamp-limited`, which remains foreign-operated KR/Seoul hosting inventory.
+- **Validator modularized + offline test harness.** `validate_data.py` is now a thin
+  CLI over `validation_common.py`, `validate_asn.py`, and `validate_records.py`, which
+  enforce controlled `service_types` / `payment_methods` vocabularies and the new
+  `location_context` schema. A dev-only `pytest` suite (`tests/`, `uv` dev group)
+  locks current behavior and the new contracts; runtime scripts stay
+  standard-library-only. The pipeline `--dry-run` now correctly writes no files.
 - **ASN data source migrated** from `asn/asn-ipv4.csv` → `geolite2-asn/geolite2-asn-ipv4.csv`
   (see Fixed). `data/asn-meta.json` `source` field updated accordingly.
 - **Refreshed ASN data to 2026-08-25** (403,434 rows) and regenerated all outputs.

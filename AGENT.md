@@ -69,6 +69,7 @@ Do not edit these directly:
 - `generated/detection/provider-ranges.csv`
 - `generated/detection/high-risk-cidrs.csv`
 - `generated/detection/incident-iocs.csv`
+- `generated/context/kr-localized-cidrs.csv`
 - `generated/legacy/providers-bridge.csv`
 - `data/vps-providers.csv`
 - `data/ip-ranges/known-providers.csv`
@@ -87,8 +88,23 @@ Do not edit these directly:
   - **ASN은 반드시 sapics 대조 검증 후 등록** — 재판매 업체(자체 ASN 없음)는 등록 금지
 - `cidrs.yml`
   - generalized CIDRs with explicit status and scope
+  - scope `location_context` records registry/geolocation context (tags `kr-localized`,
+    `geo-mismatch-candidate`); it is hunting context, **never** a detection unit
 - `incidents/*.yml`
   - exact IOC observations and incident references
+
+## Evidence Rules (contributors)
+
+- Use **claim-specific official evidence** for each declared service / payment /
+  location fact. A `provider_verified` record must back every such claim; do not
+  upgrade a record to `provider_verified` on a generic site link alone.
+- **Do not infer ASN ownership from resale.** A provider reselling another
+  operator's cloud does not own that ASN. Only register an ASN under a provider when
+  ownership/use is evidenced (see ASN registration rules below).
+- **Keep location-only context out of detection.** `scope: location_context` rows
+  (registry country, advertised/observed location) are hunting/enrichment only. They
+  must never enter `high-risk-cidrs.csv`, incident IOCs, Sigma, or Logpresso. A
+  registry country is not proof of physical server location.
 
 ## ASN 등록 규칙
 
