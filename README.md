@@ -4,7 +4,7 @@ A curated defensive repository for tracking anonymous or crypto-friendly VPS / h
 
 > **What's new (2026-08)**
 > - Data model now keeps **four separate evidence layers** (provider inventory · ASN relationship · CIDR location context · incident/high-risk detection) — crypto payment alone qualifies a provider for inventory, never for detection.
-> - New **CIDR location-context** layer + isolated artifact `generated/context/kr-localized-cidrs.csv` (tags `kr-localized`, `geo-mismatch-candidate`), deliberately kept out of every detection output.
+> - New **CIDR location-context** layer + isolated artifact `generated/context/kr-localized-cidrs.csv`, **DB-driven**: tracked-ASN ranges are intersected with the GeoLite2 country DB to extract KR-geolocated ranges objectively (no hand-picking). Deliberately kept out of every detection output.
 > - Provider identity corrected: **Datacamp Limited** (`datacamp.co.uk`, owns AS212238) is separated from the crypto-payment `coin-host` provider record; verified `coin-host` and `evoxt` added with no ASN.
 > - Tooling: validator split into focused modules + an offline `pytest` harness (dev-only; runtime stays dependency-free); pipeline `--dry-run` now writes nothing.
 >
@@ -25,8 +25,9 @@ separate evidence layers** so that one fact never silently implies another:
    detection verdict.
 2. **ASN relationship** — which ASN a provider owns or uses (linking/context, not a
    detection unit). Reselling another operator's cloud does not transfer ASN ownership.
-3. **CIDR location context** — registry country plus advertised/observed location.
-   A registry country is not proof of physical server location; it is hunting context.
+3. **CIDR location context** — the geolocation country (GeoLite2) of the IP ranges our
+   tracked ASNs operate. A geolocation country is not proof of physical server location;
+   it is hunting context.
 4. **incident / high-risk detection** — exact IOC IPs and generalized CIDRs that
    cleared a conservative promotion policy.
 
@@ -72,20 +73,17 @@ Context / hunting input:
 ## Location Context
 
 - `generated/context/kr-localized-cidrs.csv`
-  - registry/geolocation context for country-localized allocations (currently KR)
-  - fields: `cidr, provider_id, vendor, asn, status, tags, registry_country,
-    advertised_location, observed_location, observed_at, summary, evidence_types, source_urls`
-  - controlled tags:
-    - `kr-localized` — the block is registered/advertised inside Korea
-    - `geo-mismatch-candidate` — a *dated* active-geolocation observation differs from
-      the registry country (`observed_location` + `observed_at`); a time-bound
-      measurement, not proof of deception or of a permanent physical location
-  - registry country and active-location evidence are **non-authoritative and
-    time-bound**; a registry country never proves the physical server location
-  - **detection-exclusion rule:** location-context rows are hunting/enrichment only.
-    They are deliberately kept out of `high-risk-cidrs.csv`, the incident IOC set,
-    and every Sigma / Logpresso detection rule. A location tag alone never promotes a
-    block to high-risk detection.
+  - **DB-driven, not hand-picked.** `generate_location_context.py` takes the IP ranges of
+    the ASNs we already track (owned/used by tracked providers) and intersects them with the
+    GeoLite2 **country** database from `sapics/ip-location-db`. Every range that geolocates
+    to Korea (KR) is emitted objectively — no sampling, no manual selection.
+  - fields: `cidr, provider_id, vendor, asn, geo_country, source`
+  - a geolocation country is **non-authoritative** and can change over time; it is not proof
+    of physical server location and never a verdict. (Different geolocation providers can
+    disagree; GeoLite2 is one source.)
+  - **detection-exclusion rule:** location-context rows are hunting/enrichment only. They are
+    deliberately kept out of `high-risk-cidrs.csv`, the incident IOC set, and every Sigma /
+    Logpresso detection rule. Geolocating to KR never promotes a block to high-risk detection.
 
 ## Status Model
 
@@ -151,6 +149,14 @@ Per-provider Logpresso and Sigma files are still generated from `provider-ranges
 
 ASN → IP 대역 변환과 **ASN 소유자 검증**에 사용됩니다.
 `validate_data.py`가 `asns.yml` 등록 시 sapics 대조를 통해 오귀속을 자동 차단합니다.
+
+### 국가 IP 대역 — sapics/ip-location-db (GeoLite2)
+
+- File: `data/country-ipv4.csv` (자동 다운로드, `fetch_asn.py`)
+- Format: `ip_range_start, ip_range_end, country_code`
+
+`generate_location_context.py`가 추적 ASN 대역과 이 국가 DB를 교차하여
+KR로 지오로케이션되는 대역을 자동 추출합니다(수작업 선별 없음).
 
 ### 공급자 목록 — 수동 연구
 

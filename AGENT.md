@@ -11,8 +11,9 @@ The repository is not a blanket malicious-provider list.
 ### sapics/ip-location-db (ASN IP 대역)
 
 - URL: https://github.com/sapics/ip-location-db
-- 파일: `data/asn-ipv4.csv` (fetch_asn.py가 자동 다운로드)
-- 포맷: `ip_range_start, ip_range_end, asn_number, org_name`
+- 파일: `data/asn-ipv4.csv` + `data/country-ipv4.csv` (fetch_asn.py가 자동 다운로드)
+- 포맷: ASN `ip_range_start, ip_range_end, asn_number, org_name` /
+  국가 `ip_range_start, ip_range_end, country_code`
 - 갱신: 매주 GitHub Actions (`update-asn.yml`)
 - 역할: **ASN 번호 → IP 대역 + 공식 등록 org명** 제공
 - 출처: RouteViews(2시간) + DB-IP(월간) + 5개 RIR(ARIN/RIPE/APNIC 등)
@@ -87,11 +88,17 @@ Do not edit these directly:
   - not the default detection unit
   - **ASN은 반드시 sapics 대조 검증 후 등록** — 재판매 업체(자체 ASN 없음)는 등록 금지
 - `cidrs.yml`
-  - generalized CIDRs with explicit status and scope
-  - scope `location_context` records registry/geolocation context (tags `kr-localized`,
-    `geo-mismatch-candidate`); it is hunting context, **never** a detection unit
+  - generalized CIDRs with explicit status and scope (`provider_allocated`, `high_risk_detection`)
 - `incidents/*.yml`
   - exact IOC observations and incident references
+
+## Location Context (generated, DB-driven)
+
+- `generate_location_context.py` intersects tracked-ASN ranges with the GeoLite2
+  country DB (`data/country-ipv4.csv`) and emits KR-geolocated ranges to
+  `generated/context/kr-localized-cidrs.csv`. It is **not** hand-edited data.
+- Hunting context only — kept out of every detection output. Geolocation is not proof
+  of physical server location.
 
 ## Evidence Rules (contributors)
 
@@ -101,10 +108,10 @@ Do not edit these directly:
 - **Do not infer ASN ownership from resale.** A provider reselling another
   operator's cloud does not own that ASN. Only register an ASN under a provider when
   ownership/use is evidenced (see ASN registration rules below).
-- **Keep location-only context out of detection.** `scope: location_context` rows
-  (registry country, advertised/observed location) are hunting/enrichment only. They
-  must never enter `high-risk-cidrs.csv`, incident IOCs, Sigma, or Logpresso. A
-  registry country is not proof of physical server location.
+- **Keep location-only context out of detection.** The generated
+  `kr-localized-cidrs.csv` (geolocation of tracked-ASN ranges) is hunting/enrichment
+  only. It must never enter `high-risk-cidrs.csv`, incident IOCs, Sigma, or Logpresso.
+  A geolocation country is not proof of physical server location.
 
 ## ASN 등록 규칙
 

@@ -20,16 +20,16 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
     org-name column is empty.
 
 ### Added
-- **CIDR location-context layer + isolated artifact.** New CIDR scope
-  `location_context` (tags `kr-localized`, `geo-mismatch-candidate`) records registry
-  country and advertised/observed location as hunting context. Three KR allocations
-  were added — `79.110.55.0/24` (M247, with a dated KR-registry/JP-observed
-  geo-mismatch measurement), `84.233.167.0/24` (Datacamp Limited / CDNEXT-SEO), and
-  `141.98.213.0/24` (EstNOC / EstNOC-Korea) — and are emitted to the new
-  `generated/context/kr-localized-cidrs.csv`. **Isolation guarantee:** these rows are
-  deliberately kept out of the high-risk CSV, incident IOCs, and every Sigma /
-  Logpresso rule. A registry country is not proof of physical server location, and a
-  location tag alone never promotes a block to detection.
+- **DB-driven KR location-context artifact.** New `generate_location_context.py`
+  intersects the IP ranges of tracked ASNs (owned/used by tracked providers) with the
+  GeoLite2 **country** database from `sapics/ip-location-db` and emits every
+  KR-geolocated range to `generated/context/kr-localized-cidrs.csv` (columns
+  `cidr, provider_id, vendor, asn, geo_country, source`). No hand-picking or sampling —
+  the 2026-08 snapshot yields 12 CIDRs (Datacamp AS212238 ×9, EstNOC AS206804 ×2,
+  M247 AS9009 ×1). `fetch_asn.py` now also downloads `data/country-ipv4.csv`.
+  **Isolation guarantee:** these rows are deliberately kept out of the high-risk CSV,
+  incident IOCs, and every Sigma / Logpresso rule. A geolocation country is not proof
+  of physical server location, and geolocating to KR never promotes a block to detection.
 - **Verified providers: `coin-host` and `evoxt`.** Both added as `provider_verified`
   (official crypto-payment evidence; `evoxt` also advertises a Seoul/KINX region),
   each with **no** ASN record because ownership is not evidenced.
