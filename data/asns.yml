@@ -143,15 +143,15 @@
     "asn": "AS212238",
     "name": "Datacamp Limited",
     "provider_id": "datacamp-limited",
-    "relationship": "used_by_provider",
+    "relationship": "owned_by_provider",
     "status": "candidate",
-    "summary": "Collected from public lists; requires DNS->IP->ASN resolution.",
+    "summary": "AS212238 registered to Datacamp Limited (UK). Carries KR/Seoul-localized CDNEXT allocations tracked as location context. Distinct from the coin-host provider record.",
     "evidence": [
       {
-        "type": "provider_site",
-        "source": "Datacamp Limited official site",
-        "url": "https://coin.host",
-        "claim": "service_domain"
+        "type": "registry_record",
+        "source": "bgp.tools AS212238 ownership",
+        "url": "https://bgp.tools/asn/212238",
+        "claim": "datacamp_limited_owns_as212238"
       }
     ]
   },
