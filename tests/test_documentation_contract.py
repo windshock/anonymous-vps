@@ -38,7 +38,8 @@ def test_readme_documents_context_layer_and_isolation():
     text = README.read_text(encoding="utf-8")
     assert "generated/context/kr-localized-cidrs.csv" in text
     assert "kr-localized" in text
-    assert "geo-mismatch-candidate" in text
+    # DB-driven marker (GeoLite2 country intersection), not hand-picked tags
+    assert "geolite2" in text.lower() or "geolocat" in text.lower()
     # crypto payment alone qualifies for inventory, never for detection
     assert re.search(r"crypto", text, re.IGNORECASE)
 
