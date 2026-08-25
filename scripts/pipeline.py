@@ -9,8 +9,9 @@ pipeline.py — Anonymous VPS Intelligence detection-first pipeline.
     4. generate_provider_ranges.py — provider inventory CIDR 생성
     5. generate_incident_iocs.py  — incident IOC CSV 생성
     6. generate_high_risk_cidrs.py — high-risk CIDR CSV 생성
-    7. generate_queries.py        — Logpresso 쿼리 생성
-    8. generate_sigma.py          — Sigma 룰 생성
+    7. generate_location_context.py — KR location-context CSV 생성 (탐지 산출물과 격리)
+    8. generate_queries.py        — Logpresso 쿼리 생성
+    9. generate_sigma.py          — Sigma 룰 생성
 """
 
 import argparse
@@ -67,8 +68,9 @@ def main() -> None:
             ("validate_data.py", []),
             ("generate_legacy_bridge.py", shared_extra),
             ("generate_provider_ranges.py", shared_extra),
-            ("generate_incident_iocs.py", []),
-            ("generate_high_risk_cidrs.py", []),
+            ("generate_incident_iocs.py", shared_extra),
+            ("generate_high_risk_cidrs.py", shared_extra),
+            ("generate_location_context.py", shared_extra),
             ("generate_queries.py", query_extra),
             ("generate_sigma.py", query_extra),
         ]
@@ -87,6 +89,7 @@ def main() -> None:
     ranges_file = ROOT / "generated" / "detection" / "provider-ranges.csv"
     incident_file = ROOT / "generated" / "detection" / "incident-iocs.csv"
     high_risk_file = ROOT / "generated" / "detection" / "high-risk-cidrs.csv"
+    context_file = ROOT / "generated" / "context" / "kr-localized-cidrs.csv"
     queries_dir = ROOT / "queries" / "logpresso"
     if ranges_file.exists():
         lines = ranges_file.read_text().count("\n")
@@ -97,6 +100,9 @@ def main() -> None:
     if high_risk_file.exists():
         lines = high_risk_file.read_text().count("\n")
         print(f"   High-risk CIDRs : {lines - 1} rows  ({high_risk_file})", flush=True)
+    if context_file.exists():
+        lines = context_file.read_text().count("\n")
+        print(f"   Location context: {lines - 1} rows  ({context_file})", flush=True)
     if queries_dir.exists():
         qfiles = list(queries_dir.glob("*.logpresso"))
         print(f"   Queries    : {len(qfiles)} files ({queries_dir})", flush=True)
