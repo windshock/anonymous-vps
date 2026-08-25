@@ -1,0 +1,20 @@
+[project]
+name = "anonymous-vps"
+version = "0.0.0"
+description = "Anonymous VPS Intelligence data model tooling (standard-library-only runtime)"
+requires-python = ">=3.12"
+# Runtime scripts are standard-library-only. Keep this list EMPTY.
+dependencies = []
+
+# Development-only tooling (PEP 735 dependency group). `uv sync` installs this by
+# default; it never adds a runtime dependency, so `uv tree --depth 1` shows none.
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+# Production scripts import sibling modules (data_model, validate_data, ...) by
+# bare name because they are invoked as `python3 scripts/<name>.py`. Putting
+# scripts/ on the path lets the offline test-suite import them the same way.
+pythonpath = ["scripts"]
+testpaths = ["tests"]
+addopts = "-ra"
