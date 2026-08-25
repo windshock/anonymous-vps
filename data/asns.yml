@@ -1,5 +1,49 @@
 [
   {
+    "asn": "AS9009",
+    "name": "M247 Europe SRL",
+    "provider_id": "m247",
+    "relationship": "owned_by_provider",
+    "status": "abuse_candidate",
+    "summary": "M247 backbone ASN. Hosts country-localized (KR/JP/TW) hosting/VPN blocks reused as proxy/VPN exit; recurring abuse telemetry and RIPE 'LEGAL CONCERNS' remarks on some /24s.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "M247 official site",
+        "url": "https://m247.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 79.110.55.0/24 (M247-SOUTH-KOREA)",
+        "url": "https://rdap.db.ripe.net/ip/79.110.55.0",
+        "claim": "kr_localized_allocation"
+      }
+    ]
+  },
+  {
+    "asn": "AS206804",
+    "name": "EstNOC OU",
+    "provider_id": "estnoc",
+    "relationship": "owned_by_provider",
+    "status": "abuse_candidate",
+    "summary": "EstNOC global hosting ASN. KR-localized allocation (EstNOC-Korea) with RIPE 'LEGAL CONCERNS' remark; anonymous VPS/VPN exit usage and recurring abuse telemetry.",
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "EstNOC official site",
+        "url": "https://www.estnoc.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 141.98.213.0/24 (EstNOC-Korea)",
+        "url": "https://rdap.db.ripe.net/ip/141.98.213.0",
+        "claim": "kr_localized_allocation"
+      }
+    ]
+  },
+  {
     "asn": "AS12989",
     "name": "Black.host",
     "provider_id": "black-host",

@@ -1,5 +1,77 @@
 [
   {
+    "provider_id": "m247",
+    "name": "M247",
+    "domains": [
+      "m247.com"
+    ],
+    "service_types": [
+      "vps",
+      "vpn"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Large hosting/VPN backbone (AS9009). Country-localized allocations under one ASN (e.g. M247-SOUTH-KOREA/KR, M247 Taipei/TW) are frequently reused as VPN/proxy exit and recur in scanning/abuse telemetry; some /24s carry RIPE 'LEGAL CONCERNS' remarks. Context for hunting, not a blanket-block verdict.",
+    "bridge": {
+      "domain": "m247.com",
+      "asn_link": "https://bgp.tools/asn/9009",
+      "shodan_template": "https://shodan.io/search?query=asn:AS9009",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Single ASN spans KR/JP/TW-localized hosting/VPN blocks; verify per-/24 before action.",
+      "source": "RIPE whois + public abuse aggregators"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "M247 official site",
+        "url": "https://m247.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 79.110.55.0/24",
+        "url": "https://rdap.db.ripe.net/ip/79.110.55.0",
+        "claim": "kr_localized_allocation_with_legal_concerns_remark"
+      }
+    ]
+  },
+  {
+    "provider_id": "estnoc",
+    "name": "EstNOC OU",
+    "domains": [
+      "estnoc.com"
+    ],
+    "service_types": [
+      "vps",
+      "vpn"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Estonia-based global hosting (AS206804). Country-localized allocations (e.g. EstNOC-Korea/KR) carry RIPE 'LEGAL CONCERNS' remarks and recur in abuse telemetry; commonly used as anonymous VPS/VPN exit. Context for hunting, not a blanket-block verdict.",
+    "bridge": {
+      "domain": "estnoc.com",
+      "asn_link": "https://bgp.tools/asn/206804",
+      "shodan_template": "https://shodan.io/search?query=asn:AS206804",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "KR-localized EstNOC allocation with RIPE legal-concern remark; verify per-/24 before action.",
+      "source": "RIPE whois + public abuse aggregators"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "EstNOC official site",
+        "url": "https://www.estnoc.com",
+        "claim": "service_domain"
+      },
+      {
+        "type": "registry_record",
+        "source": "RIPE RDAP 141.98.213.0/24",
+        "url": "https://rdap.db.ripe.net/ip/141.98.213.0",
+        "claim": "kr_localized_allocation_with_legal_concerns_remark"
+      }
+    ]
+  },
+  {
     "provider_id": "aeza-group",
     "name": "Aeza Group",
     "domains": [],
