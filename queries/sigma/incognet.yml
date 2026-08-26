@@ -1,0 +1,35 @@
+title: Network Connection to Anonymous VPS Provider Inventory — IncogNET
+id: eb62d41e-bef4-5d42-9324-bed9aaecad7f
+status: experimental
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'IncogNET' (AS40663). This is a broad hunting rule, not a malicious-infrastructure verdict.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
+author: windshock
+date: 2026-08-26
+modified: 2026-08-26
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection_cidrs:
+        dst_ip|cidr:
+            - '104.36.80.0/24'
+            - '168.222.241.0/24'
+            - '23.137.248.0/21'
+            - '23.184.48.0/24'
+            - '65.87.222.0/24'
+    condition: selection_cidrs
+falsepositives:
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

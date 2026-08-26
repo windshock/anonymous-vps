@@ -374,5 +374,85 @@
         "claim": "service_domain"
       }
     ]
+  },
+  {
+    "asn": "AS44925",
+    "name": "1984 ehf",
+    "provider_id": "1984-hosting",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "1984 ehf (Iceland) ASN operated by 1984 Hosting; privacy/free-speech VPS.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS44925 (1984 ehf)",
+        "url": "https://bgp.tools/asn/44925",
+        "claim": "1984_hosting_owns_as44925"
+      }
+    ]
+  },
+  {
+    "asn": "AS40663",
+    "name": "IncogNet LLC",
+    "provider_id": "incognet",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "IncogNET LLC ASN for privacy/no-KYC VPS in the US and Europe.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS40663 (IncogNet LLC)",
+        "url": "https://bgp.tools/asn/40663",
+        "claim": "incognet_owns_as40663"
+      }
+    ]
+  },
+  {
+    "asn": "AS49447",
+    "name": "Nice IT Services Group Inc.",
+    "provider_id": "nicevps",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "Nice IT Services Group Inc. ASN operated by NiceVPS; offshore no-KYC VPS.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS49447 (Nice IT Services Group Inc.)",
+        "url": "https://bgp.tools/asn/49447",
+        "claim": "nicevps_owns_as49447"
+      }
+    ]
+  },
+  {
+    "asn": "AS200019",
+    "name": "Alexhost Srl",
+    "provider_id": "alexhost",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "Alexhost SRL primary ASN (Moldova offshore, no-KYC crypto hosting).",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS200019 (Alexhost Srl)",
+        "url": "https://bgp.tools/asn/200019",
+        "claim": "alexhost_owns_as200019"
+      }
+    ]
+  },
+  {
+    "asn": "AS207636",
+    "name": "Alexhost S.r.l.",
+    "provider_id": "alexhost",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "Alexhost SRL secondary ASN (Moldova offshore hosting).",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS207636 (Alexhost S.r.l.)",
+        "url": "https://bgp.tools/asn/207636",
+        "claim": "alexhost_owns_as207636"
+      }
+    ]
   }
 ]

@@ -34,11 +34,12 @@ def test_validate_data_cli_passes():
     assert "Data validation passed" in result.stdout
 
 
-def test_validate_data_reports_exactly_six_known_warnings():
-    """The six brand-vs-legal-name ASN warnings are the accepted baseline."""
+def test_validate_data_reports_known_brand_name_warnings():
+    """Brand-vs-legal-name ASN warnings are the accepted baseline (7 after adding
+    NiceVPS/AS49447 = 'Nice IT Services Group Inc.')."""
     result = _run("validate_data.py")
     assert result.returncode == 0
-    assert "6 warning(s)" in result.stdout
+    assert "7 warning(s)" in result.stdout
     # No new warning topic should appear beyond the known name-mismatch class.
     for line in result.stdout.splitlines():
         if "이름 불일치" in line or "warning" in line.lower():

@@ -93,4 +93,4 @@ def test_validate_passes_after_corrections():
         text=True,
     )
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "6 warning(s)" in result.stdout
+    assert "7 warning(s)" in result.stdout
