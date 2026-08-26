@@ -1,0 +1,5 @@
+## IncogNET — provider inventory outbound hunt (AS40663)
+## source: generated/detection/provider-ranges.csv
+## indicators: 5
+
+network(dst_ip,24) == "104.36.80.0" or network(dst_ip,24) == "168.222.241.0" or network(dst_ip,21) == "23.137.248.0" or network(dst_ip,24) == "23.184.48.0" or network(dst_ip,24) == "65.87.222.0"

@@ -1,0 +1,31 @@
+title: Network Connection to Anonymous VPS Provider Inventory — NiceVPS
+id: 72e3311e-af2e-55a7-90da-1a2141019f8a
+status: experimental
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'NiceVPS' (AS49447). This is a broad hunting rule, not a malicious-infrastructure verdict.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
+author: windshock
+date: 2026-08-26
+modified: 2026-08-26
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection_cidrs:
+        dst_ip|cidr:
+            - '45.9.148.0/22'
+    condition: selection_cidrs
+falsepositives:
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

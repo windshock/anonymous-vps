@@ -1,0 +1,36 @@
+title: Network Connection to Anonymous VPS Provider Inventory — 1984 Hosting
+id: 9d44771e-aed4-58a7-8f8a-c79c9553dd1e
+status: experimental
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider '1984 Hosting' (AS44925). This is a broad hunting rule, not a malicious-infrastructure verdict.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
+author: windshock
+date: 2026-08-26
+modified: 2026-08-26
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection_cidrs:
+        dst_ip|cidr:
+            - '185.112.144.0/22'
+            - '195.246.230.0/23'
+            - '89.126.248.0/21'
+            - '89.127.232.0/22'
+            - '89.147.108.0/22'
+            - '93.95.224.0/21'
+    condition: selection_cidrs
+falsepositives:
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

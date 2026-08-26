@@ -1,0 +1,5 @@
+## NiceVPS — provider inventory outbound hunt (AS49447)
+## source: generated/detection/provider-ranges.csv
+## indicators: 1
+
+network(dst_ip,22) == "45.9.148.0"
