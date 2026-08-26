@@ -1174,5 +1174,242 @@
         "claim": "crypto_payment_supported"
       }
     ]
+  },
+  {
+    "provider_id": "1984-hosting",
+    "name": "1984 Hosting",
+    "domains": [
+      "1984.hosting"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "btc",
+      "xmr"
+    ],
+    "status": "candidate",
+    "summary": "Iceland free-speech/privacy host (1984 ehf) offering VPS; official site accepts Bitcoin and Monero. Operates its own ASN (AS44925).",
+    "bridge": {
+      "domain": "1984.hosting",
+      "asn_link": "https://bgp.tools/asn/44925",
+      "shodan_template": "https://shodan.io/search?query=asn:AS44925",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Iceland free-speech/privacy host; BTC/XMR documented; own ASN AS44925.",
+      "source": "1984.hosting official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "1984 Hosting official site",
+        "url": "https://1984.hosting",
+        "claim": "vps_service_privacy_iceland"
+      },
+      {
+        "type": "payment_page",
+        "source": "1984 Hosting crypto acceptance",
+        "url": "https://1984.hosting",
+        "claim": "crypto_payment_btc_xmr"
+      }
+    ]
+  },
+  {
+    "provider_id": "incognet",
+    "name": "IncogNET",
+    "domains": [
+      "incognet.io"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "btc",
+      "xmr",
+      "ltc"
+    ],
+    "status": "candidate",
+    "summary": "Privacy-focused no-KYC host (IncogNET LLC); KVM VPS in US/EU; accepts Bitcoin/Monero/Litecoin (plus alts via Trocador). Operates its own ASN (AS40663).",
+    "bridge": {
+      "domain": "incognet.io",
+      "asn_link": "https://bgp.tools/asn/40663",
+      "shodan_template": "https://shodan.io/search?query=asn:AS40663",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "No-KYC privacy host; BTC/XMR/LTC documented; own ASN AS40663.",
+      "source": "incognet.io official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "IncogNET KVM VPS",
+        "url": "https://incognet.io/kvm-vps",
+        "claim": "kvm_vps_no_kyc_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "IncogNET payment methods",
+        "url": "https://portal.incognet.io/knowledgebase/20/",
+        "claim": "crypto_payment_btc_xmr_ltc"
+      }
+    ]
+  },
+  {
+    "provider_id": "orangewebsite",
+    "name": "OrangeWebsite",
+    "domains": [
+      "orangewebsite.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "btc",
+      "ltc"
+    ],
+    "status": "candidate",
+    "summary": "Iceland free-speech host (IceNetworks Ltd); anonymous signup and Cloud VPS; accepts Bitcoin/Litecoin and other cryptocurrencies for anonymous payment.",
+    "bridge": {
+      "domain": "orangewebsite.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=IceNetworks&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=orangewebsite.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Iceland anonymous hosting (IceNetworks Ltd); BTC/LTC documented. No confirmed own ASN in sapics.",
+      "source": "orangewebsite.com official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "OrangeWebsite anonymous hosting",
+        "url": "https://www.orangewebsite.com",
+        "claim": "anonymous_vps_iceland"
+      },
+      {
+        "type": "payment_page",
+        "source": "OrangeWebsite crypto payment",
+        "url": "https://www.orangewebsite.com",
+        "claim": "crypto_payment_btc_ltc"
+      }
+    ]
+  },
+  {
+    "provider_id": "nicevps",
+    "name": "NiceVPS",
+    "domains": [
+      "nicevps.net"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "btc",
+      "xmr"
+    ],
+    "status": "candidate",
+    "summary": "Offshore no-KYC host (Dominica); uncensored VPS and dedicated servers; accepts Bitcoin, Monero, Dash, Zcash and other cryptocurrencies.",
+    "bridge": {
+      "domain": "nicevps.net",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=nicevps&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=nicevps.net",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Offshore no-KYC (Dominica); BTC/XMR/Dash/Zcash documented. No confirmed own ASN in sapics.",
+      "source": "nicevps.net official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "NiceVPS offshore no-KYC hosting",
+        "url": "https://nicevps.net",
+        "claim": "offshore_no_kyc_vps"
+      },
+      {
+        "type": "payment_page",
+        "source": "NiceVPS crypto payment",
+        "url": "https://nicevps.net",
+        "claim": "crypto_payment_btc_xmr"
+      }
+    ]
+  },
+  {
+    "provider_id": "sporestack",
+    "name": "SporeStack",
+    "domains": [
+      "sporestack.com"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "btc",
+      "xmr"
+    ],
+    "status": "candidate",
+    "summary": "Anonymous VPS host/reseller; no account and no email required; accepts Monero, Bitcoin and Bitcoin Cash. Resells upstream capacity (no own ASN).",
+    "bridge": {
+      "domain": "sporestack.com",
+      "asn_link": "https://bgp.he.net/search?search%5Bsearch%5D=sporestack&commit=Search",
+      "shodan_template": "https://shodan.io/search?query=sporestack.com",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "No-account/no-email anonymous VPS reseller; XMR/BTC/BCH documented. Reseller — no own ASN.",
+      "source": "sporestack.com official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "SporeStack anonymous VPS",
+        "url": "https://sporestack.com",
+        "claim": "anonymous_no_email_vps_reseller"
+      },
+      {
+        "type": "payment_page",
+        "source": "SporeStack crypto payment",
+        "url": "https://sporestack.com",
+        "claim": "crypto_payment_xmr_btc"
+      }
+    ]
+  },
+  {
+    "provider_id": "alexhost",
+    "name": "AlexHost",
+    "domains": [
+      "alexhost.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "btc",
+      "eth",
+      "xmr",
+      "ltc",
+      "usdt"
+    ],
+    "status": "candidate",
+    "summary": "Moldova-based offshore host (AlexHost SRL); no-KYC crypto payments (BTC/ETH/XMR/LTC/USDT and more via xMoney); underground bunker DC. Operates its own ASNs (AS200019, AS207636).",
+    "bridge": {
+      "domain": "alexhost.com",
+      "asn_link": "https://bgp.tools/asn/200019",
+      "shodan_template": "https://shodan.io/search?query=asn:AS200019",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Moldova offshore; no-KYC crypto payment documented; own ASNs AS200019/AS207636.",
+      "source": "alexhost.com official site"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "AlexHost VPS with cryptocurrency",
+        "url": "https://alexhost.com/vps-with-cryptocurrency/",
+        "claim": "offshore_vps_crypto_payment"
+      },
+      {
+        "type": "payment_page",
+        "source": "AlexHost accepted payment methods",
+        "url": "https://alexhost.com/faq/what-pyment-methods-do-we-accept-for-hosting-services/",
+        "claim": "crypto_payment_btc_eth_xmr_ltc_usdt"
+      }
+    ]
   }
 ]

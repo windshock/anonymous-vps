@@ -20,6 +20,13 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
     org-name column is empty.
 
 ### Added
+- **Inventory expansion: 6 evidence-backed providers (all `candidate`).** 1984 Hosting
+  (AS44925), IncogNET (AS40663), NiceVPS (AS49447), and AlexHost (AS200019/AS207636)
+  are linked to their own ASNs (verified against the sapics DB), so they feed
+  provider-ranges and the KR location-context extraction automatically; OrangeWebsite
+  (runs inside Advania AS50613, not its own ASN) and SporeStack (reseller) are provider
+  records only. Each carries official-site + payment evidence. Discovered via research,
+  not auto-scraped. Affiliate/SEO-only "no-KYC VPS" listing sites were deliberately excluded.
 - **DB-driven KR location-context artifact.** New `generate_location_context.py`
   intersects the IP ranges of tracked ASNs (owned/used by tracked providers) with the
   GeoLite2 **country** database from `sapics/ip-location-db` and emits every
