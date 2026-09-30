@@ -454,5 +454,27 @@
         "claim": "alexhost_owns_as207636"
       }
     ]
+  },
+  {
+    "asn": "AS395793",
+    "name": "Arisk Communications inc.",
+    "provider_id": "arisk",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "ARIN-registered ASN owned by Arisk Communications inc.; linked to the verified ARISK provider for inventory/range context, not a provider-wide malicious verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "ARIN RDAP AS395793",
+        "url": "https://rdap.arin.net/registry/autnum/395793",
+        "claim": "arisk_communications_owns_as395793"
+      },
+      {
+        "type": "provider_site",
+        "source": "ARISK official site",
+        "url": "https://ariskisp.com/",
+        "claim": "provider_identity_arisk_communications"
+      }
+    ]
   }
 ]

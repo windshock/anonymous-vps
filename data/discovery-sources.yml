@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "purpose": "Discovery-only sources. Entries found here are candidates, never automatic detection verdicts.",
+  "sources": [
+    {
+      "id": "cryptohostradar",
+      "name": "CryptoHostRadar provider directory",
+      "url": "https://cryptohostradar.com/providers",
+      "enabled": true,
+      "signals": [
+        "crypto",
+        "vps"
+      ]
+    },
+    {
+      "id": "nokycguide-vps",
+      "name": "NoKYCGuide VPS directory",
+      "url": "https://nokycguide.net/en/vps",
+      "enabled": true,
+      "signals": [
+        "no_kyc",
+        "privacy",
+        "vps"
+      ]
+    },
+    {
+      "id": "monero-host",
+      "name": "monero.host directory",
+      "url": "https://monero.host/en",
+      "enabled": true,
+      "signals": [
+        "crypto",
+        "hosting",
+        "xmr"
+      ]
+    }
+  ],
+  "excluded_domains": [
+    "paypal.com",
+    "stripe.com",
+    "whmcs.com",
+    "coingecko.com",
+    "coinmarketcap.com"
+  ]
+}

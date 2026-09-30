@@ -1411,5 +1411,43 @@
         "claim": "crypto_payment_btc_eth_xmr_ltc_usdt"
       }
     ]
+  },
+  {
+    "provider_id": "arisk",
+    "name": "ARISK",
+    "domains": [
+      "ariskisp.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto"
+    ],
+    "status": "provider_verified",
+    "summary": "VPS/hosting provider operated by Arisk Communications inc.; official cloud-compute pages advertise No KYC requirements and the official payment page documents cryptocurrency payments.",
+    "bridge": {
+      "domain": "ariskisp.com",
+      "asn_link": "https://rdap.arin.net/registry/autnum/395793",
+      "shodan_template": "https://shodan.io/search?query=asn:AS395793",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Official VPS service documents No KYC requirements and cryptocurrency payments. AS395793 ownership is confirmed by ARIN RDAP.",
+      "source": "ariskisp.com official site + ARIN RDAP"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "ARISK Cloud Compute",
+        "url": "https://ariskisp.com/cloud-compute/",
+        "claim": "official_vps_service_no_kyc"
+      },
+      {
+        "type": "payment_page",
+        "source": "ARISK Payment Method",
+        "url": "https://ariskisp.com/payment-method/",
+        "claim": "official_cryptocurrency_payment_supported"
+      }
+    ]
   }
 ]
