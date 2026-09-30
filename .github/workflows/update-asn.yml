@@ -2,25 +2,44 @@ name: Weekly Detection Data Refresh
 
 on:
   schedule:
-    - cron: '0 0 * * 1'   # every Monday at 00:00 UTC
-  workflow_dispatch:        # allow manual trigger from GitHub UI
+    - cron: '17 0 * * 1'   # every Monday at 00:17 UTC (09:17 KST)
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/providers.yml'
+      - 'data/asns.yml'
+      - 'data/cidrs.yml'
+      - 'data/incidents/**'
+      - 'scripts/fetch_asn.py'
+      - 'scripts/generate_*.py'
+      - 'scripts/pipeline.py'
+      - '.github/workflows/update-asn.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anonymous-vps-data-refresh
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Fetch latest ASN DB
+      - name: Fetch latest ASN and country DB
         run: python3 scripts/fetch_asn.py
 
       - name: Rebuild generated data
@@ -28,7 +47,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add \
             data/ip-ranges/known-providers.csv \
@@ -38,10 +57,13 @@ jobs:
             generated/context/ \
             queries/logpresso/ \
             queries/sigma/
+
           if git diff --cached --quiet; then
-            echo "No changes — ASN data is already up to date."
-          else
-            UPDATED_AT=$(date -u +"%Y-%m-%d")
-            git commit -m "chore: weekly ASN update ${UPDATED_AT}"
-            git push
+            echo "No generated-data changes."
+            exit 0
           fi
+
+          UPDATED_AT=$(date -u +"%Y-%m-%d")
+          git commit -m "chore: refresh detection data $UPDATED_AT"
+          git pull --rebase origin main
+          git push origin HEAD:main

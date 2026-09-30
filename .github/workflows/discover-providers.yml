@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: provider-discovery
+  group: anonymous-vps-data-refresh
   cancel-in-progress: false
 
 jobs:
