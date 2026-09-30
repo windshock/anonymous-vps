@@ -1,1 +1,4442 @@
-[]
+[
+  {
+    "domain": "0xcloud.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://0xcloud.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "1gbits.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://1gbits.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "3v-hosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://3v-hosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "aaroli.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://aaroli.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "abelohost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://abelohost.com/"
+    ],
+    "labels": [
+      "Visit AbeloHost →"
+    ]
+  },
+  {
+    "domain": "acidtools.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://acidtools.com/ai/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "aeza.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://aeza.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ahnames.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ahnames.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ahost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ahost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "aigc160.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://aigc160.com/ai/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "airvpn.org",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://airvpn.org/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "anonrdp.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://anonrdp.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "anonymousemail.me",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://anonymousemail.me/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "anycolo.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://anycolo.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "apphublist.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://apphublist.com/products/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "appnetworker.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://appnetworker.com/products/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "aurologic.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://aurologic.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "avsisp.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://avsisp.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "azirevpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://azirevpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "basecloud.cc",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://www.basecloud.cc/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bingloft.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://bingloft.com/"
+    ],
+    "labels": [
+      "Visit BingLoft →"
+    ]
+  },
+  {
+    "domain": "bithost.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bithost.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bizcloud.com.my",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bizcloud.com.my/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "blazingfast.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://blazingfast.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bluevps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bluevps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bps.network",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bps.network/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bpserv.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://bpserv.host/"
+    ],
+    "labels": [
+      "Visit BPServ →"
+    ]
+  },
+  {
+    "domain": "bpw.sc",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://bpw.sc/"
+    ],
+    "labels": [
+      "Visit BPW →"
+    ]
+  },
+  {
+    "domain": "breezehost.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://breezehost.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "bridgenetworks.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bridgenetworks.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "brillianthost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://brillianthost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "btc-server.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://btc-server.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "buyvm.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://buyvm.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "casbay.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://casbay.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ccihosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ccihosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "chunkhost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://chunkhost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "clientvps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://clientvps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "cockbox.org",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://cockbox.org/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "codetrendy.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://codetrendy.com/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "coinshosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://coinshosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "computeman.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://computeman.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "countermail.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://countermail.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "crowncloud.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://crowncloud.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "cryptoho.st",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://cryptoho.st/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "cryptovps.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://cryptovps.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "cyberghostvpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://cyberghostvpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "dataclub.biz",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://dataclub.biz/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "dedimax.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://dedimax.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "dedistart.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://dedistart.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "deinserverhost.de",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://deinserverhost.de/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "dejavuhost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://dejavuhost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "domains4bitcoins.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://domains4bitcoins.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ecompute.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ecompute.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "edbb.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://edbb.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "edisglobal.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://edisglobal.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ethernetservers.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ethernetservers.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "evolution-host.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://evolution-host.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "expressvpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://expressvpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "extravm.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      },
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://extravm.com/",
+      "https://extravm.com/crypto-vps"
+    ],
+    "labels": [
+      "Visit ExtraVM →",
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "foobar.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://foobar.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "forexvps.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://forexvps.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ghostvps.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ghostvps.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "gigablits.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://gigablits.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "gigahost.dk",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://gigahost.dk/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "globaldataserver.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://globaldataserver.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "goodaitools.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://goodaitools.com/ai/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "gossdhosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://gossdhosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hide.me",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hide.me/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "host-world.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://host-world.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "host.ag",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://host.ag/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "host4coins.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://host4coins.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostealo.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostealo.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostens.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostens.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hosthatch.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hosthatch.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostiko.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostiko.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostingby.design",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostingby.design/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostiquette.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostiquette.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostkey.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostkey.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostmenow.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostmenow.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostslick.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostslick.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hostzealot.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hostzealot.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "indovirtue.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://indovirtue.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "infofractal.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://infofractal.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "initech.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://initech.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "internetbrothers.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://internetbrothers.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ip-connect.vn",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ip-connect.vn/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "iptransit.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://iptransit.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "iqhosting.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://iqhosting.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ironsocket.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ironsocket.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ivacy.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ivacy.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ivpn.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ivpn.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "jink.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://jink.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "jpstream.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://jpstream.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "justhost.ru",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://justhost.ru/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "kdatacenter.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://kdatacenter.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "kernelhost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://kernelhost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ko-net.org",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ko-net.org/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "launchclash.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://launchclash.com/product/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "launchigniter.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://launchigniter.com/product/monero-host"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "le-vpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://le-vpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "legionbox.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://legionbox.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "letbox.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://letbox.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "liteserver.nl",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://liteserver.nl/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "lnemail.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://lnemail.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "lnvps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://lnvps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "lowendspirit.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://lowendspirit.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "lunanode.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://lunanode.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "madgenius.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://madgenius.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "meanservers.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://meanservers.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mediapronet.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://mediapronet.com/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "melbicom.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://melbicom.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "migadu.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://migadu.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mightweb.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mightweb.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "milliondothomepage.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://milliondothomepage.com/product/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "mlnl.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mlnl.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mochahost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mochahost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mondoze.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mondoze.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mrvm.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mrvm.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mullvad.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mullvad.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "mynymbox.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://mynymbox.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "namecheap.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://namecheap.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "neomailbox.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://neomailbox.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "netnexus.nl",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://netnexus.nl/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "noack.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://noack.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "noez.de",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://noez.de/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "nordvpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://nordvpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "nxgntools.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://www.nxgntools.com/tools/monero-host"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "onionmail.org",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://onionmail.org/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "operavps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://operavps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "outdr.lol",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://www.outdr.lol/card/monero.host"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "ovpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ovpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "packetra.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://packetra.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "postyourstartup.co",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://postyourstartup.co/startup/monero-host"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "primcast.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://primcast.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privatealps.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privatealps.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privateinternetaccess.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privateinternetaccess.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privatelayer.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privatelayer.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privatevpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privatevpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privatewebhost.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privatewebhost.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "privex.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://privex.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "productwing.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://productwing.com/product/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "profvds.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://profvds.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "protonvpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://protonvpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "prq.se",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      },
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://prq.se/"
+    ],
+    "labels": [
+      "Visit PRQ →",
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "qhoster.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://qhoster.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "racknerd.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://racknerd.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "radwebhosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://radwebhosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ramnode.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ramnode.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "ratioserver.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ratioserver.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "rdp.sh",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://rdp.sh/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "rdpmonster.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://rdpmonster.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "redswitches.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://redswitches.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "reliablesite.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://reliablesite.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "runbox.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://runbox.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "saasavenue.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://saasavenue.com/products/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "saasbadge.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://saasbadge.com/products/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "saascrawler.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://saascrawler.com/products/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "saasgrow.app",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://saasgrow.app/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "safecloud.is",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://safecloud.is/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "securedragon.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://securedragon.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "seedvps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://seedvps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "seimaxim.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://seimaxim.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "senko.digital",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://senko.digital/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "sered.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://sered.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "server9.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://server9.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "serverastra.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://serverastra.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "serverfield.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://serverfield.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "serverhub.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://serverhub.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "servermath.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://servermath.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "serverroom.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://serverroom.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "servers.guru",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://servers.guru/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "serverz.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://serverz.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "servinga.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://servinga.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "servting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://servting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "servury.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      },
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://servury.com/"
+    ],
+    "labels": [
+      "Visit Servury →",
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "shinylaunch.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://shinylaunch.com/product/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "shockhosting.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://shockhosting.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "sitepatent.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://sitepatent.com/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "skhron.ru",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://skhron.ru/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "slowservers.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://slowservers.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "snowcore.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://snowcore.io/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "startupfa.me",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://startupfa.me/s/monerohost"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "startuptrusted.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://startuptrusted.com/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "strike.bz",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://strike.bz/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "superbithost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://superbithost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "surfshark.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://surfshark.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "techrich.co.uk",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://techrich.co.uk/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "time4vps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://time4vps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "toolquix.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://toolquix.com/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "toptrendtools.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://toptrendtools.com/tool/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "torguard.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://torguard.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "trivox.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://trivox.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "turbo0.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://turbo0.com/item/monerohost"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "tuta.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://tuta.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "twelve.tools",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://twelve.tools/"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "udn.co",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://udn.co/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "unitelist.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "monero-host",
+        "url": "https://monero.host/en"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "hosting",
+      "xmr"
+    ],
+    "source_links": [
+      "https://unitelist.com/product/monero"
+    ],
+    "labels": []
+  },
+  {
+    "domain": "vikingvpn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vikingvpn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "virtualine.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://virtualine.net/"
+    ],
+    "labels": [
+      "Visit Virtualine →"
+    ]
+  },
+  {
+    "domain": "vpn.ac",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpn.ac/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpnme.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpnme.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpnsecure.me",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpnsecure.me/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vps.one",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vps.one/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpsag.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpsag.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpsbit.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpsbit.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpsbroker.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpsbroker.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpsgod.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpsgod.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpshosting.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpshosting.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vpshostingservice.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vpshostingservice.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "vultr.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vultr.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "web4africa.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://web4africa.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "webconn.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://webconn.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "wehouse.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://wehouse.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "wesbytes.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://wesbytes.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "windowsvpshost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://windowsvpshost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "windscribe.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://windscribe.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "xethost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://xethost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "xitheon.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://xitheon.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "zak.gg",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://zak.gg/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "zappiehost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://zappiehost.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "zergrush.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://zergrush.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "zhujikuai.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://zhujikuai.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  }
+]
