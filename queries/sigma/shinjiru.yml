@@ -6,8 +6,8 @@ references:
     - https://github.com/windshock/anonymous-vps
     - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
-date: 2026-08-26
-modified: 2026-08-26
+date: 2026-09-30
+modified: 2026-09-30
 tags:
     - attack.command_and_control
     - attack.t1090
