@@ -498,5 +498,27 @@
         "claim": "vultr_account_name_the_constant_company_llc"
       }
     ]
+  },
+  {
+    "asn": "AS26277",
+    "name": "ServerPoint.com",
+    "provider_id": "serverpoint",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "AS26277 is operated by ServerPoint and is linked here to ServerPoint's crypto-friendly VPS/hosting inventory for range context; this is not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "ServerPoint network providers by location",
+        "url": "https://www.serverpoint.com/en/product-details/network-providers-by-location/",
+        "claim": "serverpoint_operates_as26277"
+      },
+      {
+        "type": "provider_site",
+        "source": "ServerPoint crypto payment FAQ",
+        "url": "https://www.serverpoint.com/en/faq/do-you-accept-crypto-payments/",
+        "claim": "crypto_payment_btc_supported_for_vps_and_dedicated_servers"
+      }
+    ]
   }
 ]
