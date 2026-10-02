@@ -476,5 +476,27 @@
         "claim": "provider_identity_arisk_communications"
       }
     ]
+  },
+  {
+    "asn": "AS20473",
+    "name": "The Constant Company, LLC",
+    "provider_id": "vultr",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "AS20473 is registered to The Constant Company, LLC, the legal entity used by Vultr. Linked to Vultr for provider inventory/range context; this is not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "ARIN RDAP AS20473",
+        "url": "https://rdap.arin.net/registry/autnum/20473",
+        "claim": "the_constant_company_owns_as20473"
+      },
+      {
+        "type": "provider_site",
+        "source": "Vultr ACH and wire payment instructions",
+        "url": "https://docs.vultr.com/support/platform/billing/how-do-i-arrange-payment-via-ach-or-wire",
+        "claim": "vultr_account_name_the_constant_company_llc"
+      }
+    ]
   }
 ]
