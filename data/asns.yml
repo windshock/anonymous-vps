@@ -520,5 +520,115 @@
         "claim": "crypto_payment_btc_supported_for_vps_and_dedicated_servers"
       }
     ]
+  },
+  {
+    "asn": "AS19318",
+    "name": "Interserver, Inc",
+    "provider_id": "interserver",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "AS19318 is registered to Interserver, Inc. Linked to InterServer's crypto-friendly VPS/hosting inventory for range context; not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "ARIN RDAP AS19318",
+        "url": "https://rdap.arin.net/registry/autnum/19318",
+        "claim": "interserver_inc_owns_as19318"
+      },
+      {
+        "type": "provider_site",
+        "source": "InterServer VPS locations",
+        "url": "https://www.interserver.net/vps/locations.html",
+        "claim": "interserver_vps_network_service"
+      }
+    ]
+  },
+  {
+    "asn": "AS142036",
+    "name": "Hosteons Pte. Ltd.",
+    "provider_id": "hosteons",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "APNIC registers AS142036 to Hosteons Pte. Ltd. Linked to HostEONS no-KYC/crypto VPS inventory for range context; not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "APNIC AS142036",
+        "url": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS142036",
+        "claim": "hosteons_pte_ltd_owns_as142036"
+      },
+      {
+        "type": "provider_site",
+        "source": "HostEONS VPS",
+        "url": "https://hosteons.com/vps.php",
+        "claim": "hosteons_vps_service"
+      }
+    ]
+  },
+  {
+    "asn": "AS55933",
+    "name": "Cloudie Limited",
+    "provider_id": "cloudie-limited",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "APNIC routing records identify AS55933 with Cloudie Limited. Linked to Cloudie's crypto-friendly cloud/VPS inventory for range context; not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "APNIC AS55933 / Cloudie Limited",
+        "url": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS55933",
+        "claim": "cloudie_limited_owns_as55933"
+      },
+      {
+        "type": "provider_site",
+        "source": "Cloudie official site",
+        "url": "https://www.cloudie.hk/",
+        "claim": "cloudie_cloud_vps_service"
+      }
+    ]
+  },
+  {
+    "asn": "AS152194",
+    "name": "CTG Server Limited",
+    "provider_id": "ctg-server",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "APNIC registers AS152194 to CTG Server Limited. Linked to CTG Server's USDT-friendly cloud/server inventory for range context; not a provider-wide malicious or high-risk verdict.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "APNIC AS152194",
+        "url": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS152194",
+        "claim": "ctg_server_limited_owns_as152194"
+      },
+      {
+        "type": "provider_site",
+        "source": "CTG Server official site",
+        "url": "https://www.myctgs.com/",
+        "claim": "ctg_server_cloud_hosting_service"
+      }
+    ]
+  },
+  {
+    "asn": "AS215748",
+    "name": "Westeros Communications (THAILAND) CO., LTD.",
+    "provider_id": "arisk",
+    "relationship": "candidate_link",
+    "status": "candidate",
+    "summary": "AS215748 is owned by Westeros Communications, not ARISK. Public BGP/registry evidence shows selected AS215748-originated prefixes described or maintained as Arisk Communications / LIGHT CLOUD infrastructure. Keep only as a candidate relationship for investigation; do not treat AS215748 as ARISK-owned and do not export it to provider ranges.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "bgp.tools AS215748",
+        "url": "https://bgp.tools/as/215748",
+        "claim": "westeros_owns_as215748_and_originates_arisk_described_prefixes"
+      },
+      {
+        "type": "registry_record",
+        "source": "BGP HE 14.192.50.0/24",
+        "url": "https://bgp.he.net/net/14.192.50.0/24",
+        "claim": "as215748_origin_with_arisk_communications_prefix_and_light_cloud_route_object"
+      }
+    ]
   }
 ]
