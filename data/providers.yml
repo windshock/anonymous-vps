@@ -1506,5 +1506,55 @@
         "claim": "vultr_account_name_the_constant_company_llc"
       }
     ]
+  },
+  {
+    "provider_id": "serverpoint",
+    "name": "ServerPoint",
+    "aliases": [
+      "ServerPoint.com",
+      "A+ Hosting, Inc.",
+      "A+ Hosting, Inc. DBA ServerPoint.com"
+    ],
+    "domains": [
+      "serverpoint.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc"
+    ],
+    "status": "provider_verified",
+    "summary": "Global VPS/dedicated hosting provider. Official ServerPoint documentation confirms cryptocurrency payments, primarily Bitcoin, for VPS and dedicated servers. This record is crypto-friendly provider inventory; ServerPoint is not classified here as no-KYC or anonymous-by-default.",
+    "bridge": {
+      "domain": "serverpoint.com",
+      "asn_link": "https://www.serverpoint.com/en/product-details/network-providers-by-location/",
+      "shodan_template": "https://shodan.io/search?query=asn:AS26277",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly VPS/hosting provider; not classified as no-KYC. ServerPoint states that it operates AS26277.",
+      "source": "ServerPoint official VPS/crypto/network documentation"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "ServerPoint VPS hosting",
+        "url": "https://www.serverpoint.com/en/vps-hosting/",
+        "claim": "official_vps_hosting_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "ServerPoint crypto payment FAQ",
+        "url": "https://www.serverpoint.com/en/faq/do-you-accept-crypto-payments/",
+        "claim": "crypto_payment_btc_supported_for_vps_and_dedicated_servers"
+      },
+      {
+        "type": "registry_record",
+        "source": "ServerPoint network providers by location",
+        "url": "https://www.serverpoint.com/en/product-details/network-providers-by-location/",
+        "claim": "serverpoint_operates_as26277"
+      }
+    ]
   }
 ]
