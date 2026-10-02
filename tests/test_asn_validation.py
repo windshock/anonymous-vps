@@ -16,6 +16,22 @@ def test_major_cloud_misattribution_is_error(make_asn):
     assert any("AS20473" in e for e in errors)
 
 
+def test_major_cloud_owner_alias_is_allowed(make_asn):
+    from validate_asn import validate_asn_ownership
+
+    asns = [make_asn(asn="AS20473", name="The Constant Company, LLC", provider_id="vultr")]
+    provider_index = {
+        "vultr": {
+            "name": "Vultr",
+            "aliases": ["The Constant Company", "The Constant Company, LLC"],
+        }
+    }
+    sapics = {"20473": "The Constant Company, LLC"}
+    errors, warnings = validate_asn_ownership(asns, provider_index, sapics)
+    assert errors == []
+    assert warnings == []
+
+
 def test_name_mismatch_is_warning_only(make_asn):
     from validate_asn import validate_asn_ownership
 
