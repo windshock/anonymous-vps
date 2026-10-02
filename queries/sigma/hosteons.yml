@@ -1,0 +1,49 @@
+title: Network Connection to Anonymous VPS Provider Inventory — HostEONS
+id: 5c44f27b-670f-57f8-b5f4-f5cf1bf2d1fd
+status: experimental
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'HostEONS' (AS142036). This is a broad hunting rule, not a malicious-infrastructure verdict.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
+author: windshock
+date: 2026-10-02
+modified: 2026-10-02
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection_cidrs:
+        dst_ip|cidr:
+            - '103.114.160.0/22'
+            - '103.124.104.0/22'
+            - '14.102.237.0/24'
+            - '14.102.238.0/23'
+            - '205.234.170.0/24'
+            - '205.234.232.0/24'
+            - '205.234.253.0/24'
+            - '45.135.162.0/24'
+            - '75.102.51.0/24'
+            - '82.29.128.0/22'
+            - '82.29.132.0/24'
+            - '82.29.53.0/24'
+            - '82.29.54.0/24'
+            - '82.29.67.0/24'
+            - '82.29.71.0/24'
+            - '82.29.72.0/24'
+            - '84.32.44.0/23'
+            - '89.117.1.0/24'
+            - '89.117.2.0/23'
+    condition: selection_cidrs
+falsepositives:
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium

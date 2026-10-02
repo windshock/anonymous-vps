@@ -1,0 +1,5 @@
+## HostEONS — provider inventory outbound hunt (AS142036)
+## source: generated/detection/provider-ranges.csv
+## indicators: 19
+
+network(dst_ip,22) == "103.114.160.0" or network(dst_ip,22) == "103.124.104.0" or network(dst_ip,24) == "14.102.237.0" or network(dst_ip,23) == "14.102.238.0" or network(dst_ip,24) == "205.234.170.0" or network(dst_ip,24) == "205.234.232.0" or network(dst_ip,24) == "205.234.253.0" or network(dst_ip,24) == "45.135.162.0" or network(dst_ip,24) == "75.102.51.0" or network(dst_ip,22) == "82.29.128.0" or network(dst_ip,24) == "82.29.132.0" or network(dst_ip,24) == "82.29.53.0" or network(dst_ip,24) == "82.29.54.0" or network(dst_ip,24) == "82.29.67.0" or network(dst_ip,24) == "82.29.71.0" or network(dst_ip,24) == "82.29.72.0" or network(dst_ip,23) == "84.32.44.0" or network(dst_ip,24) == "89.117.1.0" or network(dst_ip,23) == "89.117.2.0"
