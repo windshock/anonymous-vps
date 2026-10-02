@@ -82,11 +82,14 @@ def validate_asn_ownership(
         asn_num = asn.lstrip("AS")
         relationship = record.get("relationship", "")
         provider_id = record.get("provider_id")
+        provider = provider_index.get(provider_id, {}) if provider_id else {}
         provider_name = (
-            provider_index.get(provider_id, {}).get("name", record.get("name", ""))
+            provider.get("name", record.get("name", ""))
             if provider_id
             else record.get("name", "")
         )
+        provider_aliases = provider.get("aliases", []) if isinstance(provider.get("aliases", []), list) else []
+        provider_names = [provider_name, *[alias for alias in provider_aliases if isinstance(alias, str)]]
         subject = f"asn:{asn}"
 
         if relationship in {"candidate_link", "unknown"}:
@@ -98,10 +101,15 @@ def validate_asn_ownership(
             continue
 
         org_lower = org.lower()
+        owner_matches_provider = any(
+            _name_overlap(candidate_name, org)
+            for candidate_name in provider_names
+            if candidate_name
+        )
 
         # 대형 공개 클라우드 ASN을 다른 업체에 귀속시키는 건 탐지 오염
         for cloud in MAJOR_CLOUD_ORGS:
-            if cloud in org_lower and not _name_overlap(provider_name, org):
+            if cloud in org_lower and not owner_matches_provider:
                 errors.append(
                     f"{subject}: 대형 클라우드 ASN 오귀속 — "
                     f"sapics 실제 소유자='{org}', 등록 provider='{provider_name}'. "
@@ -110,7 +118,7 @@ def validate_asn_ownership(
                 break
         else:
             # 일반 불일치 — 브랜드명 vs 법인명 차이일 수 있으므로 경고만
-            if not _name_overlap(provider_name, org):
+            if not owner_matches_provider:
                 warnings.append(
                     f"{subject}: 이름 불일치 — sapics='{org}', provider='{provider_name}' "
                     f"(브랜드명/법인명 차이인지 확인 필요)"
