@@ -483,7 +483,7 @@
     "provider_id": "vultr",
     "relationship": "owned_by_provider",
     "status": "candidate",
-    "summary": "AS20473 is registered to The Constant Company, LLC, the legal entity used by Vultr. Linked to Vultr for provider inventory/range context; this is not a provider-wide malicious or high-risk verdict.",
+    "summary": "AS20473 is registered to The Constant Company, LLC, Vultr's legal entity. Linked to Vultr as crypto-friendly provider inventory/range context; Vultr is not classified here as no-KYC, and this ASN link is not a provider-wide malicious or high-risk verdict.",
     "evidence": [
       {
         "type": "registry_record",
