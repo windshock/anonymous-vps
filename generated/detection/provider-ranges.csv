@@ -6905,6 +6905,26 @@ njalla,Njalla,AS39287,45.142.140.0/22,45.142.140.0,45.142.143.255,Materialism s.
 njalla,Njalla,AS39287,45.158.116.0/22,45.158.116.0,45.158.119.255,Materialism s.r.l.,provider_allocated,candidate
 njalla,Njalla,AS39287,80.78.16.0/20,80.78.16.0,80.78.31.255,Materialism s.r.l.,provider_allocated,candidate
 njalla,Njalla,AS39287,95.215.16.0/22,95.215.16.0,95.215.19.255,Materialism s.r.l.,provider_allocated,candidate
+serverpoint,ServerPoint,AS26277,216.108.224.0/24,216.108.224.0,216.108.224.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,216.108.226.0/23,216.108.226.0,216.108.232.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,216.108.228.0/22,216.108.226.0,216.108.232.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,216.108.232.0/24,216.108.226.0,216.108.232.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,216.108.235.0/24,216.108.235.0,216.108.239.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,216.108.236.0/22,216.108.235.0,216.108.239.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.33.0/24,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.34.0/23,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.36.0/22,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.40.0/21,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.48.0/21,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.56.0/22,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,64.235.60.0/23,64.235.33.0,64.235.61.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,66.92.184.0/22,66.92.184.0,66.92.187.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.194.0/24,72.18.194.0,72.18.194.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.198.0/23,72.18.198.0,72.18.200.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.200.0/24,72.18.198.0,72.18.200.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.203.0/24,72.18.203.0,72.18.204.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.204.0/24,72.18.203.0,72.18.204.255,ServerPoint.com,provider_allocated,provider_verified
+serverpoint,ServerPoint,AS26277,72.18.207.0/24,72.18.207.0,72.18.207.255,ServerPoint.com,provider_allocated,provider_verified
 shinjiru,Shinjiru,AS45839,101.99.64.0/19,101.99.64.0,101.99.95.255,Shinjiru Technology Sdn Bhd,provider_allocated,candidate
 shinjiru,Shinjiru,AS45839,103.155.92.0/23,103.155.92.0,103.155.93.255,Shinjiru Technology Sdn Bhd,provider_allocated,candidate
 shinjiru,Shinjiru,AS45839,111.90.128.0/20,111.90.128.0,111.90.156.255,Shinjiru Technology Sdn Bhd,provider_allocated,candidate

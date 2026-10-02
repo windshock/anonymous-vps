@@ -1,0 +1,5 @@
+## ServerPoint — provider inventory outbound hunt (AS26277)
+## source: generated/detection/provider-ranges.csv
+## indicators: 20
+
+network(dst_ip,24) == "216.108.224.0" or network(dst_ip,23) == "216.108.226.0" or network(dst_ip,22) == "216.108.228.0" or network(dst_ip,24) == "216.108.232.0" or network(dst_ip,24) == "216.108.235.0" or network(dst_ip,22) == "216.108.236.0" or network(dst_ip,24) == "64.235.33.0" or network(dst_ip,23) == "64.235.34.0" or network(dst_ip,22) == "64.235.36.0" or network(dst_ip,21) == "64.235.40.0" or network(dst_ip,21) == "64.235.48.0" or network(dst_ip,22) == "64.235.56.0" or network(dst_ip,23) == "64.235.60.0" or network(dst_ip,22) == "66.92.184.0" or network(dst_ip,24) == "72.18.194.0" or network(dst_ip,23) == "72.18.198.0" or network(dst_ip,24) == "72.18.200.0" or network(dst_ip,24) == "72.18.203.0" or network(dst_ip,24) == "72.18.204.0" or network(dst_ip,24) == "72.18.207.0"

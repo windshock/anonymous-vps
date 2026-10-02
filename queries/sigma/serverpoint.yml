@@ -1,0 +1,50 @@
+title: Network Connection to Anonymous VPS Provider Inventory — ServerPoint
+id: 289dddd0-de84-5f7c-bf05-4f3b6b343908
+status: experimental
+description: Detects outbound network connections to provider inventory ranges associated with anonymous or crypto-friendly hosting provider 'ServerPoint' (AS26277). This is a broad hunting rule, not a malicious-infrastructure verdict.
+references:
+    - https://github.com/windshock/anonymous-vps
+    - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
+author: windshock
+date: 2026-10-02
+modified: 2026-10-02
+tags:
+    - attack.command_and_control
+    - attack.t1090
+    - attack.t1583.003
+logsource:
+    category: firewall
+    product: any
+detection:
+    selection_cidrs:
+        dst_ip|cidr:
+            - '216.108.224.0/24'
+            - '216.108.226.0/23'
+            - '216.108.228.0/22'
+            - '216.108.232.0/24'
+            - '216.108.235.0/24'
+            - '216.108.236.0/22'
+            - '64.235.33.0/24'
+            - '64.235.34.0/23'
+            - '64.235.36.0/22'
+            - '64.235.40.0/21'
+            - '64.235.48.0/21'
+            - '64.235.56.0/22'
+            - '64.235.60.0/23'
+            - '66.92.184.0/22'
+            - '72.18.194.0/24'
+            - '72.18.198.0/23'
+            - '72.18.200.0/24'
+            - '72.18.203.0/24'
+            - '72.18.204.0/24'
+            - '72.18.207.0/24'
+    condition: selection_cidrs
+falsepositives:
+    - Legitimate security research and authorized infrastructure testing
+    - Internal cloud workloads intentionally using the listed providers
+fields:
+    - dst_ip
+    - src_ip
+    - dst_port
+    - proto
+level: medium
