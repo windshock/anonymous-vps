@@ -2,14 +2,21 @@ cidr,provider_id,vendor,asn,geo_country,source
 31.42.124.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 31.56.49.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 45.133.194.0/24,estnoc,EstNOC OU,AS206804,KR,sapics/ip-location-db geolite2-country
+50.114.238.0/24,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
+64.176.224.0/19,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
 72.244.252.0/22,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 79.110.55.0/24,m247,M247,AS9009,KR,sapics/ip-location-db geolite2-country
 84.233.167.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 101.53.80.0/24,arisk,ARISK,AS395793,KR,sapics/ip-location-db geolite2-country
 101.53.93.0/24,arisk,ARISK,AS395793,KR,sapics/ip-location-db geolite2-country
 141.98.213.0/24,estnoc,EstNOC OU,AS206804,KR,sapics/ip-location-db geolite2-country
+141.164.32.0/19,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
+151.241.66.0/24,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
 154.16.236.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 155.117.144.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
+157.254.195.0/24,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
+158.247.192.0/18,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
+166.1.208.0/24,vultr,Vultr,AS20473,KR,sapics/ip-location-db geolite2-country
 173.244.58.128/25,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 187.15.97.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 203.173.106.0/24,arisk,ARISK,AS395793,KR,sapics/ip-location-db geolite2-country
