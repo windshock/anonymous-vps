@@ -1556,5 +1556,200 @@
         "claim": "serverpoint_operates_as26277"
       }
     ]
+  },
+  {
+    "provider_id": "interserver",
+    "name": "InterServer",
+    "aliases": [
+      "Interserver, Inc.",
+      "InterServer, Inc."
+    ],
+    "domains": [
+      "interserver.net"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc",
+      "eth",
+      "ltc"
+    ],
+    "status": "provider_verified",
+    "summary": "US cloud/VPS and hosting provider. Official InterServer documentation confirms cryptocurrency payments via Coinbase/BTCPay, including Bitcoin, Ethereum and Litecoin. Crypto-friendly provider inventory; not classified here as no-KYC or anonymous-by-default.",
+    "bridge": {
+      "domain": "interserver.net",
+      "asn_link": "https://rdap.arin.net/registry/autnum/19318",
+      "shodan_template": "https://shodan.io/search?query=asn:AS19318",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly VPS/hosting provider; not classified as no-KYC. AS19318 is registered to Interserver, Inc.",
+      "source": "InterServer official VPS/payment documentation + ARIN RDAP"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "InterServer Cloud Compute VPS",
+        "url": "https://www.interserver.net/vps/",
+        "claim": "official_vps_hosting_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "InterServer payment methods",
+        "url": "https://www.interserver.net/tips/kb/payment-methods/",
+        "claim": "crypto_payment_coinbase_btcpay_supported"
+      },
+      {
+        "type": "payment_page",
+        "source": "InterServer crypto payments announcement",
+        "url": "https://www.interserver.net/blog/crypto-payments-accepted-here/",
+        "claim": "crypto_payment_btc_eth_ltc_supported"
+      }
+    ]
+  },
+  {
+    "provider_id": "hosteons",
+    "name": "HostEONS",
+    "aliases": [
+      "Hosteons Pte. Ltd.",
+      "Hosteons Pte Ltd"
+    ],
+    "domains": [
+      "hosteons.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc",
+      "eth",
+      "usdt",
+      "ltc",
+      "trx"
+    ],
+    "status": "provider_verified",
+    "summary": "Singapore-registered VPS/hosting provider. Official HostEONS pages advertise cryptocurrency payments and explicitly state no-KYC/no identity-verification for crypto-funded hosting orders. AS142036 is registered to Hosteons Pte. Ltd.",
+    "bridge": {
+      "domain": "hosteons.com",
+      "asn_link": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS142036",
+      "shodan_template": "https://shodan.io/search?query=asn:AS142036",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Official VPS service supports crypto and advertises no-KYC/no identity verification for crypto payments. Own ASN AS142036.",
+      "source": "HostEONS official site/blog + APNIC"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "HostEONS VPS",
+        "url": "https://hosteons.com/vps.php",
+        "claim": "official_vps_service_crypto_payment"
+      },
+      {
+        "type": "payment_page",
+        "source": "HostEONS privacy-powered hosting",
+        "url": "https://blog.hosteons.com/2025/06/25/privacy-powered-hosting-pay-with-crypto-no-kyc-no-questions-asked/",
+        "claim": "crypto_payment_no_kyc_no_identity_verification"
+      },
+      {
+        "type": "payment_page",
+        "source": "HostEONS crypto checkout",
+        "url": "https://blog.hosteons.com/2025/04/13/want-true-privacy-when-paying-hosteons-accepts-crypto-no-kyc-no-delays-no-hassle/",
+        "claim": "crypto_payment_btc_eth_usdt_ltc_trx_no_kyc"
+      }
+    ]
+  },
+  {
+    "provider_id": "cloudie-limited",
+    "name": "Cloudie Limited",
+    "domains": [
+      "cloudie.hk"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc",
+      "usdt"
+    ],
+    "status": "provider_verified",
+    "summary": "Hong Kong cloud/VPS hosting provider. Cloudie's official site advertises cloud servers, privacy-oriented service language and cryptocurrency payments including BTC and USDT. AS55933 is registered to Cloudie Limited. This record does not classify Cloudie as no-KYC.",
+    "bridge": {
+      "domain": "cloudie.hk",
+      "asn_link": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS55933",
+      "shodan_template": "https://shodan.io/search?query=asn:AS55933",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly Hong Kong cloud/VPS provider; official site supports BTC/USDT. Not classified here as no-KYC.",
+      "source": "Cloudie official site/client portal + APNIC"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Cloudie official site",
+        "url": "https://www.cloudie.hk/",
+        "claim": "official_cloud_vps_hosting_service"
+      },
+      {
+        "type": "provider_site",
+        "source": "Cloudie Smart VPS",
+        "url": "https://client.cloudie.hk/index.php?rp=%2Fstore%2Fsmart-vps",
+        "claim": "official_smart_vps_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "Cloudie official site payment FAQ",
+        "url": "https://www.cloudie.hk/",
+        "claim": "crypto_payment_btc_usdt_supported"
+      }
+    ]
+  },
+  {
+    "provider_id": "ctg-server",
+    "name": "CTG Server",
+    "aliases": [
+      "CTG Server Limited",
+      "CTG Server Ltd"
+    ],
+    "domains": [
+      "myctgs.com",
+      "ctgserver.com",
+      "ctgserver.net"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "usdt"
+    ],
+    "status": "provider_verified",
+    "summary": "Hong Kong cloud/server hosting provider with cloud regions across Asia including Korea. Official CTG Server payment documentation lists USDT as an online payment method. AS152194 is registered to CTG Server Limited. Crypto-friendly provider inventory; not classified here as no-KYC.",
+    "bridge": {
+      "domain": "myctgs.com",
+      "asn_link": "https://wq.apnic.net/apnic-bin/whois.pl?object_type=aut-num&searchtext=AS152194",
+      "shodan_template": "https://shodan.io/search?query=asn:AS152194",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Cloud/server hosting with official USDT payment support; not classified as no-KYC. Own ASN AS152194.",
+      "source": "CTG Server official site/payment page + APNIC"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "CTG Server official site",
+        "url": "https://www.myctgs.com/",
+        "claim": "official_cloud_server_hosting_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "CTG Server How To Pay",
+        "url": "https://www.myctgs.com/about/how-to-pay/",
+        "claim": "official_usdt_payment_supported"
+      }
+    ]
   }
 ]
