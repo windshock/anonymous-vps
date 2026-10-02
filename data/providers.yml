@@ -1449,5 +1449,62 @@
         "claim": "official_cryptocurrency_payment_supported"
       }
     ]
+  },
+  {
+    "provider_id": "vultr",
+    "name": "Vultr",
+    "aliases": [
+      "The Constant Company",
+      "The Constant Company, LLC"
+    ],
+    "domains": [
+      "vultr.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc",
+      "eth",
+      "ltc"
+    ],
+    "status": "provider_verified",
+    "summary": "Global VPS/cloud hosting provider. Official Vultr billing documentation supports digital-currency payments via BitPay. Vultr also requires a valid payment method for account verification, so this record is crypto-friendly provider inventory and must not be interpreted as no-KYC or anonymous-by-default.",
+    "bridge": {
+      "domain": "vultr.com",
+      "asn_link": "https://rdap.arin.net/registry/autnum/20473",
+      "shodan_template": "https://shodan.io/search?query=asn:AS20473",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Crypto-friendly public VPS/cloud provider; not classified as no-KYC. AS20473 is registered to The Constant Company, LLC (Vultr).",
+      "source": "Vultr official billing docs + ARIN RDAP"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "Vultr official site",
+        "url": "https://www.vultr.com/",
+        "claim": "vps_hosting_service"
+      },
+      {
+        "type": "payment_page",
+        "source": "Vultr accepted payment methods",
+        "url": "https://docs.vultr.com/support/platform/billing/what-payment-methods-do-you-accept",
+        "claim": "crypto_payment_btc_eth_ltc_supported_via_bitpay"
+      },
+      {
+        "type": "provider_policy",
+        "source": "Vultr payment-method verification",
+        "url": "https://docs.vultr.com/support/platform/billing/why-do-i-need-to-enter-a-payment-method",
+        "claim": "valid_payment_method_required_for_account_verification"
+      },
+      {
+        "type": "provider_site",
+        "source": "Vultr ACH and wire payment instructions",
+        "url": "https://docs.vultr.com/support/platform/billing/how-do-i-arrange-payment-via-ach-or-wire",
+        "claim": "vultr_account_name_the_constant_company_llc"
+      }
+    ]
   }
 ]
