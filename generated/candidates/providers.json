@@ -4180,26 +4180,6 @@
     ]
   },
   {
-    "domain": "vultr.com",
-    "status": "discovered",
-    "sources": [
-      {
-        "id": "cryptohostradar",
-        "url": "https://cryptohostradar.com/providers"
-      }
-    ],
-    "directory_signals": [
-      "crypto",
-      "vps"
-    ],
-    "source_links": [
-      "https://vultr.com/"
-    ],
-    "labels": [
-      "Visit site"
-    ]
-  },
-  {
     "domain": "web4africa.net",
     "status": "discovered",
     "sources": [
