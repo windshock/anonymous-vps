@@ -630,5 +630,49 @@
         "claim": "as215748_origin_with_arisk_communications_prefix_and_light_cloud_route_object"
       }
     ]
+  },
+  {
+    "asn": "AS61112",
+    "name": "AKILE LTD",
+    "provider_id": "akilecloud",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "AkileCloud owned ASN (AKILE LTD). Advertises 23.158.136.0/24 among others; no-KYC/USDT budget VPS.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "sapics asn-ipv4 (BGP)",
+        "url": "https://bgp.tools/asn/61112",
+        "claim": "akile_ltd_owns_as61112"
+      },
+      {
+        "type": "provider_site",
+        "source": "AkileCloud official site",
+        "url": "https://akile.io",
+        "claim": "service_domain"
+      }
+    ]
+  },
+  {
+    "asn": "AS151338",
+    "name": "POLONETWORK LIMITED",
+    "provider_id": "polocloud",
+    "relationship": "owned_by_provider",
+    "status": "candidate",
+    "summary": "PoloCloud owned ASN (POLONETWORK LIMITED, Hong Kong). Advertises 141.11.132.0/23 among others; USDT/crypto VPS.",
+    "evidence": [
+      {
+        "type": "registry_record",
+        "source": "sapics asn-ipv4 (BGP)",
+        "url": "https://bgp.tools/asn/151338",
+        "claim": "polonetwork_owns_as151338"
+      },
+      {
+        "type": "provider_site",
+        "source": "PoloCloud PeeringDB",
+        "url": "https://www.peeringdb.com/org/33678",
+        "claim": "service_domain"
+      }
+    ]
   }
 ]

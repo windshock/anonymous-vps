@@ -1751,5 +1751,100 @@
         "claim": "official_usdt_payment_supported"
       }
     ]
+  },
+  {
+    "provider_id": "akilecloud",
+    "name": "AkileCloud",
+    "aliases": [
+      "Akile",
+      "AKILE LTD"
+    ],
+    "domains": [
+      "akile.io"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "usdt"
+    ],
+    "status": "candidate",
+    "summary": "UK-registered budget VPS (Akile LTD, AS61112; est. 2023) with 100+ global nodes incl. KR/JP/HK/SG. Advertises explicit no-KYC signup and accepts USDT/crypto. Privacy/anonymity-friendly infra — hunting context, not a blanket-block verdict. Note: 156.229.166.0/24 is AS213169 (Catixs Ltd), not attributed here absent reassignment proof.",
+    "bridge": {
+      "domain": "akile.io",
+      "asn_link": "https://bgp.tools/asn/61112",
+      "shodan_template": "https://shodan.io/search?query=asn:AS61112",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "AS61112 (AKILE LTD) owned ASN; prefixes expand via pipeline.",
+      "source": "provider site + sapics BGP (AKILE LTD) + public reviews"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "AkileCloud official site",
+        "url": "https://akile.io",
+        "claim": "service_domain_vps"
+      },
+      {
+        "type": "registry_record",
+        "source": "sapics asn-ipv4 (BGP)",
+        "url": "https://bgp.tools/asn/61112",
+        "claim": "as61112_akile_ltd_owns_23.158.136.0/24"
+      },
+      {
+        "type": "provider_site",
+        "source": "AkileCloud overview/review",
+        "url": "https://vpsium.com/en/provider/akilecloud",
+        "claim": "no_kyc_usdt_crypto_payment"
+      }
+    ]
+  },
+  {
+    "provider_id": "polocloud",
+    "name": "PoloCloud",
+    "aliases": [
+      "PoloNetwork",
+      "POLONETWORK LIMITED",
+      "Polo"
+    ],
+    "domains": [
+      "polonet.io"
+    ],
+    "service_types": [
+      "vps"
+    ],
+    "payment_methods": [
+      "usdt"
+    ],
+    "status": "candidate",
+    "summary": "Hong Kong VPS (PoloNetwork Limited, AS151338) with PoPs across HK/TW/JP/SG/KR/US and BYOIP; accepts USDT/crypto. Related entity PoloCloud Computing HK operates AS150173 (to evaluate separately). Privacy/crypto-friendly infra — hunting context only.",
+    "bridge": {
+      "domain": "polonet.io",
+      "asn_link": "https://bgp.tools/asn/151338",
+      "shodan_template": "https://shodan.io/search?query=asn:AS151338",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "AS151338 (POLONETWORK LIMITED) owned ASN; BGP shows 141.11.132.0/23. Related AS150173 separate.",
+      "source": "PeeringDB + sapics BGP (POLONETWORK LIMITED) + LowEndTalk"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "PoloCloud PeeringDB org",
+        "url": "https://www.peeringdb.com/org/33678",
+        "claim": "service_vps_hong_kong"
+      },
+      {
+        "type": "registry_record",
+        "source": "sapics asn-ipv4 (BGP)",
+        "url": "https://bgp.tools/asn/151338",
+        "claim": "as151338_polonetwork_owns_141.11.132.0/23"
+      },
+      {
+        "type": "provider_site",
+        "source": "PoloCloud offer (LowEndTalk)",
+        "url": "https://lowendtalk.com/discussion/209173/",
+        "claim": "usdt_crypto_payment"
+      }
+    ]
   }
 ]
