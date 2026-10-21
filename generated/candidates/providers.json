@@ -1626,6 +1626,46 @@
     ]
   },
   {
+    "domain": "hstq.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hstq.net/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "hyrule.host",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://hyrule.host/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
     "domain": "indovirtue.com",
     "status": "discovered",
     "sources": [
@@ -2581,6 +2621,26 @@
     ]
   },
   {
+    "domain": "ouiheberg.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://www.ouiheberg.com/en/linux-vps"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
     "domain": "outdr.lol",
     "status": "discovered",
     "sources": [
@@ -2881,6 +2941,26 @@
     ],
     "labels": [
       "Visit PRQ →",
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "psychovps.to",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://psychovps.to/"
+    ],
+    "labels": [
       "Visit site"
     ]
   },
