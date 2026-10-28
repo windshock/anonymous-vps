@@ -2522,6 +2522,27 @@
     ]
   },
   {
+    "domain": "nobanhost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "nokycguide-vps",
+        "url": "https://nokycguide.net/en/vps"
+      }
+    ],
+    "directory_signals": [
+      "no_kyc",
+      "privacy",
+      "vps"
+    ],
+    "source_links": [
+      "https://nobanhost.com/"
+    ],
+    "labels": [
+      "Visit NoBanHost →"
+    ]
+  },
+  {
     "domain": "noez.de",
     "status": "discovered",
     "sources": [
@@ -2959,6 +2980,26 @@
     ],
     "source_links": [
       "https://psychovps.to/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
+    "domain": "qckl.net",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://qckl.net/"
     ],
     "labels": [
       "Visit site"
@@ -4057,6 +4098,26 @@
     ],
     "labels": [
       "Visit Virtualine →"
+    ]
+  },
+  {
+    "domain": "vmheaven.io",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://vmheaven.io/"
+    ],
+    "labels": [
+      "Visit site"
     ]
   },
   {
