@@ -1751,5 +1751,119 @@
         "claim": "official_usdt_payment_supported"
       }
     ]
+  },
+  {
+    "provider_id": "racknerd",
+    "name": "RackNerd LLC",
+    "domains": [
+      "racknerd.com",
+      "my.racknerd.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [
+      "crypto",
+      "btc",
+      "eth",
+      "ltc",
+      "usdt"
+    ],
+    "status": "provider_verified",
+    "summary": "Crypto-friendly VPS and dedicated hosting provider. Official RackNerd payment documentation supports Bitcoin, Ethereum, Litecoin, USDT and other cryptocurrencies. Some RackNerd IP allocations are served through HostPapa/ColoCrossing (AS36352), which belongs to HostPapa, not RackNerd; do not attach AS36352 to this provider or generalize abuse to all RackNerd ranges.",
+    "bridge": {
+      "domain": "racknerd.com",
+      "asn_link": "",
+      "shodan_template": "https://shodan.io/search?query=org%3A%22RackNerd%22",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "Downstream/reseller hosting context. AS36352 is owned by HostPapa; do not attribute the ASN to RackNerd. Confirm exact IP reassignment before per-IP attribution.",
+      "source": "RackNerd official hosting/payment pages; public ARIN/RDAP context"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "RackNerd official site",
+        "url": "https://www.racknerd.com/",
+        "claim": "official_vps_and_hosting_services"
+      },
+      {
+        "type": "payment_page",
+        "source": "RackNerd official payment knowledgebase",
+        "url": "https://my.racknerd.com/index.php?rp=/knowledgebase/7/What-payment-methods-do-you-accept.html",
+        "claim": "official_crypto_payment_bitcoin_ethereum_litecoin_usdt_supported"
+      },
+      {
+        "type": "payment_page",
+        "source": "RackNerd official Coinify announcement (2024-04-17)",
+        "url": "https://blog.racknerd.com/racknerd-expands-cryptocurrency-payment-options-with-coinify-integration/",
+        "claim": "crypto_payment_bitcoin_ethereum_litecoin_usdt_supported"
+      },
+      {
+        "type": "registry_record",
+        "source": "ARIN AS36352 registry via RIPEstat/ARIN",
+        "url": "https://rdap.arin.net/registry/autnum/36352",
+        "claim": "upstream_hostpapa_owns_as36352_not_racknerd"
+      }
+    ]
+  },
+  {
+    "provider_id": "hostpapa",
+    "name": "HostPapa",
+    "aliases": [
+      "ColoCrossing",
+      "HostPapa Inc."
+    ],
+    "domains": [
+      "hostpapa.com",
+      "colocrossing.com"
+    ],
+    "service_types": [
+      "vps",
+      "hosting"
+    ],
+    "payment_methods": [],
+    "status": "candidate",
+    "summary": "Commercial VPS and infrastructure operator, registered owner of AS36352 (AS-COLOCROSSING) and the 216.144.224.0/22 allocation. Included as an investigation-only candidate because of public reports involving a specific HostPapa-hosted IP; anonymous, no-KYC, and cryptocurrency payment characteristics are NOT established. AS36352 is a large multi-tenant network with downstream hosting operators such as RackNerd; not suitable for blanket blocking or whole-ASN detection.",
+    "bridge": {
+      "domain": "hostpapa.com",
+      "asn_link": "https://rdap.arin.net/registry/autnum/36352",
+      "shodan_template": "https://shodan.io/search?query=asn:AS36352",
+      "abuse_template": "https://www.abuseipdb.com/check/<IP>",
+      "note": "AS36352 belongs to HostPapa/ColoCrossing, but represents broad multi-tenant infrastructure. Keep candidate context only; no ASN-wide provider-range promotion without review.",
+      "source": "HostPapa official VPS TOS; ColoCrossing official materials; ARIN; public abuse aggregation"
+    },
+    "evidence": [
+      {
+        "type": "provider_site",
+        "source": "HostPapa official VPS terms (2026-09-28)",
+        "url": "https://www.hostpapa.com/terms/vps/",
+        "claim": "official_vps_hosting_service"
+      },
+      {
+        "type": "provider_site",
+        "source": "ColoCrossing official company materials",
+        "url": "https://www.colocrossing.com/",
+        "claim": "hostpapa_operates_colocrossing_cloud_vps_infrastructure"
+      },
+      {
+        "type": "registry_record",
+        "source": "ARIN registry AS36352",
+        "url": "https://rdap.arin.net/registry/autnum/36352",
+        "claim": "hostpapa_owns_as36352_as_colocrossing"
+      },
+      {
+        "type": "registry_record",
+        "source": "ARIN registry 216.144.224.0/22",
+        "url": "https://rdap.arin.net/registry/ip/216.144.224.0",
+        "claim": "hostpapa_allocated_216_144_224_0_22"
+      },
+      {
+        "type": "abuse_aggregation",
+        "source": "AbuseIPDB 216.144.226.214 (user-submitted reports)",
+        "url": "https://www.abuseipdb.com/check/216.144.226.214",
+        "claim": "individual_ip_abuse_reports_not_asn_wide_risk"
+      }
+    ]
   }
 ]
