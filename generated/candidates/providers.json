@@ -3086,26 +3086,6 @@
     ]
   },
   {
-    "domain": "racknerd.com",
-    "status": "discovered",
-    "sources": [
-      {
-        "id": "cryptohostradar",
-        "url": "https://cryptohostradar.com/providers"
-      }
-    ],
-    "directory_signals": [
-      "crypto",
-      "vps"
-    ],
-    "source_links": [
-      "https://racknerd.com/"
-    ],
-    "labels": [
-      "Visit site"
-    ]
-  },
-  {
     "domain": "radwebhosting.com",
     "status": "discovered",
     "sources": [
