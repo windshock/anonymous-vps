@@ -23,3 +23,5 @@ cidr,provider_id,vendor,asn,geo_country,source
 187.15.97.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
 203.173.106.0/24,arisk,ARISK,AS395793,KR,sapics/ip-location-db geolite2-country
 213.177.237.0/24,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
+217.207.162.0/23,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country
+217.207.164.0/23,datacamp-limited,Datacamp Limited,AS212238,KR,sapics/ip-location-db geolite2-country

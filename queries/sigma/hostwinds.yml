@@ -6,8 +6,8 @@ references:
     - https://github.com/windshock/anonymous-vps
     - https://github.com/windshock/anonymous-vps/blob/main/generated/detection/provider-ranges.csv
 author: windshock
-date: 2026-11-09
-modified: 2026-11-09
+date: 2026-11-16
+modified: 2026-11-16
 tags:
     - attack.command_and_control
     - attack.t1090
@@ -154,7 +154,6 @@ detection:
             - '192.236.232.0/23'
             - '192.236.236.0/23'
             - '192.236.241.0/24'
-            - '192.236.247.0/24'
             - '192.236.248.0/23'
             - '192.236.253.0/24'
             - '192.236.254.0/23'
