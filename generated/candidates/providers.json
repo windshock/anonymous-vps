@@ -458,6 +458,26 @@
     ]
   },
   {
+    "domain": "bitvps.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://bitvps.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
     "domain": "bizcloud.com.my",
     "status": "discovered",
     "sources": [
@@ -1846,6 +1866,26 @@
     ]
   },
   {
+    "domain": "ironbalkans.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://ironbalkans.com/"
+    ],
+    "labels": [
+      "Visit site"
+    ]
+  },
+  {
     "domain": "ironsocket.com",
     "status": "discovered",
     "sources": [
@@ -2580,6 +2620,26 @@
     ],
     "labels": [
       "Visit NoBanHost →"
+    ]
+  },
+  {
+    "domain": "nocthost.com",
+    "status": "discovered",
+    "sources": [
+      {
+        "id": "cryptohostradar",
+        "url": "https://cryptohostradar.com/providers"
+      }
+    ],
+    "directory_signals": [
+      "crypto",
+      "vps"
+    ],
+    "source_links": [
+      "https://nocthost.com/"
+    ],
+    "labels": [
+      "Visit site"
     ]
   },
   {
